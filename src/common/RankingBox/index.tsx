@@ -20,7 +20,13 @@ export const RankBox: React.FC<RankingBoxProps> = ({ rank, name, dept, point }) 
                 </S.introBox>
             </S.RankBarLeft>
             <S.RankBarRight>
-                <S.RankBarIcon>{point}</S.RankBarIcon>
+                <S.RankBarIcon>
+                    {point >= 10000
+                        ? `${(point / 10000).toFixed(1)}만`
+                        : point >= 1000
+                        ? `${(point / 1000).toFixed(1)}천`
+                        : point}
+                </S.RankBarIcon>
                 <S.RankBarIcon>
                     <img width={25} src={pointIcon} alt="" />
                 </S.RankBarIcon>
