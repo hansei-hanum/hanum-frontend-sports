@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import * as S from "./styled";
-import { SportsData } from "../../../constants/sportsData";
+import { SportsEvent } from "../../../constants/sportsEvent";
 
 export const SportsCategoty: React.FC = () => {
   const [selectedItem, setSelectedItem] = useState<string | null>("전체");
@@ -11,7 +11,7 @@ export const SportsCategoty: React.FC = () => {
 
   return (
     <S.CategoryContainer>
-      {SportsData.sportEvent.map((item, index) => {
+      {SportsEvent.sportEvent.map((item, index) => {
         const isSelected = selectedItem === item;
         return (
           <S.CategoryItem

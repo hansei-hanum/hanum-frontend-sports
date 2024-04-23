@@ -1,1 +1,1 @@
-export * from "./sportsData";
+export * from "./sportsEvent";
