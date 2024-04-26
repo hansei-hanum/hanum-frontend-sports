@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const BettingContainer = styled.div`
     width: 100%;
-    height: 250px;
+    height: 60px;
     border-radius: 10px;
     background-color: #ffffff;
     margin-top: 15px;

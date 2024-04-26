@@ -2,6 +2,8 @@ import React from 'react';
 
 import { SubmitBox } from '../../../common';
 import { BettingBar } from '../../../common';
+import { BettingAmount } from '../../../common';
+
 import * as S from './styled';
 
 export const Betting: React.FC = () => {
@@ -15,6 +17,7 @@ export const Betting: React.FC = () => {
                 <S.ExplaneBox>얼마나 베팅하실 건가요?</S.ExplaneBox>
                 <S.BettingContainer>
                     <BettingBar />
+                    <BettingAmount />
                 </S.BettingContainer>
                 <SubmitBox></SubmitBox>
             </S.BettingSectionContainer>
