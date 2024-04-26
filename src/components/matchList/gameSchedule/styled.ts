@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { colors } from "../../../../styles";
 
 interface TeamBoxProps {
   color: string;
@@ -28,14 +27,6 @@ export const Schedule = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 3px solid transparent;
-  border-image: linear-gradient(
-      to right,
-      ${colors.redTeamColor},
-      ${colors.blueTeamColor}
-    )
-    1;
-  border-image-slice: 1;
 `;
 
 export const ScheduleTop = styled.div`
@@ -72,8 +63,8 @@ export const Department = styled.p`
 `;
 
 export const IconBox = styled.span`
-  font-size: 20px;
-  color: gray;
+  font-size: 25px;
+  color: #b0b9c2;
   font-weight: bold;
 `;
 

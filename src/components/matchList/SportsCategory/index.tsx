@@ -1,18 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import * as S from "./styled";
 import { SportsEvent } from "../../../constants/sportsEvent";
+import { selectedSportsAtom } from "../../../atom/selectedSports";
+import { useRecoilState } from "recoil";
 
-export const SportsCategoty: React.FC = () => {
-  const [selectedItem, setSelectedItem] = useState<string | null>("전체");
+export const SportsCategory: React.FC = () => {
+  const [selectedItem, setSelectedItem] = useRecoilState(selectedSportsAtom);
 
   const handleItemClick = (item: string) => {
-    setSelectedItem(selectedItem === item ? null : item);
+    if (selectedItem.selected === item) return;
+    setSelectedItem({ selected: item });
   };
 
   return (
     <S.CategoryContainer>
       {SportsEvent.sportEvent.map((item, index) => {
-        const isSelected = selectedItem === item;
+        const isSelected = selectedItem.selected === item;
         return (
           <S.CategoryItem
             key={index}

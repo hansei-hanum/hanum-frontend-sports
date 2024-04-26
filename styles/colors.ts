@@ -1,5 +1,5 @@
 export const colors = {
-  appBackground: "#FFFFFF",
+  appBackground: "#FEFEFE",
   redTeamColor: "#E12525",
   blueTeamColor: "#4585FE",
 };

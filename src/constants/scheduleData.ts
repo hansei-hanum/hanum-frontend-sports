@@ -1,5 +1,5 @@
 export const ScheduleData = {
-  isLive: true,
+  isLive: false,
   event: "🏀농구",
   startTime: "5월 14일 9:00",
   redTeam: {
@@ -13,8 +13,8 @@ export const ScheduleData = {
 };
 
 export const ScheduleData2 = {
-  isLive: false,
-  event: "족구",
+  isLive: true,
+  event: "⚽족구",
   startTime: "5월 14일 10:00",
   redTeam: {
     department: "메타 1학년 1반",
@@ -28,7 +28,7 @@ export const ScheduleData2 = {
 
 export const ScheduleData3 = {
   isLive: false,
-  event: "배구",
+  event: "🏐배구",
   startTime: "5월 14일 11:00",
   redTeam: {
     department: "클보 3학년 1반",
@@ -42,7 +42,7 @@ export const ScheduleData3 = {
 
 export const ScheduleData4 = {
   isLive: false,
-  event: "앞구르기",
+  event: "🤸앞구르기",
   startTime: "5월 14일 12:00",
   redTeam: {
     department: "클보 1학년 1반",
@@ -56,7 +56,7 @@ export const ScheduleData4 = {
 
 export const ScheduleData5 = {
   isLive: false,
-  event: "슬라이딩",
+  event: "⛷️스키",
   startTime: "5월 14일 13:00",
   redTeam: {
     department: "메타 2학년 1반",
