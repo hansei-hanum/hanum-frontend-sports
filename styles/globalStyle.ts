@@ -4,6 +4,13 @@ import { reset } from "./reset";
 export const globalStyle = (bgColor: string) => css`
   ${reset}
 
+  @font-face {
+    font-family: "SpoqaHanSansNeo-Medium";
+    font-weight: normal;
+    src: url("../src/assets/fonts/SpoqaHanSansNeo-Medium.ttf")
+      format("truetype");
+  }
+
   * {
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -24,6 +31,7 @@ export const globalStyle = (bgColor: string) => css`
 
   body {
     background-color: ${bgColor};
+    font-family: SpoqaHanSansNeo-Medium;
   }
 
   ::-webkit-scrollbar {

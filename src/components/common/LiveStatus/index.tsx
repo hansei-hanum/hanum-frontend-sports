@@ -5,7 +5,7 @@ export const LiveStatus: React.FC = () => {
   return (
     <S.LiveStatusContainer>
       <S.LiveCircle />
-      Live
+      LIVE
     </S.LiveStatusContainer>
   );
 };
