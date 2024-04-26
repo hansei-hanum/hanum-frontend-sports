@@ -30,8 +30,6 @@ export const LeftTeamBox = styled.div`
     flex-direction: column;
     align-items: flex-end;
     gap: 10px;
-    border: 3px solid;
-    border-radius: 20px;
     padding: 0 5px;
 `;
 
