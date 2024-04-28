@@ -10,6 +10,10 @@ interface GraphProps {
   width: number;
 }
 
+interface ClassProps {
+  fontSize: number;
+}
+
 export const SheduleContainer = styled.div`
   width: 100%;
   display: flex;
@@ -21,7 +25,8 @@ export const SheduleContainer = styled.div`
 export const Schedule = styled.div`
   width: 100%;
   height: 160px;
-  border-radius: 30px;
+  border-radius: 20px;
+  gap: 15px;
   box-shadow: 0px 4px 40px 6px rgba(0, 0, 0, 0.1);
   padding: 0 20px;
   display: flex;
@@ -57,9 +62,16 @@ export const TeamBox = styled.div<TeamBoxProps>`
   gap: 5px;
 `;
 
+export const ClassBox = styled.div`
+  display: flex;
+`;
+
 export const Department = styled.p`
   font-size: 13px;
-  font-weight: 900;
+`;
+
+export const Class = styled.p<ClassProps>`
+  font-size: ${(props) => props.fontSize + "px"};
 `;
 
 export const IconBox = styled.span`
