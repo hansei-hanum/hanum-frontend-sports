@@ -2,7 +2,7 @@ import React from 'react';
 import { Container } from './components/layouts/AppLayout';
 import { Global } from '@emotion/react';
 import { colors, globalStyle } from './styles';
-import { Predict } from './components/main';
+import { Predict } from './components/Predict';
 
 function App() {
     return (
