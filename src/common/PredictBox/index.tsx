@@ -2,6 +2,13 @@ import React, { useState } from 'react';
 import * as S from './styled';
 import { colors } from '../../styles';
 
+export interface PredictProps {
+    dept: string;
+    point: number;
+    person: number;
+    allocation: number;
+}
+
 export const PredictBox: React.FC = () => {
     const [leftBoxClicked, setLeftBoxClicked] = useState(false);
     const [rightBoxClicked, setRightBoxClicked] = useState(false);
