@@ -1,6 +1,6 @@
 import React from 'react';
-import { ChattingBox } from '../../../common';
-import { ChatBox } from '../../../common/ChatBox';
+import { ChattingBox } from '../../common';
+import { ChatBox } from '../../common/ChatBox';
 
 import * as S from './styled';
 
