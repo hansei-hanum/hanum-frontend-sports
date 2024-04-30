@@ -4,16 +4,14 @@ interface RankingBoxStyleProps {
     rank: number;
 }
 
-const colors = {
-    border: ['#ffd600', '#DCDCDC', '#D48207', '#FFFFFF'],
-    rank: ['#ffd600', '#DCDCDC', '#D48207', '#A3A3A3'],
-    name: ['#ffd600', '#DCDCDC', '#D48207', '#000000'],
-};
+const borderColors = ['#ffd600', '#DCDCDC', '#D48207', '#FFFFFF'];
+const rankColors = ['#ffd600', '#DCDCDC', '#D48207', '#A3A3A3'];
+const nameColors = ['#ffd600', '#DCDCDC', '#D48207', '#000000'];
 
 export const RankingBox = styled.div<RankingBoxStyleProps>`
     width: 100%;
     height: 70px;
-    border: 3px solid ${({ rank }) => colors.border[rank - 1] || '#FFFFFF'};
+    border: 3px solid ${({ rank }) => borderColors[rank - 1] || '#FFFFFF'};
     border-radius: 15px;
     background-color: #ffffff;
     margin-top: 15px;
@@ -26,12 +24,12 @@ export const RankingBox = styled.div<RankingBoxStyleProps>`
 `;
 
 export const Rank = styled.p<RankingBoxStyleProps>`
-    color: ${({ rank }) => colors.rank[rank - 1] || '#A3A3A3'};
+    color: ${({ rank }) => rankColors[rank - 1] || '#A3A3A3'};
     font-size: 25px;
 `;
 
 export const Name = styled.p<RankingBoxStyleProps>`
-    color: ${({ rank }) => colors.name[rank - 1] || '#000000'};
+    color: ${({ rank }) => nameColors[rank - 1] || '#000000'};
 `;
 
 export const RankBarLeft = styled.div`
@@ -56,7 +54,7 @@ export const Dept = styled.p`
     font-weight: 500;
 `;
 
-export const introBox = styled.div`
+export const IntroBox = styled.div`
     display: flex;
     flex-direction: column-reverse;
     gap: 5px;

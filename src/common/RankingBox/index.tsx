@@ -14,10 +14,10 @@ export const RankBox: React.FC<RankingBoxProps> = ({ rank, name, dept, point }) 
         <S.RankingBox rank={rank}>
             <S.RankBarLeft>
                 <S.Rank rank={rank}>{rank}위</S.Rank>
-                <S.introBox>
+                <S.IntroBox>
                     <S.Name rank={rank}>{name}</S.Name>
                     <S.Dept>{dept}</S.Dept>
-                </S.introBox>
+                </S.IntroBox>
             </S.RankBarLeft>
             <S.RankBarRight>
                 <S.RankBarIcon>

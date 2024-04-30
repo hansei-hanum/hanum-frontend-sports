@@ -1,7 +1,7 @@
 import React from 'react';
 import { Header } from '../../common/Header';
 import { MyRankBar } from '../../common/MyRankBox';
-import { RankList } from '../../components/main';
+import { RankList } from '../../components';
 
 export const RankingList: React.FC = () => {
     return (
