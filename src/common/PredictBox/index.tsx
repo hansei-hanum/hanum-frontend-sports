@@ -25,38 +25,40 @@ export const PredictBox: React.FC = () => {
 
     return (
         <S.PredictContainer>
-            <S.LeftTeamBox
+            <S.TeamBox
+                isLeft={true}
                 onClick={handleLeftBoxClick}
                 style={{ borderColor: leftBoxClicked ? colors.redTeamColor : colors.defaultBorderColor }}
             >
-                <S.LeftDeptBox>보안과 2학년 1반</S.LeftDeptBox>
-                <S.LeftRatioBox>
+                <S.DeptBox isLeft={true}>보안과 2학년 1반</S.DeptBox>
+                <S.RatioBox isLeft={true}>
                     <S.RatingBox color={colors.redTeamColor}>50%</S.RatingBox>
                     <S.RatingBar backgroundColor={colors.redTeamColor} />
-                </S.LeftRatioBox>
+                </S.RatioBox>
 
                 <S.EtcBox>
                     <p>🎉1500</p>
                     <p>⛷️50</p>
                     <p>😢1:3.1</p>
                 </S.EtcBox>
-            </S.LeftTeamBox>
-            <S.RightTeamBox
+            </S.TeamBox>
+            <S.TeamBox
+                isLeft={false}
                 onClick={handleRightBoxClick}
                 style={{ borderColor: rightBoxClicked ? colors.blueTeamColor : colors.defaultBorderColor }}
             >
-                <S.RightDeptBox>보안과 2학년 2반</S.RightDeptBox>
-                <S.RightRatioBox>
+                <S.DeptBox isLeft={false}>보안과 2학년 2반</S.DeptBox>
+                <S.RatioBox isLeft={false}>
                     <S.RatingBox color={colors.blueTeamColor}>50%</S.RatingBox>
                     <S.RatingBar backgroundColor={colors.blueTeamColor} />
-                </S.RightRatioBox>
+                </S.RatioBox>
 
                 <S.EtcBox>
                     <p>🎉1500</p>
                     <p>⛷️50</p>
                     <p>😢1:3.1</p>
                 </S.EtcBox>
-            </S.RightTeamBox>
+            </S.TeamBox>
         </S.PredictContainer>
     );
 };

@@ -9,6 +9,10 @@ interface RatingBoxProps {
     color: string;
 }
 
+interface TeamBoxProps {
+    isLeft: boolean;
+}
+
 export const PredictContainer = styled.div`
     width: 100%;
     height: 240px;
@@ -23,11 +27,11 @@ export const PredictContainer = styled.div`
     justify-content: center;
 `;
 
-export const RightTeamBox = styled.div`
+export const TeamBox = styled.div<TeamBoxProps>`
     width: 100%;
     display: flex;
     justify-content: space-around;
-    align-items: flex-start;
+    align-items: ${(props) => (props.isLeft ? 'flex-end' : 'flex-start')};
     flex-direction: column;
     gap: 10px;
     border: 3px solid #e7e7e7;
@@ -35,50 +39,21 @@ export const RightTeamBox = styled.div`
     padding: 10px 5px;
     text-align: center;
 `;
-export const LeftTeamBox = styled.div`
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 10px;
-    border: 3px solid #e7e7e7;
-    border-radius: 20px;
-    padding: 10px 5px;
-`;
 
-export const LeftRatioBox = styled.div`
+export const RatioBox = styled.div<TeamBoxProps>`
     display: flex;
     flex-direction: column;
     gap: 15px;
-    align-items: flex-end;
+    align-items: ${(props) => (props.isLeft ? 'flex-end' : 'flex-start')};
     margin: 0 auto;
 `;
 
-export const RightRatioBox = styled.div`
+export const DeptBox = styled.p<TeamBoxProps>`
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    align-items: flex-start;
-    margin: 0 auto;
-`;
-
-export const LeftDeptBox = styled.p`
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    align-items: ${(props) => (props.isLeft ? 'flex-end' : 'flex-start')};
     font-size: 13px;
-    color: ${colors.redTeamColor};
-    margin: 0 auto;
-`;
-export const RightDeptBox = styled.p`
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    font-size: 13px;
-    font-weight: bold;
-    color: ${colors.blueTeamColor};
+    color: ${(props) => (props.isLeft ? colors.redTeamColor : colors.blueTeamColor)};
     margin: 0 auto;
 `;
 
