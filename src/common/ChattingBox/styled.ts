@@ -19,3 +19,23 @@ export const WriteChatContainer = styled.div`
     align-items: center;
     color: rgba(0, 0, 0, 0.5);
 `;
+
+export const WriteBox = styled.input`
+    width: 300px;
+    height: 100%;
+    padding: 0 10px;
+    color: ${(props) => (props.value ? 'rgba(0,0,0,0)' : 'rgba(0, 0, 0, 1)')};
+    border: none;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: midium;
+
+    &::placeholder {
+        color: rgba(0, 0, 0, 0.3);
+        content: '베팅할 금액을 입력해주세요';
+    }
+
+    &:focus {
+        outline: none;
+    }
+`;

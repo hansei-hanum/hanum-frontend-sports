@@ -15,8 +15,10 @@ export const LiveChatSectionContainer = styled.section`
 `;
 
 export const ChattingContainer = styled.div`
+    padding: 10px;
     height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
+    gap: 20px;
 `;

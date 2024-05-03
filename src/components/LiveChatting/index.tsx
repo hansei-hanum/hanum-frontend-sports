@@ -9,7 +9,7 @@ export const LiveChatting: React.FC = () => {
         <section>
             <S.LiveChatSectionContainer>
                 <S.ChattingContainer>
-                    <ChatBox />
+                    <ChatBox name="권기현" comment="선배님" />
                 </S.ChattingContainer>
                 <ChattingBox />
             </S.LiveChatSectionContainer>
