@@ -14,7 +14,6 @@ export const BettingContainer = styled.div`
 `;
 
 export const BettingBox = styled.input.attrs({ type: 'number' })`
-    /* BettingBox의 스타일 */
     width: 100%;
     height: 50px;
     padding: 0 10px;
@@ -25,7 +24,6 @@ export const BettingBox = styled.input.attrs({ type: 'number' })`
     font-size: 17px;
     font-weight: midium;
 
-    /* placeholder의 스타일 */
     &::placeholder {
         color: rgba(0, 0, 0, 0.3);
         content: '베팅할 금액을 입력해주세요';
