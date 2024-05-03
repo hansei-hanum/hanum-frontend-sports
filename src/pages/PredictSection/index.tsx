@@ -1,6 +1,6 @@
 import React from 'react';
 import { Header } from '../../common/Header';
-import { Predict } from '../../components/main';
+import { Predict } from '../../components/Predict';
 
 export const RankingList: React.FC = () => {
     return (
