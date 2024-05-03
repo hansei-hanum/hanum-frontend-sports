@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { RankingBoxProps } from '.';
 
 interface RankingBoxStyleProps {
     rank: number;
@@ -8,7 +9,7 @@ const borderColors = ['#ffd600', '#DCDCDC', '#D48207', '#FFFFFF'];
 const rankColors = ['#ffd600', '#DCDCDC', '#D48207', '#A3A3A3'];
 const nameColors = ['#ffd600', '#DCDCDC', '#D48207', '#000000'];
 
-export const RankingBox = styled.div<RankingBoxStyleProps>`
+export const RankingBox = styled.div<Pick<RankingBoxProps, 'rank'>>`
     width: 100%;
     height: 70px;
     border: 3px solid ${({ rank }) => borderColors[rank - 1] || '#FFFFFF'};
