@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { SportsCategory } from "../../components/matchList";
 import { Header } from "../../components/common/Header";
 import { MyRankBar } from "../../components/common/MyRankBar";
