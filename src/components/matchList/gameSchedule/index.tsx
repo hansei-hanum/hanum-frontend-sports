@@ -47,9 +47,9 @@ const Team: React.FC<TeamProps> = ({ teamData, color, alignItems, isLive }) => {
 
 interface ScheduleProps {
   scheduleData: {
-    isLive: boolean;
-    event: string;
-    startTime: string;
+    isDuring: boolean;
+    gameType: string;
+    date: string;
 
     redTeam: {
       department: string;
@@ -65,24 +65,24 @@ interface ScheduleProps {
 }
 
 export const GameSchedule: React.FC<ScheduleProps> = ({ scheduleData }) => {
-  const { isLive, event, redTeam, blueTeam } = scheduleData;
+  const { isDuring, gameType, redTeam, blueTeam } = scheduleData;
 
   const renderScheduleContent = () => (
     <>
       <S.ScheduleTop>
-        <div>{isLive ? <LiveStatus /> : scheduleData.startTime}</div>
-        <p>{event}</p>
+        <div>{isDuring ? <LiveStatus /> : scheduleData.date}</div>
+        <p>{gameType}</p>
       </S.ScheduleTop>
       <S.Content>
         <Team
-          isLive={isLive}
+          isLive={isDuring}
           teamData={redTeam}
           alignItems="flex-end"
           color={colors.redTeamColor}
         />
         <S.IconBox>VS</S.IconBox>
         <Team
-          isLive={isLive}
+          isLive={isDuring}
           alignItems="flex-start"
           teamData={blueTeam}
           color={colors.blueTeamColor}
@@ -93,7 +93,7 @@ export const GameSchedule: React.FC<ScheduleProps> = ({ scheduleData }) => {
 
   return (
     <S.SheduleContainer>
-      {isLive ? (
+      {isDuring ? (
         <LiveContainer>{renderScheduleContent()}</LiveContainer>
       ) : (
         <S.Schedule>{renderScheduleContent()}</S.Schedule>
