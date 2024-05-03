@@ -2,15 +2,15 @@ import styled from 'styled-components';
 
 export const BettingContainer = styled.div`
     width: 100%;
-    height: 60px;
+    height: 70px;
     border-radius: 10px;
     background-color: #ffffff;
     margin-top: 15px;
     font-size: 17px;
     display: flex;
     font-weight: bold;
-    padding: 0 10px;
-    gap: 15px;
+    flex-direction: column;
+    gap: 10px;
 `;
 
 export const BettingBox = styled.input.attrs({ type: 'number' })`
@@ -18,7 +18,7 @@ export const BettingBox = styled.input.attrs({ type: 'number' })`
     width: 100%;
     height: 50px;
     padding: 0 10px;
-    color: ${(props) => (props.value ? 'rgba(0,0,0,0)' : 'rgba(0, 0, 0, 1)')};
+    color: ${(props) => (props.value ? 'rgba(0, 0, 0, 1)' : 'rgba(0, 0, 0, 1)')};
     border: none;
     border-radius: 10px;
     background-color: #f5f5f5;
@@ -30,4 +30,19 @@ export const BettingBox = styled.input.attrs({ type: 'number' })`
         color: rgba(0, 0, 0, 0.3);
         content: '베팅할 금액을 입력해주세요';
     }
+`;
+
+export const BettingAmountContainer = styled.div`
+    padding: 0 10px;
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    justify-content: flex-end;
+`;
+
+export const BettingAmountBox = styled.div`
+    display: flex;
+    font-size: 15px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.5);
 `;
