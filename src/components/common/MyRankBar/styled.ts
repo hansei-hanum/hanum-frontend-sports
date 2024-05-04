@@ -16,6 +16,7 @@ export const MyRankContainer = styled.div`
 export const RankBarLeft = styled.div`
   display: flex;
   align-items: center;
+  gap: 5px;
 `;
 
 export const RankBarRight = styled.div`

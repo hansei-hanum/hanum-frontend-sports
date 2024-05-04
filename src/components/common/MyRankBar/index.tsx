@@ -13,7 +13,7 @@ export const MyRankBar: React.FC<RankBarProps> = ({ rank, name, point }) => {
   return (
     <S.MyRankContainer>
       <S.RankBarLeft>
-        <S.MyRank>{rank}</S.MyRank>
+        <S.MyRank>{rank}위</S.MyRank>
         <S.MyName>{name}(나)</S.MyName>
       </S.RankBarLeft>
       <S.RankBarRight>
