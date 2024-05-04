@@ -4,12 +4,17 @@ import { Bet } from '../../constants/bet';
 
 export const BettingBar: React.FC = () => {
     const [inputValue, setInputValue] = useState('');
-    const [selectedBoxIndex, setSelectedBoxIndex] = useState(-1); // 선택된 박스의 인덱스를 상태로 관리, 초기값은 -1로 설정
+    const [selectedBoxIndex, setSelectedBoxIndex] = useState(-1);
 
     const handleAmountSelection = (percentage: number, index: number) => {
-        const calculatedAmount = (Bet.data.amount * percentage) / 100;
-        setInputValue(calculatedAmount.toString());
-        setSelectedBoxIndex(index); // 선택된 박스의 인덱스를 설정
+        if (selectedBoxIndex === index) {
+            setInputValue('');
+            setSelectedBoxIndex(-1);
+        } else {
+            const calculatedAmount = (Bet.data.amount * percentage) / 100;
+            setInputValue(calculatedAmount.toString());
+            setSelectedBoxIndex(index);
+        }
     };
 
     return (
