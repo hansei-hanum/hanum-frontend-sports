@@ -2,6 +2,7 @@ import React from "react";
 import * as S from "./styled";
 import { IoIosArrowForward } from "react-icons/io";
 import pointIcon from "../../../assets/icons/point.png";
+import { colors } from "../../../../styles";
 
 interface RankBarProps {
   rank: number;
@@ -23,7 +24,7 @@ export const MyRankBar: React.FC<RankBarProps> = ({ rank, name, point }) => {
           <img width={25} src={pointIcon} alt="" />
         </S.RankBarIcon>
         <S.RankBarIcon>
-          <IoIosArrowForward size={20} color="gray" />
+          <IoIosArrowForward size={20} color={colors.placeHolder} />
         </S.RankBarIcon>
       </S.RankBarRight>
     </S.MyRankContainer>

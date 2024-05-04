@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { colors } from "../../../../styles";
 
 interface TeamBoxProps {
   color: string;
@@ -76,7 +77,7 @@ export const Class = styled.p<ClassProps>`
 
 export const IconBox = styled.span`
   font-size: 25px;
-  color: #b0b9c2;
+  color: ${colors.uiBrightGray};
   font-weight: bold;
 `;
 

@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { colors } from "../../../../styles";
 
 export const MyRankContainer = styled.div`
   width: 100%;
@@ -26,7 +27,7 @@ export const RankBarRight = styled.div`
 `;
 
 export const MyRank = styled.p`
-  color: gray;
+  color: ${colors.placeHolder};
 `;
 
 export const MyName = styled.p``;
