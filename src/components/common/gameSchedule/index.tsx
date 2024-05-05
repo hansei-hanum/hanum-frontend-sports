@@ -1,9 +1,9 @@
 import React from "react";
 import * as S from "./styled";
 import { colors } from "../../../../styles";
-import { StatusContainer } from "../../common/StatusContainer";
-import { MatchStatus } from "../../common/LiveStatus";
-import { Team } from "../../common/Team";
+import { StatusContainer } from "../StatusContainer";
+import { MatchStatus } from "../LiveStatus";
+import { Team } from "../Team";
 
 interface ScheduleProps {
   scheduleData: {
@@ -11,6 +11,7 @@ interface ScheduleProps {
     gameType: string;
     date: string;
     isEnd: boolean;
+
     redTeam: {
       department: string;
       class: string;
@@ -26,7 +27,14 @@ interface ScheduleProps {
   };
 }
 
-export const GameSchedule: React.FC<ScheduleProps> = ({ scheduleData }) => {
+interface StatusDescription {
+  description: string;
+}
+
+export const GameSchedule: React.FC<ScheduleProps & StatusDescription> = ({
+  scheduleData,
+  description,
+}) => {
   const { isEnd, isDuring, gameType, redTeam, blueTeam } = scheduleData;
 
   const renderScheduleContent = () => (
@@ -42,8 +50,8 @@ export const GameSchedule: React.FC<ScheduleProps> = ({ scheduleData }) => {
 
         <p>{gameType}</p>
       </S.ScheduleTop>
-      {isEnd ? (
-        <S.StatusDescription>경기가 종료되었습니다.</S.StatusDescription>
+      {isEnd || isDuring ? (
+        <S.StatusDescription>{description}</S.StatusDescription>
       ) : null}
       <S.Content isEnd={scheduleData.isEnd}>
         <Team

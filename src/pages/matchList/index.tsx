@@ -2,7 +2,7 @@ import React from "react";
 import { SportsCategory } from "../../components/matchList";
 import { Header } from "../../components/common/Header";
 import { MyRankBar } from "../../components/common/MyRankBar";
-import { GameSchedule } from "../../components/matchList/";
+import { GameSchedule } from "../../components/common/gameSchedule";
 import { MatchList } from "../../constants/scheduleData";
 import { LeaderBoard } from "../../constants/leaderBoard";
 import { useRecoilValue } from "recoil";
@@ -45,7 +45,11 @@ export const MatchListPage: React.FC = () => {
       />
 
       {scheduleData.map((item, index) => (
-        <GameSchedule key={index} scheduleData={item} />
+        <GameSchedule
+          key={index}
+          scheduleData={item}
+          description={item.isDuring === true ? "" : "경기가 종료되었습니다."}
+        />
       ))}
     </>
   );

@@ -1,20 +1,6 @@
 import styled from "@emotion/styled";
 import { colors } from "../../../../styles";
 
-interface TeamBoxProps {
-  color: string;
-  alignItems: string;
-}
-
-interface GraphProps {
-  backgorundColor: string;
-  width: number;
-}
-
-interface ClassProps {
-  fontSize: number;
-}
-
 interface ScheduleProps {
   isEnd: boolean;
 }
@@ -63,7 +49,7 @@ export const Content = styled.div<ContentProps>`
   width: 100%;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: ${(props) => (props.isEnd ? "20" : "15")}px;
   margin-top: 10px;
 `;
 

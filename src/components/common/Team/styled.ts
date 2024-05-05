@@ -14,6 +14,10 @@ interface ClassProps {
   fontSize: number;
 }
 
+interface TeamBoxEndContentProps {
+  alignItems: string;
+}
+
 export const TeamBox = styled.div<TeamBoxProps>`
   width: 100%;
   font-weight: bold;
@@ -24,10 +28,10 @@ export const TeamBox = styled.div<TeamBoxProps>`
   gap: 5px;
 `;
 
-export const TeamBoxEndContent = styled.div`
+export const TeamBoxEndContent = styled.div<TeamBoxEndContentProps>`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: ${(props) => props.alignItems};
   gap: 5px;
 `;
 

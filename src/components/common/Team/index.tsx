@@ -36,7 +36,7 @@ export const Team: React.FC<TeamProps> = ({
       ) : (
         <>
           {isEnd ? (
-            <S.TeamBoxEndContent>
+            <S.TeamBoxEndContent alignItems={alignItems}>
               <S.ClassBox>
                 <S.Department>{teamData.department}</S.Department>
                 <S.Class fontSize={13}>{teamData.class}</S.Class>
