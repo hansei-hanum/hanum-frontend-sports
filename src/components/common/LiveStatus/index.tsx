@@ -1,11 +1,15 @@
 import React from "react";
 import * as S from "./styled";
 
-export const LiveStatus: React.FC = () => {
+interface MatchStatusProps {
+  isEnd: boolean;
+}
+
+export const MatchStatus: React.FC<MatchStatusProps> = ({ isEnd }) => {
   return (
-    <S.LiveStatusContainer>
-      <S.LiveCircle />
-      LIVE
-    </S.LiveStatusContainer>
+    <S.MatchStatusContainer>
+      <S.StatusCircle isEnd={isEnd} />
+      {isEnd ? "경기종료" : "LIVE"}
+    </S.MatchStatusContainer>
   );
 };

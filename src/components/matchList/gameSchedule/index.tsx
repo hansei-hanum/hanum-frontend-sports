@@ -1,24 +1,32 @@
 import React from "react";
 import * as S from "./styled";
 import { colors } from "../../../../styles";
-import { LiveContainer } from "../../common/LiveContainer";
-import { LiveStatus } from "../../common/LiveStatus";
+import { StatusContainer } from "../../common/StatusContainer";
+import { MatchStatus } from "../../common/LiveStatus";
 
 interface TeamProps {
   teamData: {
     department: string;
     ratio: number;
     class: string;
+    score: number;
   };
   color: string;
   alignItems: string;
-  isLive: boolean;
+  isDuring: boolean;
+  isEnd: boolean;
 }
 
-const Team: React.FC<TeamProps> = ({ teamData, color, alignItems, isLive }) => {
+const Team: React.FC<TeamProps> = ({
+  teamData,
+  color,
+  alignItems,
+  isDuring,
+  isEnd,
+}) => {
   return (
     <S.TeamBox color={color} alignItems={alignItems}>
-      {isLive ? (
+      {isDuring ? (
         <>
           <S.ClassBox>
             <S.Department>{teamData.department}</S.Department>
@@ -29,17 +37,22 @@ const Team: React.FC<TeamProps> = ({ teamData, color, alignItems, isLive }) => {
           <S.Graph backgorundColor={color} width={teamData.ratio} />
         </>
       ) : (
-        <div
-          style={{
-            textAlign: "center",
-            display: "flex",
-            flexDirection: "column",
-            gap: "10px",
-          }}
-        >
-          <S.Department>{teamData.department}</S.Department>
-          <S.Class fontSize={25}>{teamData.class}</S.Class>
-        </div>
+        <>
+          {isEnd ? (
+            <S.TeamBoxEndContent>
+              <S.ClassBox>
+                <S.Department>{teamData.department}</S.Department>
+                <S.Class fontSize={15}>{teamData.class}</S.Class>
+              </S.ClassBox>
+              <S.Score>{teamData.score}</S.Score>
+            </S.TeamBoxEndContent>
+          ) : (
+            <S.OfflineClassBox>
+              <S.Department>{teamData.department}</S.Department>
+              <S.Class fontSize={25}>{teamData.class}</S.Class>
+            </S.OfflineClassBox>
+          )}
+        </>
       )}
     </S.TeamBox>
   );
@@ -50,39 +63,49 @@ interface ScheduleProps {
     isDuring: boolean;
     gameType: string;
     date: string;
-
+    isEnd: boolean;
     redTeam: {
       department: string;
       class: string;
       ratio: number;
+      score: number;
     };
     blueTeam: {
       department: string;
       class: string;
       ratio: number;
+      score: number;
     };
   };
 }
 
 export const GameSchedule: React.FC<ScheduleProps> = ({ scheduleData }) => {
-  const { isDuring, gameType, redTeam, blueTeam } = scheduleData;
+  const { isEnd, isDuring, gameType, redTeam, blueTeam } = scheduleData;
 
   const renderScheduleContent = () => (
     <>
       <S.ScheduleTop>
-        <div>{isDuring ? <LiveStatus /> : scheduleData.date}</div>
+        <div>
+          {isDuring ? (
+            <MatchStatus isEnd={scheduleData.isEnd} />
+          ) : (
+            scheduleData.date
+          )}
+        </div>
         <p>{gameType}</p>
       </S.ScheduleTop>
       <S.Content>
         <Team
-          isLive={isDuring}
+          isEnd={scheduleData.isEnd}
+          isDuring={isDuring}
           teamData={redTeam}
           alignItems="flex-end"
           color={colors.redTeamColor}
         />
-        <S.IconBox>VS</S.IconBox>
+        <S.IconBox>{isEnd ? ":" : "VS"}</S.IconBox>
         <Team
-          isLive={isDuring}
+          isEnd={scheduleData.isEnd}
+          isDuring={isDuring}
           alignItems="flex-start"
           teamData={blueTeam}
           color={colors.blueTeamColor}
@@ -94,7 +117,9 @@ export const GameSchedule: React.FC<ScheduleProps> = ({ scheduleData }) => {
   return (
     <S.SheduleContainer>
       {isDuring ? (
-        <LiveContainer>{renderScheduleContent()}</LiveContainer>
+        <StatusContainer isEnd={scheduleData.isEnd}>
+          {renderScheduleContent()}
+        </StatusContainer>
       ) : (
         <S.Schedule>{renderScheduleContent()}</S.Schedule>
       )}

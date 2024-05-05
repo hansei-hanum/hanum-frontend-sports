@@ -63,8 +63,22 @@ export const TeamBox = styled.div<TeamBoxProps>`
   gap: 5px;
 `;
 
+export const TeamBoxEndContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+`;
+
 export const ClassBox = styled.div`
   display: flex;
+`;
+
+export const OfflineClassBox = styled.div`
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 `;
 
 export const Department = styled.p`
@@ -90,4 +104,13 @@ export const Graph = styled.div<GraphProps>`
   height: 14px;
   border-radius: 50px;
   background-color: ${(props) => props.backgorundColor};
+`;
+
+export const ScoreBox = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const Score = styled.p`
+  font-size: 45px;
 `;

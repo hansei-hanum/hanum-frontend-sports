@@ -3,6 +3,7 @@ import { colors } from "../../../../styles";
 
 interface CategoryItemProps {
   isSelected: boolean;
+  width: number;
 }
 
 export const CategoryContainer = styled.div`
@@ -17,8 +18,8 @@ export const CategoryContainer = styled.div`
 `;
 
 export const CategoryItem = styled.div<CategoryItemProps>`
-  width: 60px;
-  height: 35px;
+  height: 33px;
+  width: ${(props) => props.width}px;
   border-radius: 20px;
   color: ${({ isSelected }) => (isSelected ? "#FFFFFF" : "")};
   background-color: ${({ isSelected }) =>

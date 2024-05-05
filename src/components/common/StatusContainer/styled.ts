@@ -1,7 +1,11 @@
 import styled from "@emotion/styled";
 import { colors } from "../../../../styles";
 
-export const LiveContainer = styled.div`
+interface StatusContainerProps {
+  isEnd: boolean;
+}
+
+export const StatusContainer = styled.div<StatusContainerProps>`
   width: 100%;
   height: 180px;
   border-radius: 20px;
@@ -11,8 +15,11 @@ export const LiveContainer = styled.div`
   flex-direction: column;
   align-items: center;
   border: 5px solid transparent;
-  background: linear-gradient(${colors.appBackground} 0 0) padding-box,
-    linear-gradient(to right, ${colors.redTeamColor}, ${colors.blueTeamColor})
-      border-box;
+  background: ${(props) =>
+    props.isEnd
+      ? ""
+      : `linear-gradient(${colors.appBackground} 0 0) padding-box,
+  linear-gradient(to right, ${colors.redTeamColor}, ${colors.blueTeamColor})
+    border-box;`} 
   background-color: white;
 `;

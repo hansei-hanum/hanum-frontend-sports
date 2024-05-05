@@ -18,6 +18,7 @@ export const SportsCategory: React.FC = () => {
         const isSelected = selectedItem.selected === item;
         return (
           <S.CategoryItem
+            width={index === 4 ? 80 : 55}
             key={index}
             onClick={() => handleItemClick(item)}
             isSelected={isSelected}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { SportsCategory } from "../../components/matchList";
 import { Header } from "../../components/common/Header";
 import { MyRankBar } from "../../components/common/MyRankBar";
@@ -15,19 +15,24 @@ export const MatchListPage: React.FC = () => {
 
   let scheduleData = MatchList.data.games;
 
-  if (selectedSports !== "전체") {
+  if (selectedSports !== "전체" && selectedSports !== "지난경기") {
     scheduleData = scheduleData.filter((item) =>
       item.gameType.includes(selectedSports)
     );
   }
 
-  let userRank = 1;
+  if (selectedSports === "지난경기") {
+    scheduleData = scheduleData.filter((item) => item.isEnd === true);
+  } else if (selectedSports !== "전체") {
+    scheduleData = scheduleData.filter((item) => !item.isEnd);
+  } else {
+    scheduleData = scheduleData.filter((item) => !item.isEnd);
+  }
 
-  LeaderBoard.data.leaderboard.details.forEach((item, index) => {
-    if (item.userName === Balance.data.user_name) {
-      userRank = index + 1;
-    }
-  });
+  const userRank =
+    LeaderBoard.data.leaderboard.details.findIndex(
+      (item) => item.userName === Balance.data.user_name
+    ) + 1;
 
   return (
     <>
@@ -39,8 +44,8 @@ export const MatchListPage: React.FC = () => {
         point={Balance.data.balance}
       />
 
-      {scheduleData.map((data, index) => (
-        <GameSchedule key={index} scheduleData={data} />
+      {scheduleData.map((item, index) => (
+        <GameSchedule key={index} scheduleData={item} />
       ))}
     </>
   );

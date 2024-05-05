@@ -1,6 +1,11 @@
 import styled from "@emotion/styled";
+import { colors } from "../../../../styles";
 
-export const LiveStatusContainer = styled.div`
+interface SatusCircleProps {
+  isEnd: boolean;
+}
+
+export const MatchStatusContainer = styled.div`
   width: 100px;
   height: 30px;
   border-radius: 30px;
@@ -10,9 +15,10 @@ export const LiveStatusContainer = styled.div`
   font-size: 17px;
 `;
 
-export const LiveCircle = styled.div`
+export const StatusCircle = styled.div<SatusCircleProps>`
   width: 15px;
   height: 15px;
   border-radius: 100%;
-  background-color: red;
+  background-color: ${(props) =>
+    props.isEnd ? colors.placeHolder : colors.redTeamColor};
 `;
