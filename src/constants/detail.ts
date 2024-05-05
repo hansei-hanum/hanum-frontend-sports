@@ -2,14 +2,18 @@ export const detail = {
     data: {
         game_info: 'basketball',
         team_a: {
-            team_id: '클라우드 보안과 2학년 1반',
+            team_id: '보안과 2학년 1반',
             total_point: 1321,
             total_people: 32131,
+            allocation: 50,
+            percentage: 50,
         },
         team_b: {
-            team_id: '클라우드 보안과 2학년 2반',
+            team_id: '보안과 2학년 2반',
             total_point: 1237621,
             total_people: 32131,
+            allocation: 50,
+            percentage: 50,
         },
     },
 };

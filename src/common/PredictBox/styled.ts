@@ -52,7 +52,7 @@ export const DeptBox = styled.p<TeamBoxProps>`
     display: flex;
     flex-direction: column;
     align-items: ${(props) => (props.isLeft ? 'flex-end' : 'flex-start')};
-    font-size: 13px;
+    font-size: 18px;
     color: ${(props) => (props.isLeft ? colors.redTeamColor : colors.blueTeamColor)};
     margin: 0 auto;
 `;

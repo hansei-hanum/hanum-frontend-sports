@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 const baseBoxStyles = `
-  gap: 8px;
+  gap: 10px;
 `;
 
 export const PredictSectionContainer = styled.section`
@@ -31,8 +31,8 @@ export const ExplainBox = styled.div`
 `;
 
 export const SituationBox = styled.div`
-    width: 120px;
-    height: 50px;
+    width: 130px;
+    height: 45px;
     padding: 0 5px;
     ${baseBoxStyles}
     display: flex;
