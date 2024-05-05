@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Global } from "@emotion/react";
 import { colors, globalStyle } from "../styles";
 import { MatchListPage } from "./pages/matchList";
+import { RankingList } from "./pages/RankingList";
 import { PointPage } from "./pages/point";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<MatchListPage />} />
           <Route path="/pointLog" element={<PointPage />} />
+          <Route path="rankingList" element={<RankingList />} />
         </Routes>
       </BrowserRouter>
     </Container>
