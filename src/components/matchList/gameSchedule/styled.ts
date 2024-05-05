@@ -15,6 +15,14 @@ interface ClassProps {
   fontSize: number;
 }
 
+interface ScheduleProps {
+  isEnd: boolean;
+}
+
+interface ContentProps {
+  isEnd: boolean;
+}
+
 export const SheduleContainer = styled.div`
   width: 100%;
   display: flex;
@@ -23,11 +31,11 @@ export const SheduleContainer = styled.div`
   margin-top: 20px;
 `;
 
-export const Schedule = styled.div`
+export const Schedule = styled.div<ScheduleProps>`
   width: 100%;
   height: 160px;
   border-radius: 20px;
-  gap: 15px;
+  gap: ${(props) => (props.isEnd ? "5" : "15")}px;
   box-shadow: 0px 4px 40px 6px rgba(0, 0, 0, 0.1);
   padding: 0 20px;
   display: flex;
@@ -45,12 +53,12 @@ export const ScheduleTop = styled.div`
   font-weight: 900;
 `;
 
-export const Content = styled.div`
+export const Content = styled.div<ContentProps>`
   width: 100%;
   display: flex;
-  margin-top: 20px;
   align-items: center;
   gap: 10px;
+  margin-top: 10px;
 `;
 
 export const TeamBox = styled.div<TeamBoxProps>`

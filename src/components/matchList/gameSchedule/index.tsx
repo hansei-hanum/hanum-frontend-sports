@@ -42,7 +42,7 @@ const Team: React.FC<TeamProps> = ({
             <S.TeamBoxEndContent>
               <S.ClassBox>
                 <S.Department>{teamData.department}</S.Department>
-                <S.Class fontSize={15}>{teamData.class}</S.Class>
+                <S.Class fontSize={13}>{teamData.class}</S.Class>
               </S.ClassBox>
               <S.Score>{teamData.score}</S.Score>
             </S.TeamBoxEndContent>
@@ -86,15 +86,21 @@ export const GameSchedule: React.FC<ScheduleProps> = ({ scheduleData }) => {
     <>
       <S.ScheduleTop>
         <div>
-          {isDuring ? (
+          {isDuring || isEnd ? (
             <MatchStatus isEnd={scheduleData.isEnd} />
           ) : (
             scheduleData.date
           )}
         </div>
+
         <p>{gameType}</p>
       </S.ScheduleTop>
-      <S.Content>
+      {isEnd ? (
+        <div style={{ width: "100%", fontSize: 17, fontWeight: 900 }}>
+          경기가 종료되었습니다.
+        </div>
+      ) : null}
+      <S.Content isEnd={scheduleData.isEnd}>
         <Team
           isEnd={scheduleData.isEnd}
           isDuring={isDuring}
@@ -121,7 +127,9 @@ export const GameSchedule: React.FC<ScheduleProps> = ({ scheduleData }) => {
           {renderScheduleContent()}
         </StatusContainer>
       ) : (
-        <S.Schedule>{renderScheduleContent()}</S.Schedule>
+        <S.Schedule isEnd={scheduleData.isEnd}>
+          {renderScheduleContent()}
+        </S.Schedule>
       )}
     </S.SheduleContainer>
   );

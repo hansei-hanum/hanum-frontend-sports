@@ -6,13 +6,15 @@ interface SatusCircleProps {
 }
 
 export const MatchStatusContainer = styled.div`
-  width: 100px;
-  height: 30px;
+  padding: 0 8px;
+  height: 27px;
   border-radius: 30px;
   display: flex;
   gap: 10px;
   align-items: center;
-  font-size: 17px;
+  justify-content: center;
+  font-size: 15px;
+  background-color: ${colors.grey};
 `;
 
 export const StatusCircle = styled.div<SatusCircleProps>`

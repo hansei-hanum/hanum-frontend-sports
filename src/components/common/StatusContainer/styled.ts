@@ -7,10 +7,10 @@ interface StatusContainerProps {
 
 export const StatusContainer = styled.div<StatusContainerProps>`
   width: 100%;
-  height: 180px;
+  height: 175px;
   border-radius: 20px;
   box-shadow: 0px 4px 40px 6px rgba(0, 0, 0, 0.1);
-  padding: 0 20px;
+  padding: 0 15px;
   display: flex;
   flex-direction: column;
   align-items: center;

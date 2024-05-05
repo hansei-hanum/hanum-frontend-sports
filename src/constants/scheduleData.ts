@@ -84,6 +84,27 @@ export const MatchList = {
         isEnd: false,
         winner: 2,
       },
+
+      {
+        blueTeam: {
+          department: "게임과",
+          class: "1학년 1반",
+          ratio: 48,
+          score: 0,
+        },
+        redTeam: {
+          department: "보안과",
+          class: "2학년 1반",
+          ratio: 52,
+          score: 4,
+        },
+        id: 5,
+        gameType: "⚽족구",
+        date: "5월 14일 10:00",
+        isDuring: false,
+        isEnd: true,
+        winner: 2,
+      },
     ],
   },
 };
