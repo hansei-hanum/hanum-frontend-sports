@@ -7,7 +7,7 @@ import { RankingList } from './pages/RankingList';
 function App() {
     return (
         <Container>
-            <Global styles={[globalStyle(colors.appBackground)]}></Global>
+            <Global styles={[globalStyle(colors.Background)]}></Global>
             <RankingList></RankingList>
         </Container>
     );
