@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { colors } from '../../styles';
 
 export const RankSectionContainer = styled.section`
     height: 100vh;
@@ -6,7 +7,7 @@ export const RankSectionContainer = styled.section`
     background-blend-mode: multiply;
     background-size: cover;
     background-position: center;
-    background-color: #FEFEFE;
+    background-color: ${colors.rankListBackground};
     display: flex;
     flex-direction: column;
     align-items: center;

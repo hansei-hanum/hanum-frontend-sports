@@ -10,6 +10,15 @@ export interface RankingBoxProps {
 }
 
 export const RankBox: React.FC<RankingBoxProps> = ({ rank, name, dept, point }) => {
+    const formatNumber = (point: number): string => {
+        if (point >= 10000) {
+            return `${(point / 10000).toFixed(1)}만`;
+        } else if (point >= 1000) {
+            return `${(point / 1000).toFixed(1)}천`;
+        } else {
+            return `${point}`;
+        }
+    };
     return (
         <S.RankingBox rank={rank}>
             <S.RankBarLeft>
@@ -20,13 +29,7 @@ export const RankBox: React.FC<RankingBoxProps> = ({ rank, name, dept, point }) 
                 </S.IntroBox>
             </S.RankBarLeft>
             <S.RankBarRight>
-                <S.RankBarIcon>
-                    {point >= 10000
-                        ? `${(point / 10000).toFixed(1)}만`
-                        : point >= 1000
-                        ? `${(point / 1000).toFixed(1)}천`
-                        : point}
-                </S.RankBarIcon>
+                <S.RankBarIcon>{formatNumber(point)}</S.RankBarIcon>
                 <S.RankBarIcon>
                     <img width={25} src={pointIcon} alt="" />
                 </S.RankBarIcon>

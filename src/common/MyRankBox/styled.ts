@@ -1,11 +1,12 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { fonts } from '../../styles/font';
+import { colors } from '../../styles';
 
 export const MyRankContainer = styled.div`
     width: 100%;
     height: 35px;
     border-radius: 50px;
-    background-color: #f9f9f9;
+    background-color: ${colors.myRankBoxBackground};
     margin-top: 15px;
     font-size: 17px;
     display: flex;
@@ -28,7 +29,7 @@ export const RankBarRight = styled.div`
 `;
 
 export const MyRank = styled.p`
-    color: gray;
+    color: ${colors.myRankBoxFontColor};
 `;
 
 export const MyName = styled.p``;
