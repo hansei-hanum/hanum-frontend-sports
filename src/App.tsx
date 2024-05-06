@@ -6,7 +6,7 @@ import { colors, globalStyle } from "../styles";
 import { MatchListPage } from "./pages/matchList";
 import { RankingList } from "./pages/RankingList";
 import { PointPage } from "./pages/point";
-import { Betting } from './pages/Betting';
+import { Betting } from "./components/Betting";
 
 function App() {
   return (
