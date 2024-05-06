@@ -1,3 +1,6 @@
+export * from './BettingBar';
+export * from './Header';
+export * from './SubmitButton';
 export * from './Header';
 export * from './PredictBox';
 export * from './SubmitButton';
