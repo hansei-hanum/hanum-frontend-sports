@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const SubmitContainer = styled.button`
     width: 100%;
     height: 70px;
+
     border-radius: 10px;
     background-color: #4580f1;
     margin-top: 15px;
