@@ -6,6 +6,7 @@ import { colors, globalStyle } from "../styles";
 import { MatchListPage } from "./pages/matchList";
 import { RankingList } from "./pages/RankingList";
 import { PointPage } from "./pages/point";
+import { Betting } from './pages/Betting';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<MatchListPage />} />
           <Route path="/pointLog" element={<PointPage />} />
           <Route path="rankingList" element={<RankingList />} />
+          <Route path="betting" element={<Betting />} />
         </Routes>
       </BrowserRouter>
     </Container>
