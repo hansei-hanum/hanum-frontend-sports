@@ -1,6 +1,6 @@
 import React from "react";
 import { Header } from "../../components/common/Header";
-import { Logs } from "../../components/point/logs";
+import { Logs } from "../../components/point/pointLog";
 import * as S from "./styled";
 import pointIcon from "../../assets/icons/point.png";
 import { Balance } from "../../constants/balance";
