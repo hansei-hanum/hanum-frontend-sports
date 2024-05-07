@@ -24,7 +24,7 @@ export const WriteBox = styled.input`
     width: 300px;
     height: 100%;
     padding: 0 10px;
-    color: ${(props) => (props.value ? 'rgba(0,0,0,0)' : 'rgba(0, 0, 0, 1)')};
+    color: ${(props) => (props.value ? 'rgba(0,0,0,1)' : 'rgba(0, 0, 0, 1)')};
     border: none;
     border-radius: 10px;
     font-size: 17px;
