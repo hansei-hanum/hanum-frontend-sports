@@ -22,7 +22,9 @@ export const globalStyle = (bgColor: string) => css`
     html {
         font-size: 10px;
     }
-
+    button {
+        border: 0;
+    }
     body {
         background-color: ${bgColor};
     }

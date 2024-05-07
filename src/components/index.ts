@@ -1,1 +1,1 @@
-export * from './LiveChatting';
+export * from './RankList';
