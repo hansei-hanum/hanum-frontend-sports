@@ -23,7 +23,7 @@ export const BettingBar: React.FC = () => {
                 type="number"
                 placeholder="베팅할 금액을 입력해주세요."
                 value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
+                onChange={(e: { target: { value: React.SetStateAction<string> } }) => setInputValue(e.target.value)}
             />
             <S.BettingAmountContainer>
                 {[25, 50, 75, 100].map((percentage, index) => (
