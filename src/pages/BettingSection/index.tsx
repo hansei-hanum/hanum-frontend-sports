@@ -1,8 +1,8 @@
 import React from 'react';
 import { Header } from '../../common/Header';
-import { Betting } from '../../components/main';
+import { Betting } from '../../components/Betting';
 
-export const RankingList: React.FC = () => {
+export const BettingSection: React.FC = () => {
     return (
         <>
             <Header hasIcon={false} text="베팅" />
