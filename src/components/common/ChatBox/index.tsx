@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './styled';
-import profile from '../../assets/icons/profile.png';
+import profile from '../../../assets/icons/profile.png';
 
 export interface ChatProps {
     name: string;

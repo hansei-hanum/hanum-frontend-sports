@@ -1,8 +1,7 @@
-// PredictBox.tsx
 import React, { useState } from 'react';
 import * as S from './styled';
-import { colors } from '../../styles';
-import { detail } from '../../constants/detail';
+import { colors } from '../../../styles';
+import { detail } from '../../../constants/detail';
 
 const formatNumber = (value: number): string => {
     if (value >= 1000000) {

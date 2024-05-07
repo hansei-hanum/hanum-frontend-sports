@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { RankBox } from '../../common/RankingBox';
+import { RankBox } from '../common/RankingBox';
 import { result } from '../../constants/result';
 
 import * as S from './styled';

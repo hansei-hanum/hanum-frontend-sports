@@ -1,11 +1,19 @@
-import React from "react";
+import React from 'react';
 
-import { fonts } from "../../../../styles";
+import * as S from './styled';
 
-export interface TextCommonProps {
-  children: React.ReactNode;
+export interface TextCustomProps {
+    children: React.ReactNode;
+    size?: number;
+    weight?: number;
 }
 
-export const Text: React.FC = () => {
-  return <div></div>;
+export type TextProps = TextCustomProps & React.HTMLAttributes<HTMLParagraphElement>;
+
+export const Text: React.FC<TextProps> = ({ children, size = 1.1, weight = 400, ...props }) => {
+    return (
+        <S.TextElement size={size} weight={weight} {...props}>
+            {children}
+        </S.TextElement>
+    );
 };

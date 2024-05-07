@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { RankingBoxProps } from '.';
-import { colors } from '../../styles';
+import { colors } from '../../../styles';
 
 interface RankingBoxStyleProps {
     rank: number;
