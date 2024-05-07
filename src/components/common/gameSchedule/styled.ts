@@ -1,9 +1,11 @@
 import styled from "@emotion/styled";
 import { colors } from "../../../../styles";
+import { ScheduleProps } from ".";
 
-interface ScheduleProps {
-  isEnd: boolean;
-}
+export type SchedulePropsIsEnd = Pick<
+  Pick<ScheduleProps, "scheduleData">["scheduleData"],
+  "isEnd"
+>;
 
 interface ContentProps {
   isEnd: boolean;
@@ -17,7 +19,7 @@ export const SheduleContainer = styled.div`
   margin-top: 20px;
 `;
 
-export const Schedule = styled.div<ScheduleProps>`
+export const Schedule = styled.div<SchedulePropsIsEnd>`
   width: 100%;
   height: 160px;
   border-radius: 20px;
@@ -27,6 +29,7 @@ export const Schedule = styled.div<ScheduleProps>`
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: 1px solid red;
 `;
 
 export const ScheduleTop = styled.div`

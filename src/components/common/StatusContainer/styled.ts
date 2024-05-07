@@ -1,11 +1,8 @@
 import styled from "@emotion/styled";
 import { colors } from "../../../../styles";
+import { SchedulePropsIsEnd } from "../gameSchedule/styled";
 
 interface StatusContainerProps {
-  isEnd: boolean;
-}
-
-interface ScheduleProps {
   isEnd: boolean;
 }
 
@@ -28,7 +25,7 @@ export const StatusContainer = styled.div<StatusContainerProps>`
       ? ""
       : `linear-gradient(${colors.appBackground} 0 0) padding-box,
   linear-gradient(to right, ${colors.redTeamColor}, ${colors.blueTeamColor})
-    border-box;`} 
+    border-box;`};
   background-color: white;
 `;
 
@@ -40,7 +37,7 @@ export const SheduleContainer = styled.div`
   margin-top: 20px;
 `;
 
-export const Schedule = styled.div<ScheduleProps>`
+export const Schedule = styled.div<SchedulePropsIsEnd>`
   width: 100%;
   height: 160px;
   border-radius: 20px;

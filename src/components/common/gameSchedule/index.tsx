@@ -5,7 +5,7 @@ import { StatusContainer } from "../StatusContainer";
 import { MatchStatus } from "../LiveStatus";
 import { Team } from "../Team";
 
-interface ScheduleProps {
+export interface ScheduleProps {
   scheduleData: {
     isDuring: boolean;
     gameType: string;
@@ -47,7 +47,6 @@ export const GameSchedule: React.FC<ScheduleProps & StatusDescription> = ({
             scheduleData.date
           )}
         </div>
-
         <p>{gameType}</p>
       </S.ScheduleTop>
       {isEnd || isDuring ? (
@@ -84,6 +83,10 @@ export const GameSchedule: React.FC<ScheduleProps & StatusDescription> = ({
           {renderScheduleContent()}
         </S.Schedule>
       )}
+      {/* 
+      <S.Schedule isEnd={scheduleData.isEnd} isDuring={isDuring}>
+          {renderScheduleContent()}
+        </S.Schedule> */}
     </S.SheduleContainer>
   );
 };

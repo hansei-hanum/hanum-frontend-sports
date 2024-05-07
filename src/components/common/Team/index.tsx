@@ -25,11 +25,9 @@ export const Team: React.FC<TeamProps> = ({
     <S.TeamBox color={color} alignItems={alignItems}>
       {isDuring ? (
         <>
-          <S.ClassBox>
-            <S.Department>{teamData.department}</S.Department>
-            <S.Class fontSize={13}>{teamData.class}</S.Class>
-          </S.ClassBox>
-
+          <S.Class fontSize={13} style={{ lineHeight: 1.2 }}>
+            {teamData.department} <br /> {teamData.class}
+          </S.Class>
           <S.Ratio>{teamData.ratio}%</S.Ratio>
           <S.Graph backgorundColor={color} width={teamData.ratio} />
         </>

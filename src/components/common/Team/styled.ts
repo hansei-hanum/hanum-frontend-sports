@@ -37,6 +37,7 @@ export const TeamBoxEndContent = styled.div<TeamBoxEndContentProps>`
 
 export const ClassBox = styled.div`
   display: flex;
+  column-gap: 4px;
 `;
 
 export const OfflineClassBox = styled.div`

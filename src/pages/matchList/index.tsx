@@ -43,7 +43,6 @@ export const MatchListPage: React.FC = () => {
         name={Balance.data.user_name}
         point={Balance.data.balance}
       />
-
       {scheduleData.map((item, index) => (
         <GameSchedule
           key={index}

@@ -4,7 +4,7 @@ export const MatchList = {
     games: [
       {
         blueTeam: {
-          department: "보안과",
+          department: "클라우드보안과",
           class: "2학년 1반",
           ratio: 78,
           score: 1,
