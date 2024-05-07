@@ -8,6 +8,7 @@ import { RankingList } from './pages/RankingList';
 import { PointPage } from './pages/point';
 import { Betting } from './components/Betting';
 import { LiveChatting } from './components/LiveChatting';
+import { Predict } from 'components/Predict';
 
 function App() {
     return (
@@ -20,6 +21,7 @@ function App() {
                     <Route path="rankingList" element={<RankingList />} />
                     <Route path="betting" element={<Betting />} />
                     <Route path="LiveChatting" element={<LiveChatting />} />
+                    <Route path="Predict" element={<Predict />} />
                 </Routes>
             </BrowserRouter>
         </Container>
