@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChattingBox } from '../../common';
+import { ChattingBox } from '../../common/ChattingBox';
 import { ChatBox } from '../../common/ChatBox';
 
 import * as S from './styled';

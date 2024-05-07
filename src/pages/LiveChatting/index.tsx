@@ -1,6 +1,6 @@
 import React from 'react';
 import { Header } from '../../common/Header';
-import { LiveChatting } from '../../components';
+import { LiveChatting } from '../../components/LiveChatting';
 
 export const RankingList: React.FC = () => {
     return (

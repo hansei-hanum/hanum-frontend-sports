@@ -7,3 +7,5 @@ export * from './SubmitButton';
 export * from './MyRankBox';
 export * from './RankingBox';
 export * from './Text';
+export * from './ChattingBox';
+export * from './ChatBox';

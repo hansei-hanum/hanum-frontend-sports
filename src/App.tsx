@@ -7,6 +7,7 @@ import { MatchListPage } from './pages/matchList';
 import { RankingList } from './pages/RankingList';
 import { PointPage } from './pages/point';
 import { Betting } from './components/Betting';
+import { LiveChatting } from './components/LiveChatting';
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
                     <Route path="/pointLog" element={<PointPage />} />
                     <Route path="rankingList" element={<RankingList />} />
                     <Route path="betting" element={<Betting />} />
+                    <Route path="LiveChatting" element={<LiveChatting />} />
                 </Routes>
             </BrowserRouter>
         </Container>
