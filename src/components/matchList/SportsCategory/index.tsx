@@ -1,7 +1,7 @@
 import React from "react";
 import * as S from "./styled";
-import { SportsEvent } from "../../../constants/sportsEvent";
-import { selectedSportsAtom } from "../../../atom/selectedSports";
+import { SportsEvent } from "@constants/sportsEvent";
+import { selectedSportsAtom } from "@atom/selectedSports";
 import { useRecoilState } from "recoil";
 
 export const SportsCategory: React.FC = () => {

@@ -29,7 +29,7 @@ export const Schedule = styled.div<SchedulePropsIsEnd>`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid red;
+
 `;
 
 export const ScheduleTop = styled.div`

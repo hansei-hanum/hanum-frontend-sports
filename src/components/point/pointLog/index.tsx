@@ -1,8 +1,8 @@
 import React from "react";
 import * as S from "./styled";
-import pointIcon from "../../../assets/icons/point.png";
+import pointIcon from "@assets/icons/point.png";
 import { IoIosArrowForward } from "react-icons/io";
-import { PointLog } from "../../../constants/pointLog";
+import { PointLog } from "@constants/pointLog";
 
 interface LogProps {
   cause: string;
