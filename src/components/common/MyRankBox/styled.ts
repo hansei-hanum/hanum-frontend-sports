@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { fonts, colors } from '@styles';
+import { colors } from '@styles';
 
 export const MyRankContainer = styled.div`
     width: 100%;
@@ -24,7 +24,6 @@ export const RankBarRight = styled.div`
     display: flex;
     align-items: center;
     gap: 2px;
-    font-family: ${fonts.bold};
 `;
 
 export const MyRank = styled.p`
