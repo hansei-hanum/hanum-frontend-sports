@@ -1,8 +1,8 @@
 import React from 'react';
 import * as S from './styled';
 import { IoIosArrowForward } from 'react-icons/io';
-import pointIcon from 'assets/icons/point.png';
-import { colors } from '../../../../styles';
+import { pointIcon } from '@assets';
+import { colors } from '@styles';
 
 interface RankBarProps {
     rank: number;

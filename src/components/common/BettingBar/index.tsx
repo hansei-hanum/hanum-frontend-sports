@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as S from './styled';
-import { Bet } from 'constants/bet';
+import { Bet } from '@constants';
 
 export const BettingBar: React.FC = () => {
     const [inputValue, setInputValue] = useState('');

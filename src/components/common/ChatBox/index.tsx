@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './styled';
-import profile from 'assets/icons/profile.png';
+import { profileIcon } from '@assets';
 
 export interface ChatProps {
     name: string;
@@ -12,7 +12,7 @@ export const ChatBox: React.FC<ChatProps> = ({ name, comment }) => {
         <S.ChatContainer>
             <S.UserChatCont>
                 <S.ProfileBox>
-                    <img width={40} src={profile}></img>
+                    <img width={40} src={profileIcon}></img>
                 </S.ProfileBox>
                 <S.UserBox>
                     <S.UserNameBox>{name}</S.UserNameBox>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SubmitBox, PredictBox } from '../common';
+import { SubmitBox, PredictBox } from '@common';
 
 import * as S from './styled';
 

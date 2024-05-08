@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { RankBox } from '../common/RankingBox';
-import { result } from 'constants/result';
+import { RankBox } from '@common';
+import { result } from '@constants';
 
 import * as S from './styled';
 

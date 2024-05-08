@@ -1,13 +1,13 @@
 import React from 'react';
-import { SportsCategory } from 'components/matchList';
-import { Header } from 'components/common';
-import { MyRankBar } from 'components/common/MyRankBar';
-import { GameSchedule } from 'components/common/gameSchedule';
-import { MatchList } from 'constants/scheduleData';
-import { LeaderBoard } from 'constants/leaderBoard';
+import { SportsCategory } from '@components';
+import { Header } from '@common';
+import { MyRankBar } from '@common';
+import { GameSchedule } from '@common';
+import { MatchList } from '@constants';
+import { LeaderBoard } from '@constants';
 import { useRecoilValue } from 'recoil';
-import { selectedSportsAtom } from 'atom/selectedSports';
-import { Balance } from 'constants/balance';
+import { selectedSportsAtom } from '@atom/selectedSports';
+import { Balance } from '@constants';
 
 export const MatchListPage: React.FC = () => {
     const selectedItem = useRecoilValue(selectedSportsAtom);

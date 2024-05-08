@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
-import { fonts } from '../../../styles/font';
-import { colors } from '../../../styles';
+import { fonts, colors } from '@styles';
 
 export const MyRankContainer = styled.div`
     width: 100%;

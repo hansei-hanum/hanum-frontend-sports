@@ -1,6 +1,6 @@
 import React from 'react';
-import { Header } from 'components/common/Header';
-import { LiveChatting } from 'components/LiveChatting';
+import { Header } from '@common';
+import { LiveChatting } from '@components';
 
 export const LiveChattingSection: React.FC = () => {
     return (

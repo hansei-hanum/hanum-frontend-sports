@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as S from './styled';
-import sendIcon from 'assets/icons/sendIcon.png';
+import { sendIcon } from '@assets';
 
 interface ChattingBoxProps {
     onCommentSubmit: (newComment: string) => void;

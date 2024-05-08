@@ -7,15 +7,16 @@
         "skipLibCheck": true,
         "baseUrl": "src",
         "paths": {
-            "/*": ["/*"],
-            "/components/*": ["src/components/*"],
-            "/pages/*": ["src/pages/*"],
-            "/common/*": ["src/components/common/*"],
-            "/constants/*": ["src/constants/*"],
-            "/utils/*": ["src/utils/*"],
-            "/hooks/*": ["src/hooks/*"],
-            "/atom/*": ["src/atom/*"],
-            "/assets/*": ["src/assets/*"]
+            "@/*": ["/*"],
+            "@components": ["components"],
+            "@pages": ["pages"],
+            "@common": ["components/common"],
+            "@constants": ["constants"],
+            "@utils/*": ["utils/*"],
+            "@hooks/*": ["hooks/*"],
+            "@atom/*": ["atom/*"],
+            "@assets": ["assets"],
+            "@styles": ["styles"]
         },
 
         "moduleResolution": "bundler",

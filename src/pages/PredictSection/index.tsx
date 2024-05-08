@@ -1,6 +1,6 @@
 import React from 'react';
-import { Header } from 'components/common';
-import { Predict } from 'components/Predict';
+import { Header } from '@common';
+import { Predict } from '@components';
 
 export const PredictSection: React.FC = () => {
     return (

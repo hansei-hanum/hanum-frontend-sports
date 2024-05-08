@@ -1,6 +1,6 @@
 import React from 'react';
-import { Header, MyRankBar } from 'components/common';
-import { RankList } from 'components/RankList';
+import { Header, MyRankBar } from '@common';
+import { RankList } from '@components';
 
 export const RankingList: React.FC = () => {
     return (
