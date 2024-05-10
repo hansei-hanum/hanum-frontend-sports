@@ -8,7 +8,7 @@ interface CategoryItemProps {
 
 export const CategoryContainer = styled.div`
     width: 100%;
-    height: 35px;
+    height: 40px;
     display: flex;
     font-size: 15px;
     font-weight: bold;
