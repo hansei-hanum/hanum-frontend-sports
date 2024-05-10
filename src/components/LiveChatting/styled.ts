@@ -21,4 +21,7 @@ export const ChattingContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 20px;
+    overflow-y: scroll;
+    touch-action: pan-y;
+    -webkit-overflow-scrolling: touch;
 `;

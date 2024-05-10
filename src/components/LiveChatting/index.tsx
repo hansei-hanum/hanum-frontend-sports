@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { ChattingBox } from '@common';
-import { ChatBox } from '@common';
+import { ChattingBox, GameSchedule, ChatBox } from '@common';
+import { MatchList } from '@constants';
 
 import * as S from './styled';
 
@@ -14,6 +14,7 @@ export const LiveChatting: React.FC = () => {
     return (
         <section>
             <S.LiveChatSectionContainer>
+                <GameSchedule description="ang" scheduleData={MatchList.data.games[0]} />
                 <S.ChattingContainer>
                     {comments.map((comment, index) => (
                         <ChatBox key={index} name="권기현" comment={comment} />
