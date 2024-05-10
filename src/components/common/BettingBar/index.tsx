@@ -28,31 +28,29 @@ export const BettingBar: React.FC = () => {
                 value={inputValue}
                 onChange={(e: { target: { value: React.SetStateAction<string> } }) => setInputValue(e.target.value)}
             />
-            <S.BettingAmountContainer>
-                {isInputValueBig && (
+            <S.BettingAmountContainer isInputValueBig={isInputValueBig}>
+                {isInputValueBig ? (
                     <S.BettingAmountBox
                         style={{
                             color: 'red',
-                            justifyContent: 'flex-start',
                         }}
                     >
                         사용 가능한 포인트가 부족합니다.
                     </S.BettingAmountBox>
+                ) : (
+                    [25, 50, 75, 100].map((percentage, index) => (
+                        <S.BettingAmountBox
+                            key={index}
+                            onClick={() => handleAmountSelection(percentage, index)}
+                            style={{
+                                color: selectedBoxIndex === index ? 'rgba(0, 0, 0, 1)' : 'rgba(0, 0, 0, 0.5)',
+                                display: isInputValueBig ? 'none' : 'block',
+                            }}
+                        >
+                            {`${percentage}%`}
+                        </S.BettingAmountBox>
+                    ))
                 )}
-                {[25, 50, 75, 100].map((percentage, index) => (
-                    <S.BettingAmountBox
-                        key={index}
-                        onClick={() => handleAmountSelection(percentage, index)}
-                        style={{
-                            color: selectedBoxIndex === index ? 'rgba(0, 0, 0, 1)' : 'rgba(0, 0, 0, 0.5)',
-                            justifyContent: 'flex-end;',
-                            flexDirection: 'row',
-                            display: isInputValueBig ? 'none' : 'block',
-                        }}
-                    >
-                        {`${percentage}%`}
-                    </S.BettingAmountBox>
-                ))}
             </S.BettingAmountContainer>
         </S.BettingContainer>
     );
