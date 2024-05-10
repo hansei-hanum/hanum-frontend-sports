@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 export const SubmitContainer = styled.button`
     width: 100%;
-    height: 55px;
+    height: 45px;
     margin-bottom: 10px;
     border-radius: 10px;
     background-color: #4580f1;

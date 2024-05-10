@@ -36,7 +36,7 @@ export const TeamBox = styled.div<TeamBoxProps>`
     flex-direction: column;
     gap: 10px;
     border: 3px solid #e7e7e7;
-    border-radius: 20px;
+    border-radius: 10px;
     padding: 10px 5px;
 `;
 
