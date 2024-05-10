@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import * as S from './styled';
-import { Bet } from '@constants';
+import { Balance } from '@constants';
 
 export const BettingBar: React.FC = () => {
+    const myPoint = Balance.data.balance;
+
     const [inputValue, setInputValue] = useState('');
     const [selectedBoxIndex, setSelectedBoxIndex] = useState(-1);
 
@@ -11,28 +13,44 @@ export const BettingBar: React.FC = () => {
             setInputValue('');
             setSelectedBoxIndex(-1);
         } else {
-            const calculatedAmount = (Bet.data.amount * percentage) / 100;
+            const calculatedAmount = (myPoint * percentage) / 100;
             setInputValue(calculatedAmount.toString());
             setSelectedBoxIndex(index);
         }
     };
+    const isInputValueBig = Number(inputValue) > myPoint;
 
     return (
         <S.BettingContainer>
             <S.BettingBox
                 type="number"
-                placeholder="베팅할 금액을 입력해주세요."
+                placeholder="베팅할 포인트를 입력해주세요."
                 value={inputValue}
                 onChange={(e: { target: { value: React.SetStateAction<string> } }) => setInputValue(e.target.value)}
             />
             <S.BettingAmountContainer>
+                {isInputValueBig && (
+                    <S.BettingAmountBox
+                        style={{
+                            color: 'red',
+                            justifyContent: 'flex-start',
+                            paddingLeft: '10px',
+                        }}
+                    >
+                        사용 가능한 포인트가 부족합니다.
+                    </S.BettingAmountBox>
+                )}
                 {[25, 50, 75, 100].map((percentage, index) => (
                     <S.BettingAmountBox
                         key={index}
                         onClick={() => handleAmountSelection(percentage, index)}
-                        style={{ color: selectedBoxIndex === index ? 'black' : 'gray' }}
+                        style={{
+                            color: selectedBoxIndex === index ? 'rgba(0, 0, 0, 1)' : 'rgba(0, 0, 0, 0.5)',
+                            justifyContent: 'right',
+                            flexDirection: 'row',
+                        }}
                     >
-                        {percentage}%
+                        {`${percentage}%`}
                     </S.BettingAmountBox>
                 ))}
             </S.BettingAmountContainer>

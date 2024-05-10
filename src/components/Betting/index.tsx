@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SubmitBox, BettingBar } from '@common';
+import { SubmitBox, BettingBar, MyPointBox } from '@common';
 
 import * as S from './styled';
 
@@ -12,11 +12,17 @@ export const Betting: React.FC = () => {
                     <S.ColorBox />
                     예측 진행중
                 </S.SituationBox>
-                <S.ExplaneBox>얼마나 베팅하실 건가요?</S.ExplaneBox>
+                <S.ExplaneBox>
+                    <S.ExplaneBox>예측에 사용할 포인트를</S.ExplaneBox>
+                    <S.ExplaneBox>입력해 주세요</S.ExplaneBox>
+                </S.ExplaneBox>
+                <MyPointBox />
                 <S.BettingContainer>
                     <BettingBar />
                 </S.BettingContainer>
-                <SubmitBox />
+                <S.SubmitContainer>
+                    <SubmitBox />
+                </S.SubmitContainer>
             </S.BettingSectionContainer>
         </section>
     );
