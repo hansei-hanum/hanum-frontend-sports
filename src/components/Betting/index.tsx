@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { SubmitButton, BettingBar, MyPointBox } from '@common';
 
 import * as S from './styled';
 
 export const Betting: React.FC = () => {
+    const [isInputValueBig, setIsInputValueBig] = useState(false);
+    const [isHundred, setIsHundred] = useState(false);
     return (
         <section>
             <S.BettingSectionContainer>
@@ -18,10 +20,10 @@ export const Betting: React.FC = () => {
                 </S.ExplaneBox>
                 <MyPointBox />
                 <S.BettingContainer>
-                    <BettingBar />
+                    <BettingBar setIsInputValueBig={setIsInputValueBig} setIsHundred={setIsHundred} />
                 </S.BettingContainer>
                 <S.SubmitContainer>
-                    <SubmitButton />
+                    <SubmitButton isChangeColor={isInputValueBig || isHundred} />
                 </S.SubmitContainer>
             </S.BettingSectionContainer>
         </section>

@@ -34,9 +34,9 @@ export const BettingBox = styled.input`
     }
 `;
 
-export const BettingAmountContainer = styled.div<{ isInputValueBig: boolean }>`
+export const BettingAmountContainer = styled.div<{ isInputValueBig: boolean; isHundred: boolean }>`
     display: flex;
-    justify-content: ${(props) => (props.isInputValueBig ? 'flex-start' : 'flex-end')};
+    justify-content: ${(props) => (props.isInputValueBig || props.isHundred ? 'flex-start' : 'flex-end')};
     gap: 10px;
 `;
 

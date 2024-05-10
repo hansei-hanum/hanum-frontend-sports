@@ -1,11 +1,11 @@
 import styled from '@emotion/styled';
 
-export const SubmitContainer = styled.button`
+export const SubmitContainer = styled.button<{ isChangeColor: boolean }>`
     width: 100%;
     height: 45px;
     margin-bottom: 10px;
     border-radius: 10px;
-    background-color: #4580f1;
+    background-color: ${(props) => (props.isChangeColor ? '#a3a3a3' : '#4580f1')};
     margin-top: 15px;
     font-size: 18px;
     display: flex;
