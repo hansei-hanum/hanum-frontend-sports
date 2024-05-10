@@ -12,6 +12,7 @@ interface GraphProps {
 
 interface ClassProps {
   fontSize: number;
+  textAlign: string;
 }
 
 interface TeamBoxEndContentProps {
@@ -53,6 +54,7 @@ export const Department = styled.p`
 
 export const Class = styled.p<ClassProps>`
   font-size: ${(props) => props.fontSize + "px"};
+  text-align: ${(props) => props.textAlign}
 `;
 
 export const Ratio = styled.p`
