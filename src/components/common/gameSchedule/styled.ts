@@ -57,3 +57,12 @@ export const IconBox = styled.span`
     color: ${colors.uiBrightGray};
     font-weight: bold;
 `;
+
+export const AllBox = styled.div`
+    display: flex;
+    width: 100%;
+`;
+
+export const ButtonBox = styled.div`
+    width: 100%;
+`;

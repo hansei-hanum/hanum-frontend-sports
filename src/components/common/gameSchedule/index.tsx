@@ -4,6 +4,7 @@ import { colors } from '@styles';
 import { StatusContainer } from '../StatusContainer';
 import { MatchStatus } from '../LiveStatus';
 import { Team } from '../Team';
+import { SubmitButton } from '../SubmitButton';
 
 export interface ScheduleProps {
     scheduleData: {
@@ -27,13 +28,20 @@ export interface ScheduleProps {
     };
 }
 
+export interface isButton {
+    isbutton: boolean;
+}
+
 interface StatusDescription {
     description: string;
 }
 
-export const GameSchedule: React.FC<ScheduleProps & StatusDescription> = ({ scheduleData, description }) => {
+export const GameSchedule: React.FC<ScheduleProps & StatusDescription & isButton> = ({
+    scheduleData,
+    description,
+    isbutton,
+}) => {
     const { isEnd, isDuring, gameType, redTeam, blueTeam } = scheduleData;
-
     const renderScheduleContent = () => (
         <>
             <S.ScheduleTop>
@@ -42,21 +50,30 @@ export const GameSchedule: React.FC<ScheduleProps & StatusDescription> = ({ sche
             </S.ScheduleTop>
             {isEnd || isDuring ? <S.StatusDescription>{description}</S.StatusDescription> : null}
             <S.Content isEnd={scheduleData.isEnd}>
-                <Team
-                    isEnd={scheduleData.isEnd}
-                    isDuring={isDuring}
-                    teamData={redTeam}
-                    alignItems="flex-end"
-                    color={colors.redTeamColor}
-                />
-                <S.IconBox>{isEnd ? ':' : 'VS'}</S.IconBox>
-                <Team
-                    isEnd={scheduleData.isEnd}
-                    isDuring={isDuring}
-                    alignItems="flex-start"
-                    teamData={blueTeam}
-                    color={colors.blueTeamColor}
-                />
+                <S.AllBox>
+                    <Team
+                        isEnd={scheduleData.isEnd}
+                        isDuring={isDuring}
+                        teamData={redTeam}
+                        alignItems="flex-end"
+                        color={colors.redTeamColor}
+                    />
+                    <S.IconBox>{isEnd ? ':' : 'VS'}</S.IconBox>
+                    <Team
+                        isEnd={scheduleData.isEnd}
+                        isDuring={isDuring}
+                        alignItems="flex-start"
+                        teamData={blueTeam}
+                        color={colors.blueTeamColor}
+                    />
+                </S.AllBox>
+                {isbutton ? (
+                    <S.ButtonBox>
+                        <SubmitButton />
+                    </S.ButtonBox>
+                ) : (
+                    <S.ButtonBox />
+                )}
             </S.Content>
         </>
     );

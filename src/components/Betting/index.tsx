@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SubmitBox, BettingBar, MyPointBox } from '@common';
+import { SubmitButton, BettingBar, MyPointBox } from '@common';
 
 import * as S from './styled';
 
@@ -21,7 +21,7 @@ export const Betting: React.FC = () => {
                     <BettingBar />
                 </S.BettingContainer>
                 <S.SubmitContainer>
-                    <SubmitBox />
+                    <SubmitButton />
                 </S.SubmitContainer>
             </S.BettingSectionContainer>
         </section>
