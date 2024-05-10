@@ -34,7 +34,6 @@ export const BettingBar: React.FC = () => {
                         style={{
                             color: 'red',
                             justifyContent: 'flex-start',
-                            paddingLeft: '10px',
                         }}
                     >
                         사용 가능한 포인트가 부족합니다.
@@ -46,8 +45,9 @@ export const BettingBar: React.FC = () => {
                         onClick={() => handleAmountSelection(percentage, index)}
                         style={{
                             color: selectedBoxIndex === index ? 'rgba(0, 0, 0, 1)' : 'rgba(0, 0, 0, 0.5)',
-                            justifyContent: 'right',
+                            justifyContent: 'flex-end;',
                             flexDirection: 'row',
+                            display: isInputValueBig ? 'none' : 'block',
                         }}
                     >
                         {`${percentage}%`}

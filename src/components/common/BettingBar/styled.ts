@@ -39,6 +39,7 @@ export const BettingAmountContainer = styled.div`
 `;
 
 export const BettingAmountBox = styled.div`
+    display: flex;
     font-size: 15px;
     font-weight: 700;
 `;
