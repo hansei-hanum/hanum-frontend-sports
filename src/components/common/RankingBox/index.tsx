@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './styled';
-import pointIcon from '../../assets/icons/point.png';
+import { pointIcon } from '@assets';
 
 export interface RankingBoxProps {
     rank: number;

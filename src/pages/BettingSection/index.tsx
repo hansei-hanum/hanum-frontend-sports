@@ -1,6 +1,6 @@
 import React from 'react';
-import { Header } from '../../common/Header';
-import { Betting } from '../../components/Betting';
+import { Header } from '@common';
+import { Betting } from '@components';
 
 export const BettingSection: React.FC = () => {
     return (

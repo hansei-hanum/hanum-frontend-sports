@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { colors } from '../../styles';
+import { colors } from '@styles';
 
 export const RankSectionContainer = styled.section`
     height: 100vh;

@@ -6,14 +6,14 @@ export const detail = {
             total_point: 1321,
             total_people: 32131,
             allocation: 50,
-            percentage: 50,
+            percentage: 30,
         },
         team_b: {
             team_id: '보안과 2학년 2반',
             total_point: 1237621,
             total_people: 32131,
             allocation: 50,
-            percentage: 50,
+            percentage: 70,
         },
     },
 };

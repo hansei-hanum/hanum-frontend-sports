@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import * as S from './styled';
-import { colors } from '../../styles';
-import { detail } from '../../constants/detail';
+import { colors } from '@styles';
+import { detail } from '@constants';
 
 const formatNumber = (value: number): string => {
     if (value >= 1000000) {
@@ -40,15 +40,21 @@ export const PredictBox: React.FC = () => {
                     }}
                 >
                     <S.DeptBox isLeft={index === 0}>{team.team_id}</S.DeptBox>
-                    <S.RatioBox isLeft={index === 0}>
-                        <S.RatingBox color={index === 0 ? colors.redTeamColor : colors.blueTeamColor}>
+                    <S.PercentageCont isLeft={index === 0}>
+                        <S.PercentageBox color={index === 0 ? colors.redTeamColor : colors.blueTeamColor}>
                             {index === 0 ? team.percentage : team.percentage}%
-                        </S.RatingBox>
-                        <S.RatingBar backgroundColor={index === 0 ? colors.redTeamColor : colors.blueTeamColor} />
-                    </S.RatioBox>
+                        </S.PercentageBox>
+                        <S.PercentageBar
+                            backgroundColor={index === 0 ? colors.redTeamColor : colors.blueTeamColor}
+                            percentage={team.percentage}
+                        />
+                    </S.PercentageCont>
 
                     <S.EtcBox>
-                        <p>🎉{index === 0 ? formatNumber(teamA.total_point) : formatNumber(teamB.total_point)}</p>
+                        <p>
+                            🎉
+                            {index === 0 ? formatNumber(teamA.total_point) : formatNumber(teamB.total_point)}
+                        </p>
                         <p>⛷️{index === 0 ? teamA.total_people : teamB.total_people}</p>
                         <p>😢1:{index === 0 ? teamA.allocation : teamB.allocation}</p>
                     </S.EtcBox>

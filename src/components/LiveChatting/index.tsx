@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import { ChattingBox } from '../../common/ChattingBox';
-import { ChatBox } from '../../common/ChatBox';
-import { GameSchedule } from '../../components/common/gameSchedule';
-import { MatchList } from '../../constants';
+import { ChattingBox } from '@common';
+import { ChatBox } from '@common';
 
 import * as S from './styled';
 

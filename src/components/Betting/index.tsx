@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SubmitBox, BettingBar } from '../../common';
+import { SubmitBox, BettingBar } from '@common';
 
 import * as S from './styled';
 
