@@ -21,13 +21,8 @@ export const MyRankBar: React.FC<RankBarProps> = ({ rank, name, point }) => {
       </S.RankBarLeft>
       <S.RankBarRight>
         <S.MyPoint>{point.toLocaleString()}</S.MyPoint>
-        <S.RankBarIcon />
-        <S.RankBarIcon>
-          <img width={25} src={pointIcon} alt="" />
-        </S.RankBarIcon>
-        <S.RankBarIcon>
-          <IoIosArrowForward size={20} color={colors.placeHolder} />
-        </S.RankBarIcon>
+        <img width={20} src={pointIcon} alt="" />
+        <IoIosArrowForward size={20} color={colors.placeHolder} />
       </S.RankBarRight>
     </S.MyRankContainer>
   );

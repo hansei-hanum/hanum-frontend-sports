@@ -46,6 +46,26 @@ export const MatchList = {
       {
         blueTeam: {
           department: '보안과',
+          class: '1학년 1반',
+          ratio: 48,
+          score: 2,
+        },
+        redTeam: {
+          department: '보안과',
+          class: '2학년 1반',
+          ratio: 52,
+          score: 3,
+        },
+        id: 2,
+        gameType: '🏐피구',
+        date: '5월 14일 10:00',
+        isDuring: false,
+        isEnd: false,
+        winner: 2,
+      },
+      {
+        blueTeam: {
+          department: '보안과',
           class: '2학년 1반',
           ratio: 48,
           score: 2,

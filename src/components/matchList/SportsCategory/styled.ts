@@ -9,13 +9,11 @@ interface CategoryItemProps {
 
 export const CategoryContainer = styled.div`
   width: 100%;
-  height: 35px;
   display: flex;
   font-size: 15px;
   font-weight: bold;
   gap: 10px;
   align-items: center;
-  margin-top: 20px;
 `;
 
 export const CategoryItem = styled.div<CategoryItemProps>`

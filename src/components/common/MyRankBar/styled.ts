@@ -4,15 +4,13 @@ import { colors } from 'src/styles';
 
 export const MyRankContainer = styled.div`
   width: 100%;
-  height: 35px;
   border-radius: 50px;
   background-color: #f9f9f9;
-  margin-top: 15px;
   font-size: 17px;
   display: flex;
   justify-content: space-between;
   font-weight: bold;
-  padding: 0 20px;
+  padding: 8px 10px 8px 15px;
 `;
 
 export const RankBarLeft = styled.div`

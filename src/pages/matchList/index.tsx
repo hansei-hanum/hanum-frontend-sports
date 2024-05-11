@@ -6,6 +6,8 @@ import { selectedSportsAtom } from 'src/atom';
 import { GameSchedule, MyRankBar, SportsCategory } from 'src/components';
 import { Balance, LeaderBoard, MatchList } from 'src/constants';
 
+import * as S from './styled';
+
 export const MatchListPage: React.FC = () => {
   const selectedItem = useRecoilValue(selectedSportsAtom);
   const selectedSports: string = selectedItem.selected ?? '';
@@ -28,18 +30,19 @@ export const MatchListPage: React.FC = () => {
     LeaderBoard.data.leaderboard.details.findIndex((item) => item.userName === Balance.data.user_name) + 1;
 
   return (
-    <>
-      {/* <Header text="교내스포츠한마당" hasIcon={true} /> */}
+    <S.MatchListContainer>
       <SportsCategory />
       <MyRankBar rank={userRank} name={Balance.data.user_name} point={Balance.data.balance} />
-      {scheduleData.map((item, index) => (
-        <GameSchedule
-          isbutton
-          key={index}
-          scheduleData={item}
-          description={item.isDuring === true ? '' : '경기가 종료되었습니다.'}
-        />
-      ))}
-    </>
+      <S.GameListContainer>
+        {scheduleData.map((item, index) => (
+          <GameSchedule
+            isbutton={false}
+            key={index}
+            scheduleData={item}
+            description={item.isDuring === true ? '' : '경기가 종료되었습니다.'}
+          />
+        ))}
+      </S.GameListContainer>
+    </S.MatchListContainer>
   );
 };

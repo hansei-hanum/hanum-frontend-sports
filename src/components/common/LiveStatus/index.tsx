@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { Text } from '../Text';
-
 import * as S from './styled';
 
 interface MatchStatusProps {

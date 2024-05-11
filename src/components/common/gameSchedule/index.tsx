@@ -90,10 +90,6 @@ export const GameSchedule: React.FC<ScheduleProps & StatusDescription & isButton
       ) : (
         <S.Schedule isEnd={scheduleData.isEnd}>{renderScheduleContent()}</S.Schedule>
       )}
-      {/* 
-      <S.Schedule isEnd={scheduleData.isEnd} isDuring={isDuring}>
-          {renderScheduleContent()}
-        </S.Schedule> */}
     </S.SheduleContainer>
   );
 };
