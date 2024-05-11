@@ -12,3 +12,5 @@ export * from './SubmitButton';
 export * from './Team';
 export * from './Text';
 export * from './gameSchedule';
+export * from './MyPointBox';
+export * from './PredictLogBox';

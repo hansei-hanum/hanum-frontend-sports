@@ -25,3 +25,7 @@ export const ChattingContainer = styled.div`
     touch-action: pan-y;
     -webkit-overflow-scrolling: touch;
 `;
+
+export const WriteChatCont = styled.div`
+    margin-bottom: -40px;
+`;

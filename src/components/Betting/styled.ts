@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const BettingSectionContainer = styled.section`
-    height: 92vh;
+    height: 95vh;
     width: 100%;
     background-blend-mode: multiply;
     background-size: cover;
@@ -22,8 +22,8 @@ export const BettingContainer = styled.div`
 
 export const ExplaneBox = styled.div`
     gap: 10px;
-    font-size: 30px;
-    font-weight: 700;
+    font-size: 25px;
+    font-weight: bold;
 `;
 
 export const SituationBox = styled.div`
@@ -45,3 +45,5 @@ export const ColorBox = styled.div`
     height: 20px;
     border-radius: 100px;
 `;
+
+export const SubmitContainer = styled.div``;

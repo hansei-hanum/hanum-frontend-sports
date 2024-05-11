@@ -1,9 +1,13 @@
 import React from 'react';
 import * as S from './styled';
 
-export const SubmitBox: React.FC = () => {
+interface isChangeColor {
+    isChangeColor: boolean;
+}
+
+export const SubmitButton: React.FC<isChangeColor> = ({ isChangeColor }) => {
     return (
-        <S.SubmitContainer>
+        <S.SubmitContainer isChangeColor={isChangeColor}>
             <S.SubmitBox>예측하기</S.SubmitBox>
         </S.SubmitContainer>
     );

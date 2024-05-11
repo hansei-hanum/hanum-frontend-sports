@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SubmitBox, PredictBox } from '@common';
+import { SubmitButton, PredictBox } from '@common';
 
 import * as S from './styled';
 
@@ -28,7 +28,7 @@ export const Predict: React.FC = () => {
                     <S.PredictContainer>
                         <PredictBox />
                     </S.PredictContainer>
-                    <SubmitBox />
+                    <SubmitButton isChangeColor={false} />
                 </div>
             </S.PredictSectionContainer>
         </section>

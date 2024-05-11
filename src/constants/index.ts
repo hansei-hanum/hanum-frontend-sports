@@ -3,7 +3,7 @@ export * from './scheduleData';
 export * from './pointLog';
 export * from './balance';
 export * from './bet';
-export * from './calculate';
+export * from './summary';
 export * from './detail';
 export * from './leaderBoard';
 export * from './result';

@@ -36,7 +36,7 @@ export const TeamBox = styled.div<TeamBoxProps>`
     flex-direction: column;
     gap: 10px;
     border: 3px solid #e7e7e7;
-    border-radius: 20px;
+    border-radius: 10px;
     padding: 10px 5px;
 `;
 
@@ -70,7 +70,16 @@ export const PercentageBar = styled.div<PercentageBarProps>`
     width: ${(props) => props.percentage}%;
     height: 13px;
 `;
-export const EtcBox = styled.p`
+
+export const EtcBox = styled.div<TeamBoxProps>`
+    display: flex;
     font-size: 20px;
     font-weight: bold;
+    flex-direction: column;
+    align-items: ${(props) => (props.isLeft ? 'flex-end' : 'flex-start')};
+`;
+
+export const Etc = styled.div<TeamBoxProps>`
+    display: flex;
+    flex-direction: ${(props) => (props.isLeft ? 'row' : 'row-reverse')};
 `;

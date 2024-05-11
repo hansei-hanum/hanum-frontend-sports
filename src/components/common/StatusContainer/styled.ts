@@ -11,8 +11,8 @@ interface ContentProps {
 }
 
 export const StatusContainer = styled.div<StatusContainerProps>`
+    min-height: 175px;
     width: 100%;
-    height: 175px;
     border-radius: 20px;
     box-shadow: 0px 4px 40px 6px rgba(0, 0, 0, 0.1);
     padding: 0 15px;
@@ -71,6 +71,7 @@ export const Content = styled.div<ContentProps>`
     align-items: center;
     gap: 10px;
     margin-top: 10px;
+
 `;
 
 export const IconBox = styled.span`

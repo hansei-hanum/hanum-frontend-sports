@@ -14,6 +14,7 @@ export const SheduleContainer = styled.div`
     flex-direction: column;
     gap: 20px;
     margin-top: 20px;
+    justify-content: center;
 `;
 
 export const Schedule = styled.div<SchedulePropsIsEnd>`
@@ -50,10 +51,22 @@ export const Content = styled.div<ContentProps>`
     align-items: center;
     gap: ${(props) => (props.isEnd ? '20' : '15')}px;
     margin-top: 10px;
+    flex-direction: column;
 `;
 
 export const IconBox = styled.span`
     font-size: 25px;
     color: ${colors.uiBrightGray};
     font-weight: bold;
+`;
+
+export const AllBox = styled.div`
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 15px;
+`;
+
+export const ButtonBox = styled.div`
+    width: 100%;
 `;
