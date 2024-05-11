@@ -5,24 +5,25 @@ import * as S from './styled';
 import { Bet, Summary, MatchList } from '@constants';
 
 export const PredictLogBox: React.FC = () => {
-    const myBetTeamId = Bet.data.gameId;
+    const myBetGameId = Bet.data.gameId;
     const gameId = Summary.data.gameId;
-    const myBet = Bet.data.teamId;
+
+    const myBetTeam = Bet.data.teamId;
     const winTeam = Summary.data.winnerTeamId;
+
     const match = MatchList.data.games[0].gameType;
 
     const isSameGame = (myBetTeamId: number, gameId: number) => {
-        return myBetTeamId == gameId ? true : false;
+        const isSameGame = myBetTeamId == gameId ? true : false;
+        return isSameGame ? (whoWin(myBetTeam, winTeam) ? '예측 성공!' : '예측 실패!') : '경기가 다릅니다';
     };
 
-    const whoWin = (myBet: number, winTeam: number, isSameGame: boolean) => {
-        return isSameGame == true ? (myBet == winTeam ? true : false) : 'NoSame';
+    const whoWin = (myBet: number, winTeam: number) => {
+        return myBet == winTeam ? true : false;
     };
     return (
         <S.PredictCont>
-            <S.WinLoseBox>
-                {whoWin(myBet, winTeam, isSameGame(myBetTeamId, gameId)) ? '예측 성공!' : '예측 실패!'}
-            </S.WinLoseBox>
+            <S.WinLoseBox>{isSameGame(myBetGameId, gameId)}</S.WinLoseBox>
             <S.MatchTypeBox>{match}</S.MatchTypeBox>
             <S.PredictBox></S.PredictBox>
         </S.PredictCont>
