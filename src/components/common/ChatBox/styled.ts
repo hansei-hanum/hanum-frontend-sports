@@ -1,4 +1,6 @@
 import styled from '@emotion/styled';
+import { colors } from '@styles';
+import { ChatProps } from '.';
 
 export const ChatContainer = styled.div``;
 
@@ -9,16 +11,16 @@ export const UserChatCont = styled.div`
     gap: 10px;
 `;
 
-export const UserNameBox = styled.div`
+export const UserNameBox = styled.div<Pick<ChatProps, 'betTeam'>>`
     font-size: 20px;
     font-weight: 700;
-    color: #48a7ff;
+    color: ${(props) => (props.betTeam == 1 ? colors.blueTeamColor : colors.redTeamColor)};
 `;
 
 export const UserChatBox = styled.div`
-    white-space: pre-line; /* 줄 바꿈을 유지하되, 연속된 공백은 하나로 처리 */
-    overflow-wrap: break-word; /* 긴 단어를 강제로 줄 바꿈 */
-    width: 70vw; /* 텍스트의 최대 너비 제한을 위해 임의로 지정 */
+    white-space: pre-line;
+    overflow-wrap: break-word;
+    width: 70vw;
     font-size: 15px;
 `;
 
