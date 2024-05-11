@@ -10,24 +10,26 @@ interface BettingBarProps {
 export const BettingBar: React.FC<BettingBarProps> = ({ setIsInputValueBig, setIsHundred }) => {
     const myPoint = Balance.data.balance;
 
-    const [inputValue, setInputValue] = useState('');
-    const [selectedBoxIndex, setSelectedBoxIndex] = useState(-1);
+    const [inputValue, setInputValue] = useState('0');
+    const [selectedBoxIndex, setSelectedBoxIndex] = useState<number | null>(null);
 
     const handleAmountSelection = (percentage: number, index: number) => {
         if (selectedBoxIndex === index) {
-            setInputValue('');
-            setSelectedBoxIndex(-1);
+            setInputValue('0');
+            setSelectedBoxIndex(null);
         } else {
-            const calculatedAmount = (myPoint * percentage) / 100;
-            setInputValue(calculatedAmount.toLocaleString());
+            const calculatedAmount = Math.floor((myPoint * percentage) / 100);
+            const roundedAmount = Math.round(calculatedAmount / 100) * 100;
+            setInputValue(roundedAmount.toLocaleString());
             setSelectedBoxIndex(index);
         }
     };
 
-    const isInputValueBig = Number(inputValue) > myPoint;
+    const numericValue = parseInt(inputValue.replace(/[^0-9]/g, ''), 10);
+    const isInputValueBig = numericValue > myPoint;
     setIsInputValueBig(isInputValueBig);
 
-    const isHundred = Number(inputValue) % 100 !== 0;
+    const isHundred = numericValue % 100 !== 0;
     setIsHundred(isHundred);
 
     return (
@@ -52,6 +54,14 @@ export const BettingBar: React.FC<BettingBarProps> = ({ setIsInputValueBig, setI
                     >
                         사용 가능한 포인트가 부족합니다.
                     </S.BettingAmountBox>
+                ) : isHundred ? (
+                    <S.BettingAmountBox
+                        style={{
+                            color: 'red',
+                        }}
+                    >
+                        100포인트 단위로만 포인트 사용 가능합니다.
+                    </S.BettingAmountBox>
                 ) : (
                     [25, 50, 75, 100].map((percentage, index) => (
                         <S.BettingAmountBox
@@ -70,13 +80,3 @@ export const BettingBar: React.FC<BettingBarProps> = ({ setIsInputValueBig, setI
         </S.BettingContainer>
     );
 };
-
-// : isHundred ? (
-//     <S.BettingAmountBox
-//         style={{
-//             color: 'red',
-//         }}
-//     >
-//         100포인트 단위로만 포인트 사용 가능합니다.
-//     </S.BettingAmountBox>
-// )
