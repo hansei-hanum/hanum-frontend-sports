@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 interface TeamBoxProps {
   color: string;
@@ -53,8 +53,8 @@ export const Department = styled.p`
 `;
 
 export const Class = styled.p<ClassProps>`
-  font-size: ${(props) => props.fontSize + "px"};
-  text-align: ${(props) => props.textAlign}
+  font-size: ${(props) => props.fontSize + 'px'};
+  text-align: ${(props) => props.textAlign};
 `;
 
 export const Ratio = styled.p`

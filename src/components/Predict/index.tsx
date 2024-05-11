@@ -1,36 +1,36 @@
 import React from 'react';
 
-import { SubmitButton, PredictBox } from '@common';
+import { SubmitButton, PredictBox } from 'src/components';
 
 import * as S from './styled';
 
 export const Predict: React.FC = () => {
-    return (
-        <section>
-            <S.PredictSectionContainer>
-                <S.SituationBox>
-                    <S.ColorBox />
-                    예측 진행중
-                </S.SituationBox>
-                <S.ExplainBox>
-                    이번 경기 결과를 <br />
-                    예측해주세요!
-                </S.ExplainBox>
-                <div
-                    style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        height: '100%',
-                        justifyContent: 'space-between',
-                        paddingTop: '70px',
-                    }}
-                >
-                    <S.PredictContainer>
-                        <PredictBox />
-                    </S.PredictContainer>
-                    <SubmitButton isChangeColor={false} />
-                </div>
-            </S.PredictSectionContainer>
-        </section>
-    );
+  return (
+    <section>
+      <S.PredictSectionContainer>
+        <S.SituationBox>
+          <S.ColorBox />
+          예측 진행중
+        </S.SituationBox>
+        <S.ExplainBox>
+          이번 경기 결과를 <br />
+          예측해주세요!
+        </S.ExplainBox>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            height: '100%',
+            justifyContent: 'space-between',
+            paddingTop: '70px',
+          }}
+        >
+          <S.PredictContainer>
+            <PredictBox />
+          </S.PredictContainer>
+          <SubmitButton isChangeColor={false} />
+        </div>
+      </S.PredictSectionContainer>
+    </section>
+  );
 };

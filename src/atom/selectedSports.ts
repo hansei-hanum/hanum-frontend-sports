@@ -1,12 +1,12 @@
-import { atom } from "recoil";
+import { atom } from 'recoil';
 
 export interface selectedSportsAtomProps {
   selected: string | null;
 }
 
 export const selectedSportsAtom = atom<selectedSportsAtomProps>({
-  key: "selectedSports",
+  key: 'selectedSports',
   default: {
-    selected: "전체",
+    selected: '전체',
   },
 });

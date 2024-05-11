@@ -1,5 +1,6 @@
-import React from "react";
-import * as S from "./styled";
+import React from 'react';
+
+import * as S from './styled';
 
 interface TeamProps {
   teamData: {
@@ -15,23 +16,12 @@ interface TeamProps {
   textAlign: string;
 }
 
-export const Team: React.FC<TeamProps> = ({
-  teamData,
-  color,
-  alignItems,
-  textAlign,
-  isDuring,
-  isEnd,
-}) => {
+export const Team: React.FC<TeamProps> = ({ teamData, color, alignItems, textAlign, isDuring, isEnd }) => {
   return (
     <S.TeamBox color={color} alignItems={alignItems}>
       {isDuring ? (
         <>
-          <S.Class
-            textAlign={textAlign}
-            fontSize={13}
-            style={{ lineHeight: 1.2 }}
-          >
+          <S.Class textAlign={textAlign} fontSize={13} style={{ lineHeight: 1.2 }}>
             {teamData.department} <br /> {teamData.class}
           </S.Class>
           <S.Ratio>{teamData.ratio}%</S.Ratio>
