@@ -1,5 +1,20 @@
 import React from 'react';
 
-import { PredictLogs } from 'src/components';
+import { PredictLogBox } from 'src/components';
+import { MatchList } from 'src/constants';
 
-export const PredictLogsSection: React.FC = () => <PredictLogs />;
+import * as S from './styled';
+
+export const PredictLogsSection: React.FC = () => {
+  return (
+    <S.PredictLogsContainer>
+      {MatchList.data.games
+        .filter((item) => item.isEnd)
+        .map((item, index) => (
+          <>
+            <PredictLogBox isbutton={false} key={index} scheduleData={item} />
+          </>
+        ))}
+    </S.PredictLogsContainer>
+  );
+};

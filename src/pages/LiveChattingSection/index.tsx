@@ -8,7 +8,7 @@ import * as S from './styled';
 
 export interface LiveChattingCommentsProps {
   content: string;
-  predictionTeam: string;
+  predictionTeam?: string;
   user: {
     name: string;
   };

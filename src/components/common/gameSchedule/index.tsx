@@ -35,7 +35,7 @@ export interface isButton {
   isbutton: boolean;
 }
 
-interface StatusDescription {
+export interface StatusDescription {
   description: string;
 }
 

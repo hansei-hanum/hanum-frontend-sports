@@ -1,7 +1,5 @@
 import styled from '@emotion/styled';
 
-import { colors } from 'src/styles';
-
 export const ChatContainer = styled.div``;
 
 export const ProfileBox = styled.div``;
@@ -11,10 +9,10 @@ export const UserChatCont = styled.div`
   gap: 10px;
 `;
 
-export const UserNameBox = styled.div<{ isBlueTeam: boolean }>`
+export const UserNameBox = styled.div<{ teamColors: string }>`
   font-size: 20px;
   font-weight: 700;
-  color: ${({ isBlueTeam }) => (isBlueTeam ? colors.blueTeamColor : colors.redTeamColor)};
+  color: ${({ teamColors }) => teamColors};
 `;
 
 export const UserChatBox = styled.div`

@@ -26,9 +26,6 @@ export const MatchListPage: React.FC = () => {
     scheduleData = scheduleData.filter((item) => !item.isEnd);
   }
 
-  const userRank =
-    LeaderBoard.data.leaderboard.details.findIndex((item) => item.userName === Balance.data.user_name) + 1;
-
   return (
     <S.MatchListContainer>
       <SportsCategory />

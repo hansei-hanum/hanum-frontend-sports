@@ -20,6 +20,7 @@ export const StatusContainer = styled.div<StatusContainerProps>`
   padding: 0 15px;
   display: flex;
   flex-direction: column;
+  row-gap: 10px;
   align-items: center;
   border: 4px solid transparent;
   background: ${(props) =>
