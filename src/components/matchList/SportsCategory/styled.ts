@@ -25,4 +25,5 @@ export const CategoryItem = styled.div<CategoryItemProps>`
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: background-color 200ms ease-out;
 `;

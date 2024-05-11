@@ -1,24 +1,52 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import { ChattingBox, GameSchedule, ChatBox } from 'src/components';
 import { MatchList } from 'src/constants';
+import { socket } from 'src/socket';
 
 import * as S from './styled';
 
+export interface LiveChattingCommentsProps {
+  channel: string;
+  content: string;
+  predictionTeam: string;
+  user: {
+    name: string;
+  };
+}
+
 export const LiveChatting: React.FC = () => {
-  const [comments, setComments] = useState<string[]>([]);
+  const chatContainerRef = useRef<HTMLDivElement>(null);
+
+  const [comments, setComments] = useState<LiveChattingCommentsProps[]>([]);
+
+  useEffect(() => {
+    socket.on('connect', () => {
+      console.log('socket connected');
+    });
+
+    socket.on('chat.message', (data) => {
+      setComments((prevComments) => [...prevComments, data]);
+      chatContainerRef.current?.scrollTo({ top: chatContainerRef.current.scrollHeight, behavior: 'smooth' });
+    });
+
+    return () => {
+      socket.off('connect');
+      socket.off('chat.message');
+    };
+  }, []);
 
   const handleCommentSubmit = (newComment: string) => {
-    setComments([...comments, newComment]);
+    // setComments([...comments, newComment]);
   };
 
   return (
     <section>
       <S.LiveChatSectionContainer>
         <GameSchedule isbutton={true} description="현재 예측이 진행 중입니다" scheduleData={MatchList.data.games[0]} />
-        <S.ChattingContainer>
-          {comments.map((comment, index) => (
-            <ChatBox key={index} name="권기현" comment={comment} />
+        <S.ChattingContainer ref={chatContainerRef}>
+          {comments.map(({ user, content, channel, predictionTeam }, index) => (
+            <ChatBox key={index} user={user} content={content} predictionTeam={predictionTeam} />
           ))}
         </S.ChattingContainer>
         <S.WriteChatCont>

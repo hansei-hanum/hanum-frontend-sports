@@ -1,18 +1,13 @@
 import React from 'react';
 
-import { Bet } from 'src/constants';
 import { profileIcon } from 'src/assets';
+import { LiveChattingCommentsProps } from 'src/components/LiveChatting';
 
 import * as S from './styled';
 
-export interface ChatProps {
-  betTeam: number;
-  name: string;
-  comment: string;
-}
+export const ChatBox: React.FC<Omit<LiveChattingCommentsProps, 'channel'>> = ({ user, content, predictionTeam }) => {
+  const isBlueTeam = predictionTeam === 'TeamB' ? true : false;
 
-export const ChatBox: React.FC<Omit<ChatProps, 'betTeam'>> = ({ name, comment }) => {
-  const betTeam = Bet.data.teamId;
   return (
     <S.ChatContainer>
       <S.UserChatCont>
@@ -20,8 +15,8 @@ export const ChatBox: React.FC<Omit<ChatProps, 'betTeam'>> = ({ name, comment })
           <img width={40} src={profileIcon} alt="" />
         </S.ProfileBox>
         <S.UserBox>
-          <S.UserNameBox betTeam={betTeam}>{name}</S.UserNameBox>
-          <S.UserChatBox>{comment}</S.UserChatBox>
+          <S.UserNameBox isBlueTeam={isBlueTeam}>{user.name}</S.UserNameBox>
+          <S.UserChatBox>{content}</S.UserChatBox>
         </S.UserBox>
       </S.UserChatCont>
     </S.ChatContainer>
