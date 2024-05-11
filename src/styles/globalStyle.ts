@@ -13,10 +13,17 @@ export const globalStyle = (bgColor: string) => css`
 
   html,
   body,
-  #__next {
+  #root {
     scrollbar-width: none;
     -ms-overflow-style: none;
     height: 100%;
+  }
+
+  #root {
+    font-size: 1.6rem;
+    font-weight: 400;
+    font-family: 'Spoqa Han Sans Neo', sans-serif;
+    letter-spacing: -0.04em;
   }
 
   html {
@@ -31,28 +38,6 @@ export const globalStyle = (bgColor: string) => css`
 
   ::-webkit-scrollbar {
     display: none;
-  }
-
-  #__next {
-    font-size: 1.6rem;
-    font-weight: 400;
-    font-family:
-      Pretendard Variable,
-      Pretendard,
-      -apple-system,
-      BlinkMacSystemFont,
-      system-ui,
-      Roboto,
-      'Helvetica Neue',
-      'Segoe UI',
-      'Apple SD Gothic Neo',
-      'Noto Sans KR',
-      'Malgun Gothic',
-      'Apple Color Emoji',
-      'Segoe UI Emoji',
-      'Segoe UI Symbol',
-      sans-serif;
-    letter-spacing: -0.04em;
   }
 
   br.mobile-only {

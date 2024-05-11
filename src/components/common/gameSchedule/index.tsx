@@ -74,7 +74,7 @@ export const GameSchedule: React.FC<ScheduleProps & StatusDescription & isButton
         </S.AllBox>
         {isbutton ? (
           <S.ButtonBox>
-            <SubmitButton />
+            <SubmitButton isChangeColor={false} />
           </S.ButtonBox>
         ) : (
           <S.ButtonBox />

@@ -16,7 +16,7 @@ export const MyPointBox: React.FC = () => {
     <S.MyPointContainer>
       <S.MyPointBox>내 포인트: {formatNumber(myPoint)}</S.MyPointBox>
       <S.MyPointBox>
-        <img src={pointIcon} width={20} />
+        <img src={pointIcon} width={20} alt="" />
       </S.MyPointBox>
     </S.MyPointContainer>
   );

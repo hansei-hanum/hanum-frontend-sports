@@ -55,15 +55,15 @@ export const PredictBox: React.FC = () => {
 
           <S.EtcBox isLeft={index === 0}>
             <S.Etc isLeft={index === 0}>
-              <img src={pointIcon} width={20} />
+              <img src={pointIcon} width={20} alt="" />
               <p>총 {index === 0 ? formatNumber(teamA.total_point) : formatNumber(teamB.total_point)}</p>
             </S.Etc>
             <S.Etc isLeft={index === 0}>
-              <img src={peoplesIcon} width={20} />
+              <img src={peoplesIcon} width={20} alt="" />
               <p>{index === 0 ? teamA.total_people : teamB.total_people}명 참여</p>
             </S.Etc>
             <S.Etc isLeft={index === 0}>
-              <img src={thropyIcon} width={20} />
+              <img src={thropyIcon} width={20} alt="" />
               <p>{index === 0 ? teamA.allocation : teamB.allocation}배</p>
             </S.Etc>
           </S.EtcBox>

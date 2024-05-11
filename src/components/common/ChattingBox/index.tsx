@@ -24,7 +24,7 @@ export const ChattingBox: React.FC<ChattingBoxProps> = ({ onCommentSubmit }) => 
     <S.ChatContainer>
       <S.WriteChatContainer>
         <S.WriteBox type="text" placeholder="메세지 보내기" value={inputValue} onChange={handleInputChange} />
-        <img src={sendIcon} width={30} onClick={handleSendClick} />
+        <img src={sendIcon} width={30} onClick={handleSendClick} alt="" />
       </S.WriteChatContainer>
     </S.ChatContainer>
   );

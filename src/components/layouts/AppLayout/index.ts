@@ -5,5 +5,6 @@ export const Container = styled.div`
   height: 100vh;
   max-width: 1140px;
   margin: 0 auto;
-  padding: 35px 20px 0 20px;
+  padding: 15px 20px 0 20px;
+  background-color: #fefefe;
 `;

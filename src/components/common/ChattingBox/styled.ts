@@ -6,12 +6,13 @@ export const ChatContainer = styled.div`
   border-radius: 15px;
   background-color: #ffffff;
   margin-top: 15px;
+  margin-bottom: 20px;
   font-size: 17px;
   display: flex;
   justify-content: space-between;
   font-weight: bold;
   padding: 0 10px;
-  box-shadow: 0px 4px 40px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 10px 4px rgba(0, 0, 0, 0.1);
 `;
 
 export const WriteChatContainer = styled.div`

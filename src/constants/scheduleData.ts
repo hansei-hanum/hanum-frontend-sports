@@ -16,7 +16,7 @@ export const MatchList = {
           score: 2,
         },
         id: 1,
-        gameType: '🏀농구',
+        gameType: '🏀 농구',
         date: '5월 14일 9:00',
         isDuring: true,
         isEnd: false,

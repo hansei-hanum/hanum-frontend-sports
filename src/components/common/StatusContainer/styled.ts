@@ -16,12 +16,12 @@ export const StatusContainer = styled.div<StatusContainerProps>`
   min-height: 175px;
   width: 100%;
   border-radius: 20px;
-  box-shadow: 0px 4px 40px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 10px 6px rgba(0, 0, 0, 0.1);
   padding: 0 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 5px solid transparent;
+  border: 4px solid transparent;
   background: ${(props) =>
     props.isEnd
       ? ''
