@@ -8,7 +8,7 @@ import { RankingList } from '@pages';
 import { PointPage } from '@pages';
 import { BettingSection } from '@pages';
 import { LiveChattingSection } from '@pages';
-import { PredictSection } from '@pages';
+import { PredictSection, PredictLogsSection } from '@pages';
 
 function App() {
     return (
@@ -22,6 +22,7 @@ function App() {
                     <Route path="/betting" element={<BettingSection />} />
                     <Route path="/LiveChatting" element={<LiveChattingSection />} />
                     <Route path="/Predict" element={<PredictSection />} />
+                    <Route path="/PredictLogs" element={<PredictLogsSection />} />
                 </Routes>
             </BrowserRouter>
         </Container>
