@@ -5,7 +5,7 @@ const baseBoxStyles = `
 `;
 
 export const PredictSectionContainer = styled.section`
-    height: 92vh;
+    height: 95vh;
     width: 100%;
     background-blend-mode: multiply;
     background-size: cover;

@@ -28,7 +28,7 @@ export const Predict: React.FC = () => {
                     <S.PredictContainer>
                         <PredictBox />
                     </S.PredictContainer>
-                    <SubmitButton />
+                    <SubmitButton isChangeColor={false} />
                 </div>
             </S.PredictSectionContainer>
         </section>
