@@ -1,5 +1,4 @@
 export * from './Betting';
-export * from './LiveChatting';
 export * from './Predict';
 export * from './RankList';
 export * from './matchList';

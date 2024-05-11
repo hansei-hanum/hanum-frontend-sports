@@ -3,7 +3,7 @@ import React from 'react';
 import { useRecoilValue } from 'recoil';
 
 import { selectedSportsAtom } from 'src/atom';
-import { GameSchedule, MyRankBar, SportsCategory } from 'src/components';
+import { GameSchedule, SportsCategory } from 'src/components';
 import { Balance, LeaderBoard, MatchList } from 'src/constants';
 
 import * as S from './styled';
@@ -32,7 +32,6 @@ export const MatchListPage: React.FC = () => {
   return (
     <S.MatchListContainer>
       <SportsCategory />
-      <MyRankBar rank={userRank} name={Balance.data.user_name} point={Balance.data.balance} />
       <S.GameListContainer>
         {scheduleData.map((item, index) => (
           <GameSchedule

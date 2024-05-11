@@ -14,7 +14,7 @@ const nameColors = ['#ffd600', '#DCDCDC', '#D48207', '#000000'];
 
 export const RankingBox = styled.div<Pick<RankingBoxProps, 'rank'>>`
   width: 100%;
-  height: 70px;
+
   border: 3px solid ${({ rank }) => borderColors[rank - 1] || '#FFFFFF'};
   border-radius: 15px;
   background-color: ${colors.Background};
@@ -23,8 +23,8 @@ export const RankingBox = styled.div<Pick<RankingBoxProps, 'rank'>>`
   display: flex;
   justify-content: space-between;
   font-weight: bold;
-  padding: 0 10px;
-  box-shadow: 0px 2px 8px 4px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  box-shadow: 0px 2px 8px 2px rgba(0, 0, 0, 0.1);
 `;
 
 export const Rank = styled.p<RankingBoxStyleProps>`
@@ -33,6 +33,7 @@ export const Rank = styled.p<RankingBoxStyleProps>`
 `;
 
 export const Name = styled.p<RankingBoxStyleProps>`
+  font-size: 18px;
   color: ${({ rank }) => nameColors[rank - 1] || '#000000'};
 `;
 
@@ -53,7 +54,7 @@ export const MyPoint = styled.p``;
 export const RankBarIcon = styled.span``;
 
 export const Dept = styled.p`
-  font-size: 10px;
+  font-size: 12px;
   color: gray;
   font-weight: 500;
 `;

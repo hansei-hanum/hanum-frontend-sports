@@ -1,11 +1,11 @@
 import React from 'react';
 
 import { profileIcon } from 'src/assets';
-import { LiveChattingCommentsProps } from 'src/components/LiveChatting';
+import { LiveChattingCommentsProps } from 'src/pages';
 
 import * as S from './styled';
 
-export const ChatBox: React.FC<Omit<LiveChattingCommentsProps, 'channel'>> = ({ user, content, predictionTeam }) => {
+export const ChatBox: React.FC<LiveChattingCommentsProps> = ({ user, content, predictionTeam }) => {
   const isBlueTeam = predictionTeam === 'TeamB' ? true : false;
 
   return (

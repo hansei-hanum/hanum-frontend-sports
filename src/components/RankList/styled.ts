@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 import { colors } from 'src/styles';
 
 export const RankSectionContainer = styled.section`
-  height: 100vh;
   width: 100%;
   background-blend-mode: multiply;
   background-size: cover;
@@ -14,4 +13,5 @@ export const RankSectionContainer = styled.section`
   align-items: center;
   justify-content: flex-start;
   row-gap: 0.6rem;
+  padding-bottom: 20px;
 `;

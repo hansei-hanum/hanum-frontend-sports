@@ -12,25 +12,3 @@ export const MyRankContainer = styled.div`
   font-weight: bold;
   padding: 8px 10px 8px 15px;
 `;
-
-export const RankBarLeft = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 5px;
-`;
-
-export const RankBarRight = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 2px;
-`;
-
-export const MyRank = styled.p`
-  color: ${colors.placeHolder};
-`;
-
-export const MyName = styled.p``;
-
-export const MyPoint = styled.p``;
-
-export const RankBarIcon = styled.span``;
