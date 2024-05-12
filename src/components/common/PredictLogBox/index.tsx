@@ -4,7 +4,7 @@ import { Bet, Summary, MatchList } from 'src/constants';
 import { colors } from 'src/styles';
 
 import { ScheduleProps, isButton } from '../gameSchedule';
-import { Team } from '../Team';
+import { SportGameType, Team } from '../Team';
 import { SubmitButton } from '../SubmitButton';
 
 import * as S from './styled';
@@ -14,7 +14,7 @@ export const PredictLogBox: React.FC<ScheduleProps & isButton> = ({
 
   isbutton,
 }) => {
-  const { gameType, redTeam, blueTeam, isDuring, isEnd } = scheduleData;
+  const { gameType, redTeam, blueTeam, isDuring } = scheduleData;
 
   const myBetGameId = Bet.data.gameId;
   const gameId = Summary.data.gameId;
@@ -23,7 +23,7 @@ export const PredictLogBox: React.FC<ScheduleProps & isButton> = ({
   const winTeam = Summary.data.winnerTeamId;
 
   const match = MatchList.data.games[0].gameType;
-  console.log(match);
+  console.log(gameType, match);
 
   const isSameGame = (myBetTeamId: number, gameId: number) => {
     const isSameGame = myBetTeamId == gameId ? true : false;
@@ -31,7 +31,7 @@ export const PredictLogBox: React.FC<ScheduleProps & isButton> = ({
   };
 
   const whoWin = (myBet: number, winTeam: number) => {
-    return myBet == winTeam ? true : false;
+    return myBet === winTeam ? true : false;
   };
 
   return (
@@ -41,7 +41,7 @@ export const PredictLogBox: React.FC<ScheduleProps & isButton> = ({
           <S.PredictLogEndText isSuccess={whoWin(myBetTeam, winTeam)}>
             {isSameGame(myBetGameId, gameId)}
           </S.PredictLogEndText>
-          <p>{match}</p>
+          <p>{gameType}</p>
         </S.ScheduleTop>
         <S.Content isEnd={scheduleData.isEnd}>
           <S.AllBox>
@@ -52,8 +52,10 @@ export const PredictLogBox: React.FC<ScheduleProps & isButton> = ({
               teamData={redTeam}
               alignItems="flex-end"
               color={colors.redTeamColor}
+              sportGameType={SportGameType.Basketball}
+              win={true}
             />
-            <S.IconBox>{isEnd ? ':' : 'VS'}</S.IconBox>
+            <S.IconBox>:</S.IconBox>
             <Team
               textAlign="left"
               isEnd={scheduleData.isEnd}
@@ -61,6 +63,8 @@ export const PredictLogBox: React.FC<ScheduleProps & isButton> = ({
               alignItems="flex-start"
               teamData={blueTeam}
               color={colors.blueTeamColor}
+              sportGameType={SportGameType.Basketball}
+              win={false}
             />
           </S.AllBox>
           {isbutton ? (

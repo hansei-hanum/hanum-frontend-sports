@@ -33,7 +33,7 @@ export const TeamBoxEndContent = styled.div<TeamBoxEndContentProps>`
   display: flex;
   flex-direction: column;
   align-items: ${(props) => props.alignItems};
-  gap: 5px;
+  row-gap: 10px;
 `;
 
 export const ClassBox = styled.div`
@@ -74,5 +74,16 @@ export const ScoreBox = styled.div`
 `;
 
 export const Score = styled.p`
-  font-size: 45px;
+  font-size: 34px;
+`;
+
+export const ScoreContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  align-items: flex-end;
+`;
+
+export const ScoreResult = styled.p`
+  font-weight: 600;
 `;

@@ -4,7 +4,7 @@ import { useRecoilValue } from 'recoil';
 
 import { selectedSportsAtom } from 'src/atom';
 import { GameSchedule, SportsCategory } from 'src/components';
-import { Balance, LeaderBoard, MatchList } from 'src/constants';
+import { MatchList } from 'src/constants';
 
 import * as S from './styled';
 

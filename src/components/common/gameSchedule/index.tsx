@@ -61,6 +61,7 @@ export const GameSchedule: React.FC<ScheduleProps & StatusDescription & isButton
             teamData={redTeam}
             alignItems="flex-end"
             color={colors.redTeamColor}
+            win={true}
           />
           <S.IconBox>{isEnd ? ':' : 'VS'}</S.IconBox>
           <Team
@@ -70,6 +71,7 @@ export const GameSchedule: React.FC<ScheduleProps & StatusDescription & isButton
             alignItems="flex-start"
             teamData={blueTeam}
             color={colors.blueTeamColor}
+            win={false}
           />
         </S.AllBox>
         {isbutton ? (

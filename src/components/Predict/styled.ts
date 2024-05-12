@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 
+import { colors } from 'src/styles';
+
 const baseBoxStyles = `
   gap: 10px;
 `;
@@ -10,7 +12,7 @@ export const PredictSectionContainer = styled.section`
   background-blend-mode: multiply;
   background-size: cover;
   background-position: center;
-  background-color: #fefefe;
+  background-color: ${colors.appBackground};
   row-gap: 0.6rem;
   ${baseBoxStyles}
   display: flex;

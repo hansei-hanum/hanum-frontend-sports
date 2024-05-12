@@ -1,12 +1,14 @@
 import styled from '@emotion/styled';
 
+import { colors } from 'src/styles';
+
 export const BettingSectionContainer = styled.section`
   height: 95vh;
   width: 100%;
   background-blend-mode: multiply;
   background-size: cover;
   background-position: center;
-  background-color: #fefefe;
+  background-color: ${colors.appBackground};
   row-gap: 0.6rem;
   gap: 10px;
   display: flex;

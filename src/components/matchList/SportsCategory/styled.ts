@@ -13,7 +13,12 @@ export const CategoryContainer = styled.div`
   font-size: 15px;
   font-weight: bold;
   gap: 10px;
+  justify-content: center;
   align-items: center;
+  position: sticky;
+  top: 0;
+  background-color: ${colors.appBackground};
+  padding-bottom: 10px;
 `;
 
 export const CategoryItem = styled.div<CategoryItemProps>`
