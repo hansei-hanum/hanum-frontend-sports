@@ -1,11 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { Betting } from 'src/components';
+import { BettingBar, MyPointBox, SubmitButton } from 'src/components';
+
+import * as S from './styled';
 
 export const BettingSection: React.FC = () => {
+  const [isInputValueBig, setIsInputValueBig] = useState(false);
+  const [isHundred, setIsHundred] = useState(false);
+
   return (
     <>
-      <Betting />
+      <section>
+        <S.BettingSectionContainer>
+          <S.BettingSectionInnerContainer>
+            <S.SituationBox>
+              <S.ColorBox />
+              예측 진행중
+            </S.SituationBox>
+            <div>
+              <S.Description>
+                예측에 사용할 포인트를 <br />
+                입력해 주세요
+              </S.Description>
+              <br />
+              <MyPointBox />
+            </div>
+            <BettingBar setIsInputValueBig={setIsInputValueBig} setIsHundred={setIsHundred} />
+          </S.BettingSectionInnerContainer>
+          <SubmitButton isDisabled={isInputValueBig || isHundred} />
+        </S.BettingSectionContainer>
+      </section>
     </>
   );
 };

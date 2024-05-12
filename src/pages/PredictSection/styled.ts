@@ -34,16 +34,15 @@ export const PredictContainer = styled.div`
   flex-direction: column;
 `;
 
-export const ExplainBox = styled.div`
-  ${baseBoxStyles}
+export const Description = styled.p`
   font-size: 30px;
-  font-weight: 700;
+  font-weight: 800;
+  line-height: 1.2;
 `;
 
 export const SituationBox = styled.div`
-  width: 130px;
-  height: 45px;
-  padding: 0 5px;
+  width: fit-content;
+  padding: 8px;
   ${baseBoxStyles}
   display: flex;
   align-items: center;

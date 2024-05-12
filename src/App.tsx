@@ -24,13 +24,13 @@ function App() {
             </DefaultLayout>
           }
         >
-          <Route path="/pointLog" element={<PointPage />} />
-          <Route path="/rankingList" element={<RankingList />} />
-          <Route path="/betting" element={<BettingSection />} />
-          <Route path="/LiveChatting" element={<LiveChattingSection />} />
-          <Route path="/PredictLogs" element={<PredictLogsSection />} />
+          <Route path="/point-log" element={<PointPage />} />
+          <Route path="/ranking-list" element={<RankingList />} />
+          <Route path="/live-chatting" element={<LiveChattingSection />} />
+          <Route path="/predict-logs" element={<PredictLogsSection />} />
         </Route>
-        <Route path="/Predict" element={<PredictSection />} />
+        <Route path="/predict" element={<PredictSection />} />
+        <Route path="/betting" element={<BettingSection />} />
       </Routes>
     </BrowserRouter>
   );

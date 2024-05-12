@@ -70,7 +70,7 @@ export const BettingBar: React.FC<BettingBarProps> = ({ setIsInputValueBig, setI
               key={index}
               onClick={() => handleAmountSelection(percentage, index)}
               style={{
-                color: selectedBoxIndex === index ? 'rgba(0, 0, 0, 1)' : 'rgba(0, 0, 0, 0.5)',
+                color: selectedBoxIndex === index && inputValue !== '0' ? 'rgba(0, 0, 0, 1)' : 'rgba(0, 0, 0, 0.5)',
                 display: isInputValueBig ? 'none' : 'block',
               }}
             >
