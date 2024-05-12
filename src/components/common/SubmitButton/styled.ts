@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const SubmitContainer = styled.button<{ isDisabled: boolean }>`
+export const SubmitContainer = styled.div<{ isDisabled?: boolean }>`
   width: 100%;
   height: 45px;
   margin-bottom: 10px;
@@ -21,7 +21,7 @@ export const SubmitBox = styled.p`
   display: flex;
   width: 100%;
   height: 100%;
-  // background-color: #4580f1;
+  gap: 10px;
   border: none;
   color: white;
   justify-content: center;

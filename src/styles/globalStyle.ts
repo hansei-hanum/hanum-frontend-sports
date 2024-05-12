@@ -9,6 +9,7 @@ export const globalStyle = (bgColor: string) => css`
     scrollbar-width: none;
     -ms-overflow-style: none;
     box-sizing: border-box;
+    user-select: none;
   }
 
   html,
@@ -29,6 +30,7 @@ export const globalStyle = (bgColor: string) => css`
   html {
     font-size: 10px;
   }
+
   button {
     border: 0;
   }

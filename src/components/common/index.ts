@@ -14,3 +14,4 @@ export * from './Text';
 export * from './gameSchedule';
 export * from './MyPointBox';
 export * from './PredictLogBox';
+export * from './Spinner';
