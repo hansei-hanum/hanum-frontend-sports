@@ -1,9 +1,6 @@
 import React from 'react';
 
-import { Bridge } from '@webview-bridge/web';
-import { useBridge } from '@webview-bridge/react';
-
-import { AppBridgeState, bridge } from 'src/bridge';
+import { useAppBridge } from 'src/hooks';
 
 import * as S from './styled';
 
@@ -12,7 +9,7 @@ interface RankBarProps {
 }
 
 export const MyRankBar: React.FC<RankBarProps> = ({ children }) => {
-  const { goToScreen } = useBridge<Bridge, AppBridgeState>(bridge.store);
+  const { goToScreen } = useAppBridge();
 
   return (
     <S.MyRankContainer onClick={() => goToScreen()}>

@@ -1,12 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-import { useBridge } from '@webview-bridge/react';
-import { Bridge } from '@webview-bridge/web';
-
 import { ChattingBox, GameSchedule, ChatBox } from 'src/components';
 import { MatchList } from 'src/constants';
 import { socket } from 'src/socket';
-import { AppBridgeState, bridge } from 'src/bridge';
+import { useAppBridge } from 'src/hooks';
+import { useSendChat } from 'src/hooks/queries';
 
 import * as S from './styled';
 
@@ -19,7 +17,8 @@ export interface LiveChattingCommentsProps {
 }
 
 export const LiveChattingSection: React.FC = () => {
-  const { goToScreen } = useBridge<Bridge, AppBridgeState>(bridge.store);
+  const { mutate } = useSendChat();
+  const { goToScreen } = useAppBridge();
 
   const chatContainerRef = useRef<HTMLDivElement>(null);
 
@@ -27,7 +26,7 @@ export const LiveChattingSection: React.FC = () => {
 
   useEffect(() => {
     socket.on('connect', () => {
-      console.log('socket connected');
+      // console.log('socket connected');
     });
 
     socket.on('message', (data) => {
@@ -41,8 +40,9 @@ export const LiveChattingSection: React.FC = () => {
     };
   }, []);
 
-  const handleCommentSubmit = (newComment: string) => {
-    // setComments([...comments, newComment]);
+  const handleCommentSubmit = (content: string) => {
+    console.log(content);
+    mutate({ content });
   };
 
   return (

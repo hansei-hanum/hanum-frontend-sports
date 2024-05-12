@@ -8,7 +8,7 @@ import * as S from './styled';
 
 export const ChatBox: React.FC<LiveChattingCommentsProps> = ({ user, content, predictionTeam }) => {
   const teamColors =
-    predictionTeam === 'TeamB' ? colors.blueTeamColor : !predictionTeam ? colors.grey : colors.redTeamColor;
+    predictionTeam === 'TeamB' ? colors.blueTeamColor : !predictionTeam ? colors.placeHolder : colors.redTeamColor;
   return (
     <S.ChatContainer>
       <S.UserChatCont>

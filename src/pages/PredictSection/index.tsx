@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 
-import { useBridge } from '@webview-bridge/react';
-import { Bridge } from '@webview-bridge/web';
-
 import { PredictBox, SubmitButton } from 'src/components';
-import { AppBridgeState, bridge } from 'src/bridge';
+import { useAppBridge } from 'src/hooks';
 
 import * as S from './styled';
 
 export const PredictSection: React.FC = () => {
-  const { goToScreen } = useBridge<Bridge, AppBridgeState>(bridge.store);
+  const { goToScreen } = useAppBridge();
 
   const [selectedTeam, setSelectedTeam] = useState<'team_a' | 'team_b' | null>(null);
 
