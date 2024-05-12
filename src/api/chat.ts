@@ -5,7 +5,6 @@ export interface SendChatValue {
 }
 
 export const sendChat = async ({ content }: SendChatValue) => {
-  //   window.ReactNativeWebView.postMessage(`${content}, content`);
   const { data } = await instance.post(API_SUFFIX.CHAT, { content });
 
   return data;

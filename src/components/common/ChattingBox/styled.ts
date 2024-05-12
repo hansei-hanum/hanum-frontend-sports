@@ -5,7 +5,6 @@ export const ChatContainer = styled.div`
   height: 55px;
   border-radius: 15px;
   background-color: #ffffff;
-  margin-top: 15px;
   margin-bottom: 20px;
   font-size: 17px;
   display: flex;

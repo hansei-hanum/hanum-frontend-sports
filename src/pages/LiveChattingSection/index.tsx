@@ -26,12 +26,11 @@ export const LiveChattingSection: React.FC = () => {
 
   useEffect(() => {
     socket.on('connect', () => {
-      // console.log('socket connected');
+      console.log('socket connected');
     });
 
     socket.on('message', (data) => {
       setComments((prevComments) => [...prevComments, data]);
-      chatContainerRef.current?.scrollTo({ top: chatContainerRef.current.scrollHeight, behavior: 'smooth' });
     });
 
     return () => {
@@ -40,8 +39,11 @@ export const LiveChattingSection: React.FC = () => {
     };
   }, []);
 
+  useEffect(() => {
+    chatContainerRef.current?.scrollTo({ top: chatContainerRef.current.scrollHeight, behavior: 'smooth' });
+  }, [comments]);
+
   const handleCommentSubmit = (content: string) => {
-    console.log(content);
     mutate({ content });
   };
 
