@@ -1,16 +1,15 @@
 import React from 'react';
 
-import { useRecoilValue } from 'recoil';
-
-import { selectedSportsAtom } from 'src/atom';
 import { GameSchedule, SportsCategory } from 'src/components';
 import { MatchList } from 'src/constants';
+import { useSelectedSportsStore } from 'src/stores';
 
 import * as S from './styled';
 
 export const MatchListPage: React.FC = () => {
-  const selectedItem = useRecoilValue(selectedSportsAtom);
-  const selectedSports: string = selectedItem.selected ?? '';
+  const { selectedSport } = useSelectedSportsStore();
+
+  const selectedSports: string = selectedSport ?? '';
 
   let scheduleData = MatchList.data.games;
 
