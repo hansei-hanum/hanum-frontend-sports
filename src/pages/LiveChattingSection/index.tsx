@@ -18,8 +18,8 @@ export interface LiveChattingCommentsProps {
 }
 
 export const LiveChattingSection: React.FC = () => {
-  const { data } = useGetLiveGame();
-  console.log(data);
+  const { data, error } = useGetLiveGame();
+  console.log(data, 'data', error, 'error');
   const { mutate } = useSendChat();
   const { goToScreen } = useAppBridge();
 
@@ -53,13 +53,9 @@ export const LiveChattingSection: React.FC = () => {
   return (
     <section>
       <S.LiveChatSectionContainer>
-        <GameSchedule
-          disabled={false}
-          isButton={true}
-          description="현재 예측이 진행 중입니다"
-          scheduleData={MatchList.data.games[0]}
-          onClick={() => goToScreen()}
-        />
+        {data && (
+          <GameSchedule disabled={false} isButton={true} scheduleData={data?.data} onClick={() => goToScreen()} />
+        )}
         <S.ChattingContainer ref={chatContainerRef}>
           {comments.map(({ user, content, predictionTeam }, index) => (
             <ChatBox key={index} user={user} content={content} predictionTeam={predictionTeam} />

@@ -1,16 +1,11 @@
 import React from 'react';
 
-import { SportGameType } from 'src/api';
+import { GetLiveGameTeamProps, SportGameType } from 'src/api';
 
 import * as S from './styled';
 
 interface TeamProps {
-  teamData: {
-    department: string;
-    ratio: number;
-    class: string;
-    score: number;
-  };
+  teamData: GetLiveGameTeamProps;
   color: string;
   alignItems: string;
   isDuring: boolean;
@@ -30,24 +25,26 @@ export const Team: React.FC<TeamProps> = ({
   sportGameType,
   win,
 }) => {
+  const realPercentage = Math.floor(teamData.predictions.ratio * 100);
+
   return (
     <S.TeamBox color={color} alignItems={alignItems}>
       {isDuring ? (
         <>
-          <S.Class textAlign={textAlign} fontSize={13} style={{ lineHeight: 1.2 }}>
-            {teamData.department} <br /> {teamData.class}
+          <S.Class textAlign={textAlign} fontSize={12.8} style={{ lineHeight: 1.2 }}>
+            {teamData.name}
           </S.Class>
-          <S.Ratio>{teamData.ratio}%</S.Ratio>
-          <S.Graph backgorundColor={color} width={teamData.ratio} />
+          <S.Ratio>{realPercentage}%</S.Ratio>
+          <S.Graph backgorundColor={color} width={realPercentage} />
         </>
       ) : (
         <>
           {isEnd ? (
             <S.TeamBoxEndContent alignItems={alignItems}>
               <S.ClassBox>
-                <S.Department>{teamData.department}</S.Department>
+                <S.Department>{teamData.name}</S.Department>
                 <S.Class textAlign={textAlign} fontSize={13}>
-                  {teamData.class}
+                  {/* {teamData.class} */}
                 </S.Class>
               </S.ClassBox>
               <S.ScoreContainer>
@@ -61,9 +58,9 @@ export const Team: React.FC<TeamProps> = ({
             </S.TeamBoxEndContent>
           ) : (
             <S.OfflineClassBox>
-              <S.Department>{teamData.department}</S.Department>
+              <S.Department>{teamData.name}</S.Department>
               <S.Class textAlign={textAlign} fontSize={25}>
-                {teamData.class}
+                {/* {teamData.class} */}
               </S.Class>
             </S.OfflineClassBox>
           )}

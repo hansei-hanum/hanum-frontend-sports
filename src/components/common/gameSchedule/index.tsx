@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { colors } from 'src/styles';
+import { GameStatus, GetLiveGameResponse, SportGameType } from 'src/api';
 
 import { StatusContainer } from '../StatusContainer';
 import { MatchStatus } from '../LiveStatus';
@@ -41,28 +42,42 @@ export interface StatusDescription {
   description: string;
 }
 
-export const GameSchedule: React.FC<ScheduleProps & StatusDescription & isButton> = ({
-  scheduleData,
-  description,
-  isButton,
-  disabled,
-  onClick,
-}) => {
-  const { isEnd, isDuring, gameType, redTeam, blueTeam } = scheduleData;
+export interface GameScheduleProps {
+  scheduleData: GetLiveGameResponse;
+}
+
+export const GameSchedule: React.FC<GameScheduleProps & isButton> = ({ scheduleData, isButton, disabled, onClick }) => {
+  const { status, type, teamA, teamB } = scheduleData;
+  const isEnd = status === GameStatus.ENDED;
+  const isDuring = status !== GameStatus.PREDICTION_ENDED;
+
+  const formattedType = () => {
+    switch (type) {
+      case SportGameType.Basketball:
+        return '농구';
+      case SportGameType.FootVolleyball:
+        return '족구';
+      case SportGameType.Dodgeball:
+        return '피구';
+      default:
+        return '';
+    }
+  };
+
   const renderScheduleContent = () => (
     <>
       <S.ScheduleTop>
-        <div>{isDuring || isEnd ? <MatchStatus isEnd={scheduleData.isEnd} /> : scheduleData.date}</div>
-        <p>{gameType}</p>
+        <div>{isDuring ? <MatchStatus isEnd={isEnd} /> : '진행 예정'}</div>
+        <p>{formattedType()}</p>
       </S.ScheduleTop>
-      {isEnd || isDuring ? <S.StatusDescription>{description}</S.StatusDescription> : null}
-      <S.Content isEnd={scheduleData.isEnd}>
+      {isEnd ? <S.StatusDescription>경기가 종료되었습니다.</S.StatusDescription> : null}
+      <S.Content isEnd={isEnd}>
         <S.AllBox>
           <Team
             textAlign="right"
-            isEnd={scheduleData.isEnd}
+            isEnd={isEnd}
             isDuring={isDuring}
-            teamData={redTeam}
+            teamData={teamA}
             alignItems="flex-end"
             color={colors.redTeamColor}
             win={true}
@@ -70,10 +85,10 @@ export const GameSchedule: React.FC<ScheduleProps & StatusDescription & isButton
           <S.IconBox>{isEnd ? ':' : 'VS'}</S.IconBox>
           <Team
             textAlign="left"
-            isEnd={scheduleData.isEnd}
+            isEnd={isEnd}
             isDuring={isDuring}
             alignItems="flex-start"
-            teamData={blueTeam}
+            teamData={teamB}
             color={colors.blueTeamColor}
             win={false}
           />
@@ -92,9 +107,9 @@ export const GameSchedule: React.FC<ScheduleProps & StatusDescription & isButton
   return (
     <S.SheduleContainer>
       {isDuring ? (
-        <StatusContainer isEnd={scheduleData.isEnd}>{renderScheduleContent()}</StatusContainer>
+        <StatusContainer isEnd={isEnd}>{renderScheduleContent()}</StatusContainer>
       ) : (
-        <S.Schedule isEnd={scheduleData.isEnd}>{renderScheduleContent()}</S.Schedule>
+        <S.Schedule isEnd={isEnd}>{renderScheduleContent()}</S.Schedule>
       )}
     </S.SheduleContainer>
   );
