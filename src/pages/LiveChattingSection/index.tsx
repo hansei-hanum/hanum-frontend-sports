@@ -5,6 +5,7 @@ import { MatchList } from 'src/constants';
 import { socket } from 'src/socket';
 import { useAppBridge } from 'src/hooks';
 import { useSendChat } from 'src/hooks/queries';
+import { useGetLiveGame } from 'src/hooks/queries/useGetLiveGame';
 
 import * as S from './styled';
 
@@ -17,6 +18,8 @@ export interface LiveChattingCommentsProps {
 }
 
 export const LiveChattingSection: React.FC = () => {
+  const { data } = useGetLiveGame();
+  console.log(data);
   const { mutate } = useSendChat();
   const { goToScreen } = useAppBridge();
 

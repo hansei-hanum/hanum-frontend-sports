@@ -2,9 +2,10 @@ import React from 'react';
 
 import { Bet, Summary, MatchList } from 'src/constants';
 import { colors } from 'src/styles';
+import { SportGameType } from 'src/api';
 
 import { ScheduleProps, isButton } from '../gameSchedule';
-import { SportGameType, Team } from '../Team';
+import { Team } from '../Team';
 import { SubmitButton } from '../SubmitButton';
 
 import * as S from './styled';

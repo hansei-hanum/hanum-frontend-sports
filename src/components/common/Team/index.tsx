@@ -1,15 +1,8 @@
 import React from 'react';
 
-import * as S from './styled';
+import { SportGameType } from 'src/api';
 
-export enum SportGameType {
-  // 농구
-  Basketball = 'Basketball',
-  // 족구
-  FootVolleyball = 'FootVolleyball',
-  // 피구
-  Dodgeball = 'Dodgeball',
-}
+import * as S from './styled';
 
 interface TeamProps {
   teamData: {

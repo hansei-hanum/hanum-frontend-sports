@@ -3,6 +3,7 @@ import axios from 'axios';
 export const API_SUFFIX = {
   BASEURL: 'https://xx.nekos.me/',
   CHAT: 'chats/global/messages',
+  LIVE_GAME: 'sports/live',
 };
 
 const token = localStorage.getItem('token');
@@ -18,4 +19,9 @@ export const instance = axios.create({
 export interface APIResponse<T = unknown> {
   message: string;
   data: T;
+}
+
+export interface APIErrorResponse {
+  message: string;
+  data?: null;
 }
