@@ -32,7 +32,9 @@ export interface ScheduleProps {
 }
 
 export interface isButton {
-  isbutton: boolean;
+  isButton: boolean;
+  onClick?: () => void;
+  disabled?: boolean;
 }
 
 export interface StatusDescription {
@@ -42,7 +44,9 @@ export interface StatusDescription {
 export const GameSchedule: React.FC<ScheduleProps & StatusDescription & isButton> = ({
   scheduleData,
   description,
-  isbutton,
+  isButton,
+  disabled,
+  onClick,
 }) => {
   const { isEnd, isDuring, gameType, redTeam, blueTeam } = scheduleData;
   const renderScheduleContent = () => (
@@ -74,9 +78,9 @@ export const GameSchedule: React.FC<ScheduleProps & StatusDescription & isButton
             win={false}
           />
         </S.AllBox>
-        {isbutton ? (
-          <S.ButtonBox>
-            <SubmitButton isChangeColor={false} />
+        {isButton ? (
+          <S.ButtonBox onClick={onClick}>
+            <SubmitButton isDisabled={disabled ?? false} />
           </S.ButtonBox>
         ) : (
           <S.ButtonBox />

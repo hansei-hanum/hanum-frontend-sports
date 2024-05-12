@@ -32,7 +32,8 @@ export const MatchListPage: React.FC = () => {
       <S.GameListContainer>
         {scheduleData.map((item, index) => (
           <GameSchedule
-            isbutton={false}
+            disabled={false}
+            isButton={false}
             key={index}
             scheduleData={item}
             description={item.isDuring === true ? '' : '경기가 종료되었습니다.'}

@@ -1,8 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 
+import { useBridge } from '@webview-bridge/react';
+import { Bridge } from '@webview-bridge/web';
+
 import { ChattingBox, GameSchedule, ChatBox } from 'src/components';
 import { MatchList } from 'src/constants';
 import { socket } from 'src/socket';
+import { AppBridgeState, bridge } from 'src/bridge';
 
 import * as S from './styled';
 
@@ -15,6 +19,8 @@ export interface LiveChattingCommentsProps {
 }
 
 export const LiveChattingSection: React.FC = () => {
+  const { goToScreen } = useBridge<Bridge, AppBridgeState>(bridge.store);
+
   const chatContainerRef = useRef<HTMLDivElement>(null);
 
   const [comments, setComments] = useState<LiveChattingCommentsProps[]>([]);
@@ -42,7 +48,13 @@ export const LiveChattingSection: React.FC = () => {
   return (
     <section>
       <S.LiveChatSectionContainer>
-        <GameSchedule isbutton={true} description="현재 예측이 진행 중입니다" scheduleData={MatchList.data.games[0]} />
+        <GameSchedule
+          disabled={false}
+          isButton={true}
+          description="현재 예측이 진행 중입니다"
+          scheduleData={MatchList.data.games[0]}
+          onClick={() => goToScreen()}
+        />
         <S.ChattingContainer ref={chatContainerRef}>
           {comments.map(({ user, content, predictionTeam }, index) => (
             <ChatBox key={index} user={user} content={content} predictionTeam={predictionTeam} />

@@ -23,7 +23,7 @@ export const Betting: React.FC = () => {
           <BettingBar setIsInputValueBig={setIsInputValueBig} setIsHundred={setIsHundred} />
         </S.BettingContainer>
         <S.SubmitContainer>
-          <SubmitButton isChangeColor={isInputValueBig || isHundred} />
+          <SubmitButton isDisabled={isInputValueBig || isHundred} />
         </S.SubmitContainer>
       </S.BettingSectionContainer>
     </section>

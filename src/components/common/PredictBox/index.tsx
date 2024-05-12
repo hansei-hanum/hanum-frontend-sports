@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { colors } from 'src/styles';
 import { detail } from 'src/constants';
@@ -16,11 +16,14 @@ const formatNumber = (value: number): string => {
   }
 };
 
-export const PredictBox: React.FC = () => {
+export interface PredictBoxProps {
+  setSelectedTeam: React.Dispatch<React.SetStateAction<'team_a' | 'team_b' | null>>;
+  selectedTeam: 'team_a' | 'team_b' | null;
+}
+
+export const PredictBox: React.FC<PredictBoxProps> = ({ setSelectedTeam, selectedTeam }) => {
   const teamA = detail.data.team_a;
   const teamB = detail.data.team_b;
-
-  const [selectedTeam, setSelectedTeam] = useState<'team_a' | 'team_b' | null>(null);
 
   const handleTeamClick = (team: 'team_a' | 'team_b') => {
     setSelectedTeam((prevTeam) => (prevTeam === team ? null : team));
@@ -44,7 +47,7 @@ export const PredictBox: React.FC = () => {
         >
           <S.DeptBox isLeft={index === 0}>{team.team_id}</S.DeptBox>
           <S.PercentageCont isLeft={index === 0}>
-            <S.PercentageBox color={index === 0 ? colors.redTeamColor : colors.blueTeamColor}>
+            <S.PercentageBox isLeft={index === 0} color={index === 0 ? colors.redTeamColor : colors.blueTeamColor}>
               {index === 0 ? team.percentage : team.percentage}%
             </S.PercentageBox>
             <S.PercentageBar
@@ -52,7 +55,6 @@ export const PredictBox: React.FC = () => {
               percentage={team.percentage}
             />
           </S.PercentageCont>
-
           <S.EtcBox isLeft={index === 0}>
             <S.Etc isLeft={index === 0}>
               <img src={pointIcon} width={20} alt="" />

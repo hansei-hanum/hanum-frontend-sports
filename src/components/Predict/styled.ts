@@ -7,8 +7,9 @@ const baseBoxStyles = `
 `;
 
 export const PredictSectionContainer = styled.section`
-  height: 95vh;
+  height: 100vh;
   width: 100%;
+  padding: 15px 20px 0 20px;
   background-blend-mode: multiply;
   background-size: cover;
   background-position: center;
@@ -17,6 +18,13 @@ export const PredictSectionContainer = styled.section`
   ${baseBoxStyles}
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+`;
+
+export const PredictSectionInnerContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
 `;
 
 export const PredictContainer = styled.div`
@@ -43,6 +51,7 @@ export const SituationBox = styled.div`
   background-color: #f5f5f5;
   font-size: 15px;
   font-weight: 700;
+  justify-content: center;
 `;
 
 export const ColorBox = styled.div`

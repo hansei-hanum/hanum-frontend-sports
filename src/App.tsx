@@ -28,9 +28,9 @@ function App() {
           <Route path="/rankingList" element={<RankingList />} />
           <Route path="/betting" element={<BettingSection />} />
           <Route path="/LiveChatting" element={<LiveChattingSection />} />
-          <Route path="/Predict" element={<PredictSection />} />
           <Route path="/PredictLogs" element={<PredictLogsSection />} />
         </Route>
+        <Route path="/Predict" element={<PredictSection />} />
       </Routes>
     </BrowserRouter>
   );

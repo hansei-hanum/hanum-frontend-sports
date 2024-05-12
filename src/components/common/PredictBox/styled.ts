@@ -20,11 +20,10 @@ export const PredictContainer = styled.div`
   height: 240px;
   border-radius: 10px;
   background-color: #ffffff;
-  margin-top: 15px;
   font-size: 17px;
   display: flex;
   font-weight: bold;
-  padding: 0 10px;
+
   gap: 15px;
   justify-content: center;
 `;
@@ -35,16 +34,18 @@ export const TeamBox = styled.div<TeamBoxProps>`
   justify-content: space-around;
   align-items: ${(props) => (props.isLeft ? 'flex-end' : 'flex-start')};
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
   border: 3px solid #e7e7e7;
   border-radius: 10px;
   padding: 10px 5px;
+  transition: border-color 150ms;
 `;
 
 export const PercentageCont = styled.div<TeamBoxProps>`
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 8px;
   align-items: ${(props) => (props.isLeft ? 'flex-end' : 'flex-start')};
   margin: 0 auto;
 `;
@@ -53,18 +54,19 @@ export const DeptBox = styled.p<TeamBoxProps>`
   display: flex;
   flex-direction: column;
   align-items: ${(props) => (props.isLeft ? 'flex-end' : 'flex-start')};
-  font-size: 18px;
+  font-size: 14px;
   color: ${(props) => (props.isLeft ? colors.redTeamColor : colors.blueTeamColor)};
   margin: 0 auto;
 `;
 
-export const PercentageBox = styled.div<PercentageBoxProps>`
+export const PercentageBox = styled.div<PercentageBoxProps & TeamBoxProps>`
   width: 100%;
   display: flex;
-  justify-content: center;
-  font-size: 50px;
+  justify-content: ${(props) => (props.isLeft ? 'flex-end' : 'flex-start')};
+  font-size: 46px;
   color: ${(props) => props.color};
 `;
+
 export const PercentageBar = styled.div<PercentageBarProps>`
   background-color: ${(props) => props.backgroundColor};
   border-radius: 100px;
@@ -74,7 +76,9 @@ export const PercentageBar = styled.div<PercentageBarProps>`
 
 export const EtcBox = styled.div<TeamBoxProps>`
   display: flex;
-  font-size: 20px;
+  flex-direction: column;
+  row-gap: 4px;
+  font-size: 18px;
   font-weight: bold;
   flex-direction: column;
   align-items: ${(props) => (props.isLeft ? 'flex-end' : 'flex-start')};
@@ -82,5 +86,6 @@ export const EtcBox = styled.div<TeamBoxProps>`
 
 export const Etc = styled.div<TeamBoxProps>`
   display: flex;
+  column-gap: 6px;
   flex-direction: ${(props) => (props.isLeft ? 'row' : 'row-reverse')};
 `;

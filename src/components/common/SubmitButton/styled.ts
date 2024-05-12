@@ -1,11 +1,11 @@
 import styled from '@emotion/styled';
 
-export const SubmitContainer = styled.button<{ isChangeColor: boolean }>`
+export const SubmitContainer = styled.button<{ isDisabled: boolean }>`
   width: 100%;
   height: 45px;
   margin-bottom: 10px;
   border-radius: 10px;
-  background-color: ${(props) => (props.isChangeColor ? '#a3a3a3' : '#4580f1')};
+  background-color: ${(props) => (props.isDisabled ? '#a3a3a3' : '#4580f1')};
   margin-top: 15px;
   font-size: 18px;
   display: flex;
@@ -14,11 +14,7 @@ export const SubmitContainer = styled.button<{ isChangeColor: boolean }>`
   padding: 0 10px;
   color: white;
   border: none;
-  box-shadow: 0px 4px 40px 6px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease;
-  &:active {
-    background-color: #2455c3;
-  }
 `;
 
 export const SubmitBox = styled.p`

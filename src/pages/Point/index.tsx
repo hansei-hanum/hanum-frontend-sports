@@ -1,7 +1,7 @@
 import React from 'react';
 import { IoIosArrowForward } from 'react-icons/io';
 
-import { Header, Logs, MyRankBar } from 'src/components';
+import { Logs, MyRankBar } from 'src/components';
 import { pointIcon } from 'src/assets';
 import { Balance } from 'src/constants';
 import { colors } from 'src/styles';

@@ -12,7 +12,7 @@ export const PredictLogsSection: React.FC = () => {
         .filter((item) => item.isEnd)
         .map((item, index) => (
           <>
-            <PredictLogBox isbutton={false} key={index} scheduleData={item} />
+            <PredictLogBox isButton={false} disabled={false} key={index} scheduleData={item} />
           </>
         ))}
     </S.PredictLogsContainer>

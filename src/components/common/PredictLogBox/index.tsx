@@ -9,11 +9,7 @@ import { SubmitButton } from '../SubmitButton';
 
 import * as S from './styled';
 
-export const PredictLogBox: React.FC<ScheduleProps & isButton> = ({
-  scheduleData,
-
-  isbutton,
-}) => {
+export const PredictLogBox: React.FC<ScheduleProps & isButton> = ({ scheduleData, isButton: isbutton }) => {
   const { gameType, redTeam, blueTeam, isDuring } = scheduleData;
 
   const myBetGameId = Bet.data.gameId;
@@ -69,7 +65,7 @@ export const PredictLogBox: React.FC<ScheduleProps & isButton> = ({
           </S.AllBox>
           {isbutton ? (
             <S.ButtonBox>
-              <SubmitButton isChangeColor={false} />
+              <SubmitButton isDisabled={false} />
             </S.ButtonBox>
           ) : (
             <S.ButtonBox />
