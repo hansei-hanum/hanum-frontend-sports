@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 
-import { ScheduleProps } from 'src/components';
 import { colors } from 'src/styles';
 
 export const PredictCont = styled.div``;
@@ -11,7 +10,9 @@ export const WinLoseBox = styled.div``;
 
 export const MatchTypeBox = styled.div``;
 
-export type SchedulePropsIsEnd = Pick<Pick<ScheduleProps, 'scheduleData'>['scheduleData'], 'isEnd'>;
+export type SchedulePropsIsEnd = {
+  isEnd: boolean;
+};
 
 interface ContentProps {
   isEnd: boolean;

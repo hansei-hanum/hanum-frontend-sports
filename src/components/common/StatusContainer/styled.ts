@@ -2,8 +2,6 @@ import styled from '@emotion/styled';
 
 import { colors } from 'src/styles';
 
-import { SchedulePropsIsEnd } from '../gameSchedule/styled';
-
 interface StatusContainerProps {
   isEnd: boolean;
 }
@@ -40,7 +38,7 @@ export const SheduleContainer = styled.div`
   margin-top: 20px;
 `;
 
-export const Schedule = styled.div<SchedulePropsIsEnd>`
+export const Schedule = styled.div<{ isEnd: boolean }>`
   width: 100%;
   height: 160px;
   border-radius: 20px;
