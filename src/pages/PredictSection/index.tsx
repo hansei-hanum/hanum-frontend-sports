@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 
 import { PredictBox, SubmitButton } from 'src/components';
 import { useAppBridge } from 'src/hooks';
+import { TeamType } from 'src/api';
 
 import * as S from './styled';
 
 export const PredictSection: React.FC = () => {
   const { goToScreen } = useAppBridge();
 
-  const [selectedTeam, setSelectedTeam] = useState<'team_a' | 'team_b' | null>(null);
+  const [selectedTeam, setSelectedTeam] = useState<TeamType | null>(null);
 
   return (
     <section>

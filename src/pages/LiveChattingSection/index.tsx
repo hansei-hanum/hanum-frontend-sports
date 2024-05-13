@@ -4,6 +4,7 @@ import { ChattingBox, GameSchedule, ChatBox, Spinner, GameAlertBox } from 'src/c
 import { socket } from 'src/socket';
 import { useAppBridge, useGetLiveGame, useSendChat } from 'src/hooks';
 import { colors } from 'src/styles';
+import { useLiveGameStore } from 'src/stores';
 
 import * as S from './styled';
 
@@ -16,6 +17,8 @@ export interface LiveChattingCommentsProps {
 }
 
 export const LiveChattingSection: React.FC = () => {
+  const { setLiveGame } = useLiveGameStore();
+
   const { data, isLoading } = useGetLiveGame();
   const { mutate } = useSendChat();
   const { goToScreen } = useAppBridge();
@@ -23,6 +26,10 @@ export const LiveChattingSection: React.FC = () => {
   const chatContainerRef = useRef<HTMLDivElement>(null);
 
   const [comments, setComments] = useState<LiveChattingCommentsProps[]>([]);
+
+  const handleCommentSubmit = (content: string) => {
+    mutate({ content });
+  };
 
   useEffect(() => {
     socket.on('connect', () => {
@@ -43,9 +50,11 @@ export const LiveChattingSection: React.FC = () => {
     chatContainerRef.current?.scrollTo({ top: chatContainerRef.current.scrollHeight, behavior: 'smooth' });
   }, [comments]);
 
-  const handleCommentSubmit = (content: string) => {
-    mutate({ content });
-  };
+  useEffect(() => {
+    if (data) {
+      setLiveGame({ game: data.data });
+    }
+  }, [data]);
 
   return (
     <section>

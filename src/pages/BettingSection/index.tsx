@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import { BettingBar, MyPointBox, SubmitButton } from 'src/components';
+import { useLiveGameStore } from 'src/stores';
 
 import * as S from './styled';
 

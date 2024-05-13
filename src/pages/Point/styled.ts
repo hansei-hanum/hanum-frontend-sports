@@ -14,7 +14,6 @@ export const LoadingWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid red;
   top: 0;
   left: 0;
   right: 0;
