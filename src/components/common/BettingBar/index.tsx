@@ -4,8 +4,8 @@ import * as S from './styled';
 
 interface BettingBarProps {
   myPoint?: number;
-  inputValue: string;
-  setInputValue: (value: string) => void;
+  inputValue: number;
+  setInputValue: (value: number) => void;
 }
 
 export const BettingBar: React.FC<BettingBarProps> = ({ myPoint, inputValue, setInputValue }) => {
@@ -16,12 +16,12 @@ export const BettingBar: React.FC<BettingBarProps> = ({ myPoint, inputValue, set
 
   const handleAmountSelection = (percentage: number, index: number) => {
     if (selectedBoxIndex === index) {
-      setInputValue('0');
+      setInputValue(0);
       setSelectedBoxIndex(null);
     } else if (myPoint) {
       const calculatedAmount = Math.floor((myPoint * percentage) / 100);
       const roundedAmount = Math.round(calculatedAmount / 100) * 100;
-      setInputValue(roundedAmount.toLocaleString());
+      setInputValue(roundedAmount);
       setSelectedBoxIndex(index);
     }
   };
@@ -31,7 +31,7 @@ export const BettingBar: React.FC<BettingBarProps> = ({ myPoint, inputValue, set
     const numericValue = parseInt(newValue.replace(/[^0-9]/g, ''), 10);
     setIsInputValueBig(numericValue > (myPoint || 0));
     setIsHundred(numericValue % 100 !== 0);
-    setInputValue((isNaN(numericValue) ? 0 : numericValue).toLocaleString());
+    setInputValue(isNaN(numericValue) ? 0 : numericValue);
   };
 
   return (
@@ -60,7 +60,7 @@ export const BettingBar: React.FC<BettingBarProps> = ({ myPoint, inputValue, set
               key={index}
               onClick={() => handleAmountSelection(percentage, index)}
               style={{
-                color: selectedBoxIndex === index && inputValue !== '0' ? 'rgba(0, 0, 0, 1)' : 'rgba(0, 0, 0, 0.5)',
+                color: selectedBoxIndex === index && inputValue !== 0 ? 'rgba(0, 0, 0, 1)' : 'rgba(0, 0, 0, 0.5)',
                 display: isInputValueBig ? 'none' : 'block',
               }}
             >

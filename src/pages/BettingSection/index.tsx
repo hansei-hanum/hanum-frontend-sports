@@ -14,15 +14,15 @@ export const BettingSection: React.FC = () => {
   const { liveGame } = useLiveGameStore();
   const { betting, setBetting, reset } = useBettingStore();
 
-  const [inputValue, setInputValue] = useState('0');
+  const [inputValue, setInputValue] = useState(0);
 
   const { data, isLoading } = useGetMyPoint();
 
   const navigate = useNavigate();
 
   const onClick = () => {
-    setBetting({ ...betting, amount: parseInt(inputValue) });
-    mutate({ id: betting.id, team: betting.team, amount: parseInt(inputValue) });
+    setBetting({ ...betting, amount: inputValue });
+    mutate({ id: betting.id, team: betting.team, amount: inputValue });
   };
 
   useEffect(() => {
