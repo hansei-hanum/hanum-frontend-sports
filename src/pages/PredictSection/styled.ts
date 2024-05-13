@@ -7,9 +7,8 @@ const baseBoxStyles = `
 `;
 
 export const PredictSectionContainer = styled.section`
-  height: 100vh;
+  height: 100%;
   width: 100%;
-  padding: 15px 20px 0 20px;
   background-blend-mode: multiply;
   background-size: cover;
   background-position: center;
@@ -18,11 +17,14 @@ export const PredictSectionContainer = styled.section`
   ${baseBoxStyles}
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-between;
 `;
 
 export const PredictSectionInnerContainer = styled.div`
   display: flex;
+  max-width: 600px;
+  padding: 15px 20px 0 20px;
   flex-direction: column;
   row-gap: 24px;
 `;
@@ -58,4 +60,13 @@ export const ColorBox = styled.div`
   width: 20px;
   height: 20px;
   border-radius: 100px;
+`;
+
+export const ButtonWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 20px 0 20px;
+  max-width: 600px;
 `;

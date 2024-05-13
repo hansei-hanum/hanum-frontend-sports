@@ -44,7 +44,11 @@ export const GameSchedule: React.FC<GameScheduleProps & isButton> = ({
         <div>{isDuring ? <MatchStatus isEnd={isEnd} /> : '시작 예정'}</div>
         <p>{formattedSportType(type)}</p>
       </S.ScheduleTop>
-      {isEnd ? <S.StatusDescription>경기가 종료되었습니다.</S.StatusDescription> : null}
+      {isEnd ? (
+        <S.StatusDescription>경기가 종료되었습니다.</S.StatusDescription>
+      ) : isDuring ? (
+        <S.StatusDescription>현재 예측이 진행 중입니다!</S.StatusDescription>
+      ) : null}
       <S.Content isEnd={isEnd}>
         <S.AllBox>
           <Team

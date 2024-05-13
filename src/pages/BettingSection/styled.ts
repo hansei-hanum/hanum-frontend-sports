@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { colors } from 'src/styles';
 
 export const BettingSectionContainer = styled.section`
-  height: 100vh;
+  height: 100%;
   width: 100%;
   padding: 15px 20px 0 20px;
   background-blend-mode: multiply;

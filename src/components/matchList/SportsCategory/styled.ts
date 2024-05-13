@@ -10,16 +10,24 @@ interface CategoryItemProps {
 export const CategoryContainer = styled.div`
   width: 100%;
   display: flex;
-  font-size: 15px;
-  font-weight: bold;
-  gap: 10px;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   position: sticky;
   top: 0;
   background-color: ${colors.appBackground};
+`;
+
+export const CategoryWrapper = styled.div`
+  max-width: 600px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 0 20px;
   padding-bottom: 10px;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: bold;
 `;
 
 export const CategoryItem = styled.div<CategoryItemProps>`
