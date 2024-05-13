@@ -1,23 +1,29 @@
 import React from 'react';
 
-import { Balance } from 'src/constants';
 import { pointIcon } from 'src/assets';
+import { colors } from 'src/styles';
+import { GetMyPointResponse } from 'src/api';
+
+import { Spinner } from '../Spinner';
 
 import * as S from './styled';
 
-export const MyPointBox: React.FC = () => {
-  const myPoint = Balance.data.balance;
-  const formatNumber = (myPoint: number): string => {
-    const point = myPoint.toString().split(/(?=(?:\d{3})+(?!\d))/);
-    return point.join(',');
-  };
-
+export interface MyPointBoxProps {
+  isLoading: boolean;
+  data?: GetMyPointResponse;
+}
+export const MyPointBox: React.FC<MyPointBoxProps> = ({ isLoading, data }) => {
   return (
-    <S.MyPointContainer>
-      <S.MyPointBox>내 포인트: {formatNumber(myPoint)}</S.MyPointBox>
-      <S.MyPointBox>
-        <img src={pointIcon} width={20} alt="" />
-      </S.MyPointBox>
-    </S.MyPointContainer>
+    <S.MyPointBox>
+      내 포인트:{' '}
+      {isLoading ? (
+        <Spinner size="18px" color={colors.placeHolder} style={{ marginLeft: 10 }} />
+      ) : (
+        <>
+          {data && data.amount.toLocaleString()}
+          <img src={pointIcon} width={20} alt="" />
+        </>
+      )}
+    </S.MyPointBox>
   );
 };

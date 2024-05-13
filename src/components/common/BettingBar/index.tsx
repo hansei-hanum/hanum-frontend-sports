@@ -1,17 +1,14 @@
 import React, { useState } from 'react';
 
-import { Balance } from 'src/constants';
-
 import * as S from './styled';
 
 interface BettingBarProps {
   setIsInputValueBig: React.Dispatch<React.SetStateAction<boolean>>;
   setIsHundred: React.Dispatch<React.SetStateAction<boolean>>;
+  myPoint?: number;
 }
 
-export const BettingBar: React.FC<BettingBarProps> = ({ setIsInputValueBig, setIsHundred }) => {
-  const myPoint = Balance.data.balance;
-
+export const BettingBar: React.FC<BettingBarProps> = ({ setIsInputValueBig, setIsHundred, myPoint }) => {
   const [inputValue, setInputValue] = useState('0');
   const [selectedBoxIndex, setSelectedBoxIndex] = useState<number | null>(null);
 
@@ -19,7 +16,7 @@ export const BettingBar: React.FC<BettingBarProps> = ({ setIsInputValueBig, setI
     if (selectedBoxIndex === index) {
       setInputValue('0');
       setSelectedBoxIndex(null);
-    } else {
+    } else if (myPoint) {
       const calculatedAmount = Math.floor((myPoint * percentage) / 100);
       const roundedAmount = Math.round(calculatedAmount / 100) * 100;
       setInputValue(roundedAmount.toLocaleString());
@@ -28,7 +25,7 @@ export const BettingBar: React.FC<BettingBarProps> = ({ setIsInputValueBig, setI
   };
 
   const numericValue = parseInt(inputValue.replace(/[^0-9]/g, ''), 10);
-  const isInputValueBig = numericValue > myPoint;
+  const isInputValueBig = numericValue > (myPoint || 0);
   setIsInputValueBig(isInputValueBig);
 
   const isHundred = numericValue % 100 !== 0;

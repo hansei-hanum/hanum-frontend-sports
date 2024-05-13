@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 
 import { BettingBar, MyPointBox, SubmitButton } from 'src/components';
-import { useLiveGameStore } from 'src/stores';
+import { useGetMyPoint } from 'src/hooks';
 
 import * as S from './styled';
 
 export const BettingSection: React.FC = () => {
+  const { data, isLoading } = useGetMyPoint();
+
   const [isInputValueBig, setIsInputValueBig] = useState(false);
   const [isHundred, setIsHundred] = useState(false);
 
@@ -24,9 +26,13 @@ export const BettingSection: React.FC = () => {
                 입력해 주세요
               </S.Description>
               <br />
-              <MyPointBox />
+              <MyPointBox data={data?.data} isLoading={isLoading} />
             </div>
-            <BettingBar setIsInputValueBig={setIsInputValueBig} setIsHundred={setIsHundred} />
+            <BettingBar
+              setIsInputValueBig={setIsInputValueBig}
+              setIsHundred={setIsHundred}
+              myPoint={data?.data.amount}
+            />
           </S.BettingSectionInnerContainer>
           <SubmitButton isDisabled={isInputValueBig || isHundred} />
         </S.BettingSectionContainer>

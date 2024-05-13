@@ -3,4 +3,5 @@ export const keys = {
   getLiveGame: ['get', 'live', 'game'],
   games: ['games'],
   bettingHistory: ['betting', 'history'],
+  getMyPoint: ['get', 'my', 'point'],
 } as const;

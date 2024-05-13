@@ -6,6 +6,7 @@ export const API_SUFFIX = {
   LIVE_GAME: 'sports/live',
   GAMES: 'sports/games',
   BETTING_HISTORY: 'sports/points/@me/history',
+  MY_POINT: 'sports/points/@me',
 };
 
 // const token = localStorage.getItem('token');
