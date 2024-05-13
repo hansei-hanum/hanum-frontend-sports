@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { BettingBar, MyPointBox, SubmitButton } from 'src/components';
 import { useBetting, useGetMyPoint } from 'src/hooks';
 import { useBettingStore, useLiveGameStore } from 'src/stores';
+import { bettingError } from 'src/constants';
 
 import * as S from './styled';
 
@@ -31,8 +32,9 @@ export const BettingSection: React.FC = () => {
   }, [liveGame]);
 
   useEffect(() => {
-    if (error?.response?.data.message === 'ALREADY_PREDICTED') {
-      alert('이미 예측한 경기입니다.');
+    const errorMessage = error?.response?.data.message;
+    if (errorMessage) {
+      alert(bettingError[errorMessage ?? ('' || '알 수 없는 오류가 발생했어요.')]);
       navigate('/');
     }
     if (isSuccess) {
