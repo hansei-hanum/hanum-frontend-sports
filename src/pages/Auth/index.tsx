@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Logo } from 'src/assets';
 import { useAuth } from 'src/hooks';
 import useAuthStore from 'src/stores/auth';
+import { Spinner } from 'src/components';
 
 import * as S from './styled';
 
@@ -41,7 +42,7 @@ export const checkString = (text: string) => {
 export const AuthPage: React.FC = () => {
   const { setToken } = useAuthStore();
 
-  const { mutate, isError, isSuccess, data } = useAuth();
+  const { mutate, isError, isSuccess, data, isPending } = useAuth();
   const [isAuthSuccess, setIsAuthSuccess] = useState(false);
 
   const [code, setCode] = useState<string>('');
@@ -118,8 +119,8 @@ export const AuthPage: React.FC = () => {
             </S.AuthErrorDescription>
           )}
         </S.AuthPageMainSection>
-        <S.Button onClick={onSubmit} isDisabled={isDisabled}>
-          로그인
+        <S.Button onClick={onSubmit} isDisabled={isDisabled || isPending}>
+          {isPending ? <Spinner /> : '로그인'}
         </S.Button>
       </S.AuthPageInnerContainer>
     </S.AuthPageContainer>

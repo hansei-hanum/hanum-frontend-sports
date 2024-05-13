@@ -9,7 +9,6 @@ export const useAuth = (): UseMutationResult<APIResponse<string | null>, AxiosEr
   return useMutation({
     mutationKey: keys.auth,
     mutationFn: (variables: AuthValues) => {
-      console.log(variables, 'variables');
       if (variables.code === '') {
         return phone({ phone: variables.phone });
       } else {
