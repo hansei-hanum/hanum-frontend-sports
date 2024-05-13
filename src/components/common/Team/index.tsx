@@ -25,6 +25,7 @@ export const Team: React.FC<TeamProps> = ({
   sportGameType,
   win,
 }) => {
+  console.log('teamData', teamData);
   const realPercentage = teamData.predictions ? Math.floor(teamData.predictions.ratio * 100) : 0;
 
   return (
@@ -42,7 +43,14 @@ export const Team: React.FC<TeamProps> = ({
           {isEnd ? (
             <S.TeamBoxEndContent alignItems={alignItems}>
               <S.ClassBox>
-                <S.Department>{teamData.name}</S.Department>
+                {teamData.name.split('\n').map((line, index) => (
+                  <>
+                    <S.Department key={index}>
+                      <span style={{ fontSize: index !== 0 ? '24px' : '14px' }}>{line}</span>
+                      {index !== teamData.name.split('\n').length - 1 && <br />}
+                    </S.Department>
+                  </>
+                ))}
               </S.ClassBox>
               <S.ScoreContainer>
                 {sportGameType === SportGameType.Dodgeball ? (
@@ -55,7 +63,14 @@ export const Team: React.FC<TeamProps> = ({
             </S.TeamBoxEndContent>
           ) : (
             <S.OfflineClassBox>
-              <S.Department>{teamData.name}</S.Department>
+              {teamData.name.split('\n').map((line, index) => (
+                <div key={index}>
+                  <span style={{ fontSize: index !== 0 ? '24px' : '14px', fontWeight: index !== 0 ? 600 : 500 }}>
+                    {line}
+                  </span>
+                  {index !== teamData.name.split('\n').length - 1 && <br />}
+                </div>
+              ))}
             </S.OfflineClassBox>
           )}
         </>

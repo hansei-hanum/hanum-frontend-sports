@@ -10,7 +10,6 @@ export const MatchListContainer = styled.div`
 `;
 
 export const GameListContainer = styled(MatchListContainer)`
-  padding: 0 20px;
   background-color: ${colors.appBackground};
 `;
 

@@ -38,6 +38,8 @@ export const TeamBoxEndContent = styled.div<TeamBoxEndContentProps>`
 
 export const ClassBox = styled.div`
   display: flex;
+  flex-direction: column;
+  /* display: flex; */
   column-gap: 4px;
 `;
 
@@ -57,8 +59,8 @@ export const Class = styled.p<ClassProps>`
   text-align: ${(props) => props.textAlign};
 `;
 
-export const Ratio = styled.p`
-  font-size: 40px;
+export const Ratio = styled.span`
+  font-size: 36px;
 `;
 
 export const Graph = styled.div<GraphProps>`
@@ -74,7 +76,7 @@ export const ScoreBox = styled.div`
 `;
 
 export const Score = styled.p`
-  font-size: 34px;
+  font-size: 28px;
 `;
 
 export const ScoreContainer = styled.div`

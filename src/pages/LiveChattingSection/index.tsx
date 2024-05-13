@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-import { ChattingBox, GameSchedule, ChatBox, Spinner, GameAlertBox } from 'src/components';
+import { ChattingBox, GameSchedule, ChatBox, Spinner, GameAlertBox, Header } from 'src/components';
 import { socket } from 'src/socket';
 import { useAppBridge, useGetLiveGame, useSendChat } from 'src/hooks';
 import { colors } from 'src/styles';
@@ -57,14 +57,15 @@ export const LiveChattingSection: React.FC = () => {
   }, [data]);
 
   return (
-    <section>
+    <>
+      <Header hasIcon={false} text="실시간 경기" />
       <S.LiveChatSectionContainer>
         {isLoading ? (
           <S.LoadingWrapper>
             <Spinner color={colors.placeHolder} size="40px" />
           </S.LoadingWrapper>
         ) : data ? (
-          <GameSchedule isButton={true} scheduleData={data?.data} onClick={() => goToScreen()} />
+          <GameSchedule isButton={true} scheduleData={data?.data} onClick={() => goToScreen()} index={0} />
         ) : (
           <GameAlertBox>진행 중인 경기가 없어요</GameAlertBox>
         )}
@@ -73,10 +74,8 @@ export const LiveChattingSection: React.FC = () => {
             <ChatBox key={index} user={user} content={content} predictionTeam={predictionTeam} />
           ))}
         </S.ChattingContainer>
-        <S.WriteChatCont>
-          <ChattingBox onCommentSubmit={handleCommentSubmit} />
-        </S.WriteChatCont>
+        <ChattingBox onCommentSubmit={handleCommentSubmit} />
       </S.LiveChatSectionContainer>
-    </section>
+    </>
   );
 };

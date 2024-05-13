@@ -15,3 +15,7 @@ export const HeaderText = styled.p`
   font-size: 20px;
   font-weight: bold;
 `;
+
+export const HeaderDummyDiv = styled.div`
+  flex-grow: 0.1;
+`;

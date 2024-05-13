@@ -23,18 +23,25 @@ export interface StatusDescription {
 
 export interface GameScheduleProps {
   scheduleData: GetLiveGameResponse;
+  index: number;
 }
 
-export const GameSchedule: React.FC<GameScheduleProps & isButton> = ({ scheduleData, isButton, disabled, onClick }) => {
+export const GameSchedule: React.FC<GameScheduleProps & isButton> = ({
+  scheduleData,
+  isButton,
+  disabled,
+  onClick,
+  index,
+}) => {
   const { status, type, teamA, teamB, winner } = scheduleData;
 
   const isEnd = status === GameStatus.ENDED;
-  const isDuring = status !== GameStatus.PREDICTION_ENDED && !isEnd;
+  const isDuring = index === 0 && status !== GameStatus.ENDED && status !== GameStatus.WAITING;
 
   const renderScheduleContent = () => (
     <>
       <S.ScheduleTop>
-        <div>{isDuring ? <MatchStatus isEnd={isEnd} /> : '진행 예정'}</div>
+        <div>{isDuring ? <MatchStatus isEnd={isEnd} /> : '시작 예정'}</div>
         <p>{formattedSportType(type)}</p>
       </S.ScheduleTop>
       {isEnd ? <S.StatusDescription>경기가 종료되었습니다.</S.StatusDescription> : null}

@@ -1,3 +1,5 @@
+import { BottomTab } from 'src/components/common';
+
 import * as S from './styled';
 
 export interface DefaultLayoutProps {
@@ -8,6 +10,7 @@ export const DefaultLayout: React.FC<DefaultLayoutProps> = ({ children }) => {
   return (
     <>
       <S.DefaultLayoutContainer>{children}</S.DefaultLayoutContainer>
+      <BottomTab />
     </>
   );
 };

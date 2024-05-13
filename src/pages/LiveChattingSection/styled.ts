@@ -1,21 +1,18 @@
 import styled from '@emotion/styled';
 
 export const LiveChatSectionContainer = styled.section`
-  height: 92vh;
+  height: 100%;
   width: 100%;
-  background-blend-mode: multiply;
-  background-size: cover;
-  background-position: center;
   row-gap: 0.6rem;
   gap: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding-bottom: 20px;
 `;
 
 export const ChattingContainer = styled.div`
   padding: 10px;
-  height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -26,7 +23,7 @@ export const ChattingContainer = styled.div`
 `;
 
 export const WriteChatCont = styled.div`
-  margin-bottom: -40px;
+  margin-bottom: 20px;
 `;
 
 export const LoadingWrapper = styled.div`

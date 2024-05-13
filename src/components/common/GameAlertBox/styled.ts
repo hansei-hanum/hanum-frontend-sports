@@ -11,6 +11,6 @@ export const GameBoxContainer = styled.div`
 `;
 
 export const GameBoxText = styled.p`
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
 `;

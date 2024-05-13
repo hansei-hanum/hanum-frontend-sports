@@ -16,7 +16,6 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<MatchListPage />} />
         <Route
           element={
             <DefaultLayout>
@@ -24,10 +23,11 @@ function App() {
             </DefaultLayout>
           }
         >
-          <Route path="/point-log" element={<PointPage />} />
-          <Route path="/ranking-list" element={<RankingList />} />
-          <Route path="/live-chatting" element={<LiveChattingSection />} />
-          <Route path="/predict-logs" element={<PredictLogsSection />} />
+          <Route path="/" element={<LiveChattingSection />} />
+          <Route path="/point" element={<PointPage />} />
+          <Route path="/ranking" element={<RankingList />} />
+          <Route path="/predict-log" element={<PredictLogsSection />} />
+          <Route path="/match" element={<MatchListPage />} />
         </Route>
         <Route path="/predict" element={<PredictSection />} />
         <Route path="/betting" element={<BettingSection />} />

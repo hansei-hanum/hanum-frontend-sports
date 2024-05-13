@@ -13,7 +13,7 @@ export const CategoryContainer = styled.div`
   font-size: 15px;
   font-weight: bold;
   gap: 10px;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   position: sticky;
   top: 0;
