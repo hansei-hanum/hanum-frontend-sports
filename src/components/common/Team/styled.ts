@@ -39,7 +39,7 @@ export const TeamBoxEndContent = styled.div<TeamBoxEndContentProps>`
 export const ClassBox = styled.div`
   display: flex;
   flex-direction: column;
-
+  align-items: center;
   column-gap: 4px;
 `;
 

@@ -2,10 +2,6 @@ import styled from '@emotion/styled';
 
 import { colors } from 'src/styles';
 
-import { ScheduleProps } from '.';
-
-export type SchedulePropsIsEnd = Pick<Pick<ScheduleProps, 'scheduleData'>['scheduleData'], 'isEnd'>;
-
 interface ContentProps {
   isEnd: boolean;
 }
@@ -18,7 +14,7 @@ export const SheduleContainer = styled.div`
   justify-content: center;
 `;
 
-export const Schedule = styled.div<SchedulePropsIsEnd>`
+export const Schedule = styled.div<{ isEnd: boolean }>`
   width: 100%;
   border-radius: 20px;
   gap: ${(props) => (props.isEnd ? '5' : '15')}px;

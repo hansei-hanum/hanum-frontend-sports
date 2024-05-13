@@ -27,6 +27,7 @@ export const Team: React.FC<TeamProps> = ({
   win,
   isLive,
 }) => {
+  console.log('teamData', teamData);
   const realPercentage = teamData.predictions ? Math.floor(teamData.predictions.ratio * 100) : 0;
   const isDodgeball = sportGameType === SportGameType.Dodgeball;
 
@@ -49,7 +50,7 @@ export const Team: React.FC<TeamProps> = ({
           {isEnd || isLive ? (
             <S.TeamBoxEndContent alignItems={alignItems}>
               <S.ClassBox>
-                <S.Department>{teamData.name}</S.Department>
+                <S.Department style={{ fontSize: teamData.predictions ? 12 : 18 }}>{teamData.name}</S.Department>
               </S.ClassBox>
               <S.ScoreContainer textAlign={textAlign}>
                 {isDodgeball && isEnd ? (
@@ -57,10 +58,12 @@ export const Team: React.FC<TeamProps> = ({
                 ) : sportGameType !== 'Dodgeball' ? (
                   <S.Score>{teamData.score}점</S.Score>
                 ) : (
-                  <>
-                    <S.Ratio>{realPercentage}%</S.Ratio>
-                    <S.Graph backgorundColor={color} width={realPercentage} />
-                  </>
+                  teamData.predictions && (
+                    <>
+                      <S.Ratio>{realPercentage}%</S.Ratio>
+                      <S.Graph backgorundColor={color} width={realPercentage} />
+                    </>
+                  )
                 )}
                 {isEnd && !isDodgeball && <S.ScoreResult>({win ? '승리!' : '패배!'})</S.ScoreResult>}
               </S.ScoreContainer>
