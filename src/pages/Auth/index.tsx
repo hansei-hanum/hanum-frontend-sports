@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 import { Logo } from 'src/assets';
+import { useAuth } from 'src/hooks';
+import useAuthStore from 'src/stores/auth';
 
 import * as S from './styled';
 
@@ -37,7 +39,10 @@ export const checkString = (text: string) => {
 };
 
 export const AuthPage: React.FC = () => {
-  const [isAuthScuccess, setIsAuthSuccess] = useState(false);
+  const { setToken } = useAuthStore();
+
+  const { mutate, isError, isSuccess, data } = useAuth();
+  const [isAuthSuccess, setIsAuthSuccess] = useState(false);
 
   const [code, setCode] = useState<string>('');
   const [phone, setPhone] = useState<string>('');
@@ -46,7 +51,11 @@ export const AuthPage: React.FC = () => {
   const codeFormRef = useRef<HTMLFormElement>(null);
 
   const onSubmit = () => {
-    phone !== '' ? setIsAuthSuccess(true) : setIsAuthSuccess(false);
+    if (code === '') {
+      mutate({ phone, code: '' });
+    } else {
+      mutate({ phone, code });
+    }
   };
 
   const PHONE_REGEX = /^010-?\d{4}-?\d{4}$/;
@@ -54,20 +63,27 @@ export const AuthPage: React.FC = () => {
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>, isPhone: boolean) => {
     const value = e.target.value;
-    const validInput = isPhone ? checkNumber(value) : checkString(value);
+    const validInput = isPhone ? checkNumber(value) : value;
     setIsDisabled(!RegExp(isPhone ? PHONE_REGEX : VERIFICATION_CODE_REGEX).test(validInput));
     isPhone ? setPhone(validInput) : setCode(validInput);
     isPhone && setIsAuthSuccess(false);
   };
 
   useEffect(() => {
-    console.log('isAuthScuccess', isAuthScuccess);
     const codeFormElement = codeFormRef.current;
     if (!codeFormElement) return;
 
     const { scrollHeight } = codeFormElement;
-    codeFormElement.style.height = !isAuthScuccess ? '0' : `${scrollHeight}px`;
-  }, [isAuthScuccess]);
+    codeFormElement.style.height = isAuthSuccess ? `${scrollHeight}px` : `0`;
+  }, [isAuthSuccess]);
+
+  useEffect(() => {
+    if (isSuccess && data && data.data) {
+      localStorage.setItem('token', data.data);
+      setToken(data.data);
+    }
+    isSuccess && setIsAuthSuccess(true);
+  }, [data]);
 
   return (
     <S.AuthPageContainer>
@@ -95,6 +111,12 @@ export const AuthPage: React.FC = () => {
             />
             <S.AuthPageFormLabel>인증코드</S.AuthPageFormLabel>
           </S.AuthPageFormGroup>
+          {isError && (
+            <S.AuthErrorDescription>
+              알 수 없는 오류가 발생했어요
+              <br /> 이 문제가 지속적으로 발생한다면, 한움 팀에 문의 해주세요
+            </S.AuthErrorDescription>
+          )}
         </S.AuthPageMainSection>
         <S.Button onClick={onSubmit} isDisabled={isDisabled}>
           로그인

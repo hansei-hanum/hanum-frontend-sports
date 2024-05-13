@@ -6,3 +6,4 @@ export * from './types';
 export * from './getMyPoint';
 export * from './getBettingHistory';
 export * from './betting';
+export * from './auth';

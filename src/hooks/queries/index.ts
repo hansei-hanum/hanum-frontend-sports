@@ -5,3 +5,4 @@ export * from './useGetBettingHistory';
 export * from './useGetMyPoint';
 export * from './useGetBettingHistory';
 export * from './useBetting';
+export * from './useAuth';

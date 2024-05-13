@@ -5,4 +5,5 @@ export const keys = {
   bettingHistory: ['betting', 'history'],
   getMyPoint: ['get', 'my', 'point'],
   betting: ['betting'],
+  auth: ['auth'],
 } as const;

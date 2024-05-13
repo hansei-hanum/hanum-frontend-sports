@@ -123,7 +123,6 @@ export const Button = styled.div<{ isDisabled: boolean }>`
   justify-content: center;
   height: 44px;
   width: 100%;
-  /* background: linear-gradient(145deg, #4585fe 1.61%, #4785fa 49.15%, #6497fa 97.69%); */
   background: ${({ isDisabled }) =>
     isDisabled ? colors.placeHolder : 'linear-gradient(145deg, #4585fe 1.61%, #4785fa 49.15%, #6497fa 97.69%)'};
   border-radius: 10px;
@@ -134,5 +133,11 @@ export const Button = styled.div<{ isDisabled: boolean }>`
 
 export const Description = styled.p`
   font-size: 14px;
+  font-weight: 600;
+`;
+
+export const AuthErrorDescription = styled.p`
+  font-size: 14px;
+  color: ${colors.redTeamColor};
   font-weight: 600;
 `;

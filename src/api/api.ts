@@ -8,17 +8,14 @@ export const API_SUFFIX = {
   BETTING_HISTORY: 'sports/points/@me/history',
   MY_POINT: 'sports/points/@me',
   BETTING: 'sports/',
+  LOGIN: 'https://account.hanum.us/auth/login/',
+  PHONE: 'https://account.hanum.us/auth/phone/',
 };
-
-// const token = localStorage.getItem('token');
-const token =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ilx1YmMxNVx1Y2MyY1x1YzYwMSIsInZhbGlkYXRpb25TdHJpbmciOiJcdWJiZjhcdWM3NzhcdWM5OWQgXHVjMGFjXHVjNmE5XHVjNzkwIn0.TRuDFLEZwDTTTWk96ma4Bf8ezNRJbjeMLvKB-CARR84';
 
 export const instance = axios.create({
   baseURL: API_SUFFIX.BASEURL,
   headers: {
     'Content-Type': 'application/json',
-    Authorization: token ? `Bearer ${token}` : '',
   },
 });
 
