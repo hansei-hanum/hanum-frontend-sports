@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { GameAlertBox, GameSchedule, Header, Spinner, SportsCategory } from 'src/components';
+import { BottomTab, DefaultLayout, GameAlertBox, GameSchedule, Header, Spinner, SportsCategory } from 'src/components';
 import { useSelectedSportsStore } from 'src/stores';
 import { useGetGames } from 'src/hooks';
 import { GameStatus } from 'src/api';
@@ -29,23 +29,26 @@ export const MatchListPage: React.FC = () => {
 
   return (
     <>
-      <Header hasIcon={false} text="경기 목록" />
+      <Header text="경기 목록" />
       <S.MatchListContainer>
         <SportsCategory />
-        <S.GameListContainer>
-          {isLoading ? (
-            <S.LoadingWrapper>
-              <Spinner size="40px" color={colors.placeHolder} />
-            </S.LoadingWrapper>
-          ) : scheduleData.length > 0 ? (
-            scheduleData.map((item, index) => (
-              <GameSchedule isButton={false} key={index} scheduleData={item} index={index} />
-            ))
-          ) : (
-            <GameAlertBox>해당 종목의 경기가 없어요</GameAlertBox>
-          )}
-        </S.GameListContainer>
+        <DefaultLayout>
+          <S.GameListContainer>
+            {isLoading ? (
+              <S.LoadingWrapper>
+                <Spinner size="40px" color={colors.placeHolder} />
+              </S.LoadingWrapper>
+            ) : scheduleData.length > 0 ? (
+              scheduleData.map((item, index) => (
+                <GameSchedule isButton={false} key={index} scheduleData={item} index={index} />
+              ))
+            ) : (
+              <GameAlertBox>해당 종목의 경기가 없어요</GameAlertBox>
+            )}
+          </S.GameListContainer>
+        </DefaultLayout>
       </S.MatchListContainer>
+      <BottomTab />
     </>
   );
 };

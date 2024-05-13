@@ -27,8 +27,8 @@ function App() {
           <Route path="/point" element={<PointPage />} />
           <Route path="/ranking" element={<RankingList />} />
           <Route path="/predict-log" element={<PredictLogsSection />} />
-          <Route path="/match" element={<MatchListPage />} />
         </Route>
+        <Route path="/match" element={<MatchListPage />} />
         <Route path="/predict" element={<PredictSection />} />
         <Route path="/betting" element={<BettingSection />} />
       </Routes>

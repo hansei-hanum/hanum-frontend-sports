@@ -10,6 +10,6 @@ export const DefaultLayoutContainer = styled.div`
   padding: 10px 20px 70px;
   display: flex;
   flex-direction: column;
-  row-gap: 16px;
+  row-gap: 26px;
   background-color: ${colors.appBackground};
 `;

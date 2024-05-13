@@ -4,7 +4,14 @@ export const PredictLogsContainer = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 20px;
-  padding-bottom: 40px;
   justify-content: center;
   align-items: center;
+  padding-bottom: 100px;
+`;
+
+export const NoDataText = styled.p`
+  margin-top: 20px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
 `;

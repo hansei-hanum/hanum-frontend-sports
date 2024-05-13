@@ -7,6 +7,7 @@ export const HeaderContainer = styled.header`
   justify-content: space-between;
   align-items: center;
 `;
+
 export const HeaderIcon = styled.span`
   width: 35px;
 `;

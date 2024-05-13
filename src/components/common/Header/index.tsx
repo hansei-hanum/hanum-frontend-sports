@@ -5,7 +5,7 @@ import * as S from './styled';
 
 export interface HeaderProps {
   text: string;
-  hasIcon: boolean;
+  hasIcon?: boolean;
 }
 
 export const Header: React.FC<HeaderProps> = ({ text, hasIcon }) => {

@@ -6,8 +6,8 @@ import { colors } from 'src/styles';
 
 export const BottomTabContainer = styled.div`
   position: fixed;
-  background-color: ${colors.Background};
   bottom: 0;
+  background-color: ${colors.Background};
   width: 100%;
   display: flex;
   justify-content: center;

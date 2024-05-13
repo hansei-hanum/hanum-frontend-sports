@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { PredictBox, SubmitButton } from 'src/components';
-import { useAppBridge } from 'src/hooks';
 import { TeamType } from 'src/api';
 
 import * as S from './styled';
 
 export const PredictSection: React.FC = () => {
-  const { goToScreen } = useAppBridge();
+  const navigate = useNavigate();
 
   const [selectedTeam, setSelectedTeam] = useState<TeamType | null>(null);
 
@@ -27,7 +27,7 @@ export const PredictSection: React.FC = () => {
             <PredictBox setSelectedTeam={setSelectedTeam} selectedTeam={selectedTeam} />
           </S.PredictContainer>
         </S.PredictSectionInnerContainer>
-        <SubmitButton isDisabled={!selectedTeam} onClick={() => goToScreen()} />
+        <SubmitButton isDisabled={!selectedTeam} onClick={() => navigate('betting')} />
       </S.PredictSectionContainer>
     </section>
   );

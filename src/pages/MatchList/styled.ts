@@ -2,10 +2,16 @@ import styled from '@emotion/styled';
 
 import { colors } from 'src/styles';
 
+export const HeaderWrapper = styled.div`
+  padding-top: 10px;
+`;
+
 export const MatchListContainer = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
-  row-gap: 20px;
+  row-gap: 10px;
+  margin-top: 10px;
   padding-bottom: 20px;
 `;
 

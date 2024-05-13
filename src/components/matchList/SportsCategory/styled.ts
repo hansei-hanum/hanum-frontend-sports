@@ -18,6 +18,7 @@ export const CategoryContainer = styled.div`
   position: sticky;
   top: 0;
   background-color: ${colors.appBackground};
+  padding: 0 20px;
   padding-bottom: 10px;
 `;
 
