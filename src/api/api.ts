@@ -1,13 +1,12 @@
 import axios from 'axios';
 
 export const API_SUFFIX = {
-  BASEURL: 'https://sports.hanum.us/',
+  BASEURL: 'https://xx.nekos.me/',
   CHAT: 'chats/global/messages',
   LIVE_GAME: 'sports/live',
 };
 
 const token = localStorage.getItem('token');
-console.log('token', token);
 
 export const instance = axios.create({
   baseURL: API_SUFFIX.BASEURL,

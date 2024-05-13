@@ -15,8 +15,10 @@ export const ChatContainer = styled.div`
 `;
 
 export const WriteChatContainer = styled.div`
+  width: 100%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   color: rgba(0, 0, 0, 0.5);
 `;
 
