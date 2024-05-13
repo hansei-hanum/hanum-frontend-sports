@@ -5,11 +5,12 @@ export const API_SUFFIX = {
   CHAT: 'chats/global/messages',
   LIVE_GAME: 'sports/live',
   GAMES: 'sports/games',
+  BETTING_HISTORY: 'sports/points/@me/history',
 };
 
 // const token = localStorage.getItem('token');
 const token =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6ImFzZGYiLCJ2YWxpZGF0aW9uU3RyaW5nIjoiQXNkZiJ9.mB5tb7ZCJKgOQoNxscZPD8JVU40tmoht8Wg525EBX60';
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwibmFtZSI6Iuq5gO2DnO2biCIsInZhbGlkYXRpb25TdHJpbmciOiLtgbTrnbzsmrDrk5zrs7TslYggMy0xIiwicm9sZXMiOlsibWFuYWdlciJdfQ.hoar8Y8v8vAqJYAc1UBjMGYuy8Bm94OTeQ0bv0uLrP8';
 
 export const instance = axios.create({
   baseURL: API_SUFFIX.BASEURL,

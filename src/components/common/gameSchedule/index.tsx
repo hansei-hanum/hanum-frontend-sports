@@ -1,7 +1,8 @@
 import React from 'react';
 
 import { colors } from 'src/styles';
-import { GameStatus, GetLiveGameResponse, SportGameType } from 'src/api';
+import { GameStatus, GetLiveGameResponse, TeamType } from 'src/api';
+import { formattedSportType } from 'src/utils';
 
 import { StatusContainer } from '../StatusContainer';
 import { MatchStatus } from '../LiveStatus';
@@ -53,24 +54,11 @@ export const GameSchedule: React.FC<GameScheduleProps & isButton> = ({ scheduleD
   console.log(winner);
   const isDuring = status !== GameStatus.PREDICTION_ENDED && !isEnd;
 
-  const formattedType = () => {
-    switch (type) {
-      case SportGameType.Basketball:
-        return '🏀 농구';
-      case SportGameType.FootVolleyball:
-        return '⚽️ 족구';
-      case SportGameType.Dodgeball:
-        return '🏐 피구';
-      default:
-        return '';
-    }
-  };
-
   const renderScheduleContent = () => (
     <>
       <S.ScheduleTop>
         <div>{isDuring ? <MatchStatus isEnd={isEnd} /> : '진행 예정'}</div>
-        <p>{formattedType()}</p>
+        <p>{formattedSportType(type)}</p>
       </S.ScheduleTop>
       {isEnd ? <S.StatusDescription>경기가 종료되었습니다.</S.StatusDescription> : null}
       <S.Content isEnd={isEnd}>
@@ -82,7 +70,7 @@ export const GameSchedule: React.FC<GameScheduleProps & isButton> = ({ scheduleD
             teamData={teamA}
             alignItems="flex-end"
             color={colors.redTeamColor}
-            win={winner === 'TeamA'}
+            win={winner === TeamType.TeamA}
           />
           <S.IconBox>{isEnd ? ':' : 'VS'}</S.IconBox>
           <Team
@@ -92,7 +80,7 @@ export const GameSchedule: React.FC<GameScheduleProps & isButton> = ({ scheduleD
             alignItems="flex-start"
             teamData={teamB}
             color={colors.blueTeamColor}
-            win={winner === 'TeamB'}
+            win={winner === TeamType.TeamB}
           />
         </S.AllBox>
         {isButton ? (

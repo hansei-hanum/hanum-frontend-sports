@@ -1,23 +1,23 @@
 import React from 'react';
-import { IoIosArrowForward } from 'react-icons/io';
 
-import { PointLog } from 'src/constants';
 import { pointIcon } from 'src/assets';
+import { GetBettingHistoryDetail } from 'src/api/getBettingHistory';
+import { formattedSportType } from 'src/utils';
 
 import * as S from './styled';
 
 interface LogProps {
-  cause: string;
+  isSuccess: boolean;
   event: string;
   point: number;
 }
 
-const Log: React.FC<LogProps> = ({ cause, event, point }) => {
+const Log: React.FC<LogProps> = ({ isSuccess, event, point }) => {
   return (
     <S.LogBox>
       <S.LogBoxLeft>
-        <S.Cause>{cause}</S.Cause>
-        <S.Event>{event}</S.Event>
+        <S.Cause>{isSuccess ? '예측 성공!' : '예측 실패!'}</S.Cause>
+        <S.Event>{event} 경기</S.Event>
       </S.LogBoxLeft>
       <S.LogBoxRight>
         <p>{point}</p>
@@ -27,13 +27,19 @@ const Log: React.FC<LogProps> = ({ cause, event, point }) => {
   );
 };
 
-export const Logs: React.FC = () => {
+export interface LosProps {
+  history: GetBettingHistoryDetail[];
+}
+
+export const Logs: React.FC<LosProps> = ({ history }) => {
   return (
     <div>
       <p style={{ fontSize: 18, fontWeight: 900 }}>포인트 내역</p>
       <S.LogContainer>
-        {PointLog.data.details.map((item, index) => {
-          return <Log cause={item.cause} event={item.event} point={item.point} key={index} />;
+        {history.map((item, index) => {
+          const isSuccess = item.team === item.game.winner;
+          const sportType = formattedSportType(item.game.type);
+          return <Log isSuccess={isSuccess} event={sportType} point={item.profit} key={index} />;
         })}
       </S.LogContainer>
     </div>

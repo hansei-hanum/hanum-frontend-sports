@@ -36,6 +36,18 @@ export enum SportGameType {
   Dodgeball = 'Dodgeball',
 }
 
+/**
+ * TeamA - A팀 승리
+ *
+ * TeamB - B팀 승리
+ *
+ * @enum {string}
+ */
+export enum TeamType {
+  TeamA = 'TeamA',
+  TeamB = 'TeamB',
+}
+
 export interface GetGameTeamProps {
   name: string;
   score: number;
@@ -53,5 +65,5 @@ export interface GetGameResponse {
   teamA: GetGameTeamProps;
   teamB: GetGameTeamProps;
   status: GameStatus;
-  winner?: null | string;
+  winner?: null | TeamType;
 }
