@@ -12,13 +12,10 @@ export const API_SUFFIX = {
   PHONE: 'https://account.hanum.us/auth/phone/',
 };
 
-const token = localStorage.getItem('token');
-
 export const instance = axios.create({
   baseURL: API_SUFFIX.BASEURL,
   headers: {
     'Content-Type': 'application/json',
-    Authorization: token ? `Bearer ${token}` : '',
   },
 });
 

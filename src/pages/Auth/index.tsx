@@ -102,9 +102,9 @@ export const AuthPage: React.FC = () => {
         <S.AuthPageMainSection>
           <S.AuthPageLogoContainer>
             <S.AuthPageLogo src={Logo} alt="logo" />
-            <S.Description>한세어울림한마당 서비스</S.Description>
+            <S.Description>교내스포츠한마당 서비스</S.Description>
           </S.AuthPageLogoContainer>
-          <S.AuthPageFormGroup>
+          <S.AuthPageFormGroup onSubmit={(e) => e.preventDefault()}>
             <S.AuthPageFormInput
               placeholder="전화번호를 입력해주세요"
               onChange={(event) => onChange(event, true)}
@@ -113,7 +113,7 @@ export const AuthPage: React.FC = () => {
             />
             <S.AuthPageFormLabel>전화번호</S.AuthPageFormLabel>
           </S.AuthPageFormGroup>
-          <S.AuthPageFormGroup ref={codeFormRef}>
+          <S.AuthPageFormGroup ref={codeFormRef} onSubmit={(e) => e.preventDefault()}>
             <S.AuthPageFormInput
               placeholder="인증코드를 입력해주세요"
               onChange={(event) => onChange(event, false)}

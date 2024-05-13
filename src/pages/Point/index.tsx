@@ -36,8 +36,8 @@ export const PointPage: React.FC = () => {
                 <IoIosArrowForward size={20} color={colors.placeHolder} />
               </S.RankBarRight>
             </MyRankBar> */}
-            {data.data.history.length > 0 ? (
-              <Logs history={data.data.history} />
+            {data.data.history.length > 0 && data.data.history.filter((item) => item.game.winner).length > 0 ? (
+              <Logs history={data.data.history.filter((item) => item.game.winner)} />
             ) : (
               <S.NoDataText>아직 포인트를 획득한 내역이 없어요</S.NoDataText>
             )}

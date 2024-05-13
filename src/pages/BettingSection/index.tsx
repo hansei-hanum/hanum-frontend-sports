@@ -21,8 +21,8 @@ export const BettingSection: React.FC = () => {
   const navigate = useNavigate();
 
   const onClick = () => {
-    setBetting({ ...betting, amount: Number(inputValue) });
-    mutate({ id: betting.id, team: betting.team, amount: Number(inputValue) });
+    setBetting({ ...betting, amount: parseInt(inputValue) });
+    mutate({ id: betting.id, team: betting.team, amount: parseInt(inputValue) });
   };
 
   useEffect(() => {
@@ -38,6 +38,7 @@ export const BettingSection: React.FC = () => {
       navigate('/');
     }
     if (isSuccess) {
+      alert('예측이 완료되었어요!');
       reset();
       navigate('/');
     }

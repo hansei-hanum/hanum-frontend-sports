@@ -26,7 +26,7 @@ export const TeamBox = styled.div<TeamBoxProps>`
   flex-direction: column;
   align-items: ${(props) => props.alignItems};
   color: ${(props) => props.color};
-  gap: 5px;
+  row-gap: 5px;
 `;
 
 export const TeamBoxEndContent = styled.div<TeamBoxEndContentProps>`
@@ -39,7 +39,7 @@ export const TeamBoxEndContent = styled.div<TeamBoxEndContentProps>`
 export const ClassBox = styled.div`
   display: flex;
   flex-direction: column;
-  /* display: flex; */
+
   column-gap: 4px;
 `;
 
@@ -79,11 +79,12 @@ export const Score = styled.p`
   font-size: 28px;
 `;
 
-export const ScoreContainer = styled.div`
+export const ScoreContainer = styled.div<{ textAlign: string }>`
+  width: 100%;
   display: flex;
   flex-direction: column;
   row-gap: 10px;
-  align-items: flex-end;
+  align-items: ${(props) => (props.textAlign === 'right' ? 'flex-end' : 'flex-start')};
 `;
 
 export const ScoreResult = styled.p`

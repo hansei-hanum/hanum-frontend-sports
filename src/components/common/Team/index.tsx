@@ -34,27 +34,24 @@ export const Team: React.FC<TeamProps> = ({
     <S.TeamBox color={color} alignItems={alignItems}>
       {isDuring ? (
         <>
-          <S.Class textAlign={textAlign} fontSize={12.8} style={{ lineHeight: 1.2 }}>
+          <S.Class textAlign={textAlign} fontSize={teamData.predictions ? 12 : 20} style={{ lineHeight: 1.2 }}>
             {teamData.name}
           </S.Class>
-          <S.Ratio>{realPercentage}%</S.Ratio>
-          <S.Graph backgorundColor={color} width={realPercentage} />
+          {teamData.predictions && (
+            <>
+              <S.Ratio>{realPercentage}%</S.Ratio>
+              <S.Graph backgorundColor={color} width={realPercentage} />
+            </>
+          )}
         </>
       ) : (
         <>
           {isEnd || isLive ? (
             <S.TeamBoxEndContent alignItems={alignItems}>
               <S.ClassBox>
-                {teamData.name.split('\n').map((line, index) => (
-                  <>
-                    <S.Department key={index}>
-                      <span style={{ fontSize: index !== 0 ? '24px' : '14px' }}>{line}</span>
-                      {index !== teamData.name.split('\n').length - 1 && <br />}
-                    </S.Department>
-                  </>
-                ))}
+                <S.Department>{teamData.name}</S.Department>
               </S.ClassBox>
-              <S.ScoreContainer>
+              <S.ScoreContainer textAlign={textAlign}>
                 {isDodgeball && isEnd ? (
                   <S.Score>{win ? '승리!' : '패배!'}</S.Score>
                 ) : sportGameType !== 'Dodgeball' ? (

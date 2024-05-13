@@ -33,11 +33,13 @@ const useAuthStore = create<AuthStore>((set) => ({
   token: null,
   payload: null,
   setToken: (token: string | null) => {
-    instance.defaults.headers.common['Authorization'] = token ? `Bearer ${token}` : '';
-    set({
-      token,
-      payload: token ? JSON.parse(atob(token.split('.')[1])) : null,
-    });
+    if (token) {
+      instance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      set({
+        token,
+        payload: token ? JSON.parse(atob(token.split('.')[1])) : null,
+      });
+    }
   },
 }));
 

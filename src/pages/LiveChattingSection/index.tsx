@@ -1,11 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { io } from 'socket.io-client';
+
 import { ChattingBox, GameSchedule, ChatBox, Spinner, GameAlertBox } from 'src/components';
-import { socket } from 'src/socket';
 import { useGetLiveGame, useSendChat } from 'src/hooks';
 import { colors } from 'src/styles';
 import { useBettingStore, useLiveGameStore } from 'src/stores';
+import useAuthStore from 'src/stores/auth';
 
 import * as S from './styled';
 
@@ -18,6 +20,8 @@ export interface LiveChattingCommentsProps {
 }
 
 export const LiveChattingSection: React.FC = () => {
+  const { token } = useAuthStore();
+
   const { setLiveGame } = useLiveGameStore();
   const { setBetting } = useBettingStore();
 
@@ -30,6 +34,7 @@ export const LiveChattingSection: React.FC = () => {
   const [comments, setComments] = useState<LiveChattingCommentsProps[]>([]);
 
   const handleCommentSubmit = (content: string) => {
+    console.log('content', content);
     mutate({ content });
   };
 
@@ -39,19 +44,29 @@ export const LiveChattingSection: React.FC = () => {
   };
 
   useEffect(() => {
-    socket.on('connect', () => {
-      console.log('socket connected');
-    });
+    if (token) {
+      const socket = io('wss://sports.hanum.us/chats/ws', {
+        withCredentials: false,
+        auth: {
+          token: token,
+        },
+        transports: ['websocket'],
+      });
 
-    socket.on('message', (data) => {
-      setComments((prevComments) => [...prevComments, data]);
-    });
+      socket.on('connect', () => {
+        console.log('socket connected');
+      });
 
-    return () => {
-      socket.off('connect');
-      socket.off('message');
-    };
-  }, []);
+      socket.on('message', (data) => {
+        setComments((prevComments) => [...prevComments, data]);
+      });
+
+      return () => {
+        socket.off('connect');
+        socket.off('message');
+      };
+    }
+  }, [token]);
 
   useEffect(() => {
     chatContainerRef.current?.scrollTo({ top: chatContainerRef.current.scrollHeight, behavior: 'smooth' });

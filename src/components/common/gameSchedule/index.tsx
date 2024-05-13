@@ -26,13 +26,7 @@ export interface GameScheduleProps {
   index: number;
 }
 
-export const GameSchedule: React.FC<GameScheduleProps & isButton> = ({
-  scheduleData,
-  isButton,
-
-  onClick,
-  index,
-}) => {
+export const GameSchedule: React.FC<GameScheduleProps & isButton> = ({ scheduleData, isButton, onClick, index }) => {
   const { status, type, teamA, teamB, winner } = scheduleData;
 
   const isEnd = status === GameStatus.ENDED;
