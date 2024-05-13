@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { ChattingBox, GameSchedule, ChatBox, Spinner, GameAlertBox, Header } from 'src/components';
+import { ChattingBox, GameSchedule, ChatBox, Spinner, GameAlertBox } from 'src/components';
 import { socket } from 'src/socket';
 import { useGetLiveGame, useSendChat } from 'src/hooks';
 import { colors } from 'src/styles';
@@ -21,7 +21,7 @@ export const LiveChattingSection: React.FC = () => {
   const { setLiveGame } = useLiveGameStore();
   const { setBetting } = useBettingStore();
 
-  const { data, isLoading } = useGetLiveGame();
+  const { data, isLoading, error } = useGetLiveGame();
   const { mutate } = useSendChat();
   const navigate = useNavigate();
 
@@ -65,16 +65,15 @@ export const LiveChattingSection: React.FC = () => {
 
   return (
     <>
-      <Header hasIcon={false} text="실시간 경기" />
       <S.LiveChatSectionContainer>
         {isLoading ? (
           <S.LoadingWrapper>
             <Spinner color={colors.placeHolder} size="40px" />
           </S.LoadingWrapper>
-        ) : data ? (
-          <GameSchedule isButton={true} scheduleData={data?.data} onClick={onButtonClick} index={0} />
-        ) : (
+        ) : error?.response?.status === 404 ? (
           <GameAlertBox>진행 중인 경기가 없어요</GameAlertBox>
+        ) : (
+          data && <GameSchedule isButton={true} scheduleData={data?.data} onClick={onButtonClick} index={0} />
         )}
         <S.ChattingContainer ref={chatContainerRef}>
           {comments.map(({ user, content, predictionTeam }, index) => (

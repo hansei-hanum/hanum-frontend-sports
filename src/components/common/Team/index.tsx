@@ -9,6 +9,7 @@ interface TeamProps {
   color: string;
   alignItems: string;
   isDuring: boolean;
+  isLive?: boolean;
   isEnd: boolean;
   textAlign: string;
   sportGameType?: SportGameType;
@@ -24,8 +25,10 @@ export const Team: React.FC<TeamProps> = ({
   isEnd,
   sportGameType,
   win,
+  isLive,
 }) => {
   const realPercentage = teamData.predictions ? Math.floor(teamData.predictions.ratio * 100) : 0;
+  const isDodgeball = sportGameType === SportGameType.Dodgeball;
 
   return (
     <S.TeamBox color={color} alignItems={alignItems}>
@@ -39,7 +42,7 @@ export const Team: React.FC<TeamProps> = ({
         </>
       ) : (
         <>
-          {isEnd ? (
+          {isEnd || isLive ? (
             <S.TeamBoxEndContent alignItems={alignItems}>
               <S.ClassBox>
                 {teamData.name.split('\n').map((line, index) => (
@@ -52,12 +55,17 @@ export const Team: React.FC<TeamProps> = ({
                 ))}
               </S.ClassBox>
               <S.ScoreContainer>
-                {sportGameType === SportGameType.Dodgeball ? (
+                {isDodgeball && isEnd ? (
                   <S.Score>{win ? '승리!' : '패배!'}</S.Score>
-                ) : (
+                ) : sportGameType !== 'Dodgeball' ? (
                   <S.Score>{teamData.score}점</S.Score>
+                ) : (
+                  <>
+                    <S.Ratio>{realPercentage}%</S.Ratio>
+                    <S.Graph backgorundColor={color} width={realPercentage} />
+                  </>
                 )}
-                <S.ScoreResult>({win ? '승리!' : '패배!'})</S.ScoreResult>
+                {isEnd && !isDodgeball && <S.ScoreResult>({win ? '승리!' : '패배!'})</S.ScoreResult>}
               </S.ScoreContainer>
             </S.TeamBoxEndContent>
           ) : (

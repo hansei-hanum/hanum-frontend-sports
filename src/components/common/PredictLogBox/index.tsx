@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { colors } from 'src/styles';
-import { GameStatus, SportGameType } from 'src/api';
+import { GameStatus, TeamType } from 'src/api';
 import { GetBettingHistoryDetail } from 'src/api/getBettingHistory';
 import { formatNumber, formattedSportType } from 'src/utils';
 
@@ -42,8 +42,8 @@ export const PredictLogBox: React.FC<PredictLogBoxProps & isButton> = ({ data, i
               teamData={game.teamA}
               alignItems="flex-end"
               color={colors.redTeamColor}
-              sportGameType={SportGameType.Basketball}
-              win={true}
+              sportGameType={game.type}
+              win={game.winner === TeamType.TeamA}
             />
             <S.IconBox>:</S.IconBox>
             <Team
@@ -53,8 +53,8 @@ export const PredictLogBox: React.FC<PredictLogBoxProps & isButton> = ({ data, i
               alignItems="flex-start"
               teamData={game.teamB}
               color={colors.blueTeamColor}
-              sportGameType={SportGameType.Basketball}
-              win={false}
+              sportGameType={game.type}
+              win={game.winner === TeamType.TeamB}
             />
           </S.AllBox>
           {isbutton ? (

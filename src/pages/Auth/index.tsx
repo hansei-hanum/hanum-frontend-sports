@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { Logo } from 'src/assets';
 import { useAuth } from 'src/hooks';
@@ -43,8 +44,10 @@ export const AuthPage: React.FC = () => {
   const { setToken } = useAuthStore();
 
   const { mutate, isError, isSuccess, data, isPending } = useAuth();
-  const [isAuthSuccess, setIsAuthSuccess] = useState(false);
 
+  const navigate = useNavigate();
+
+  const [isAuthSuccess, setIsAuthSuccess] = useState(false);
   const [code, setCode] = useState<string>('');
   const [phone, setPhone] = useState<string>('');
   const [isDisabled, setIsDisabled] = useState(true);
@@ -82,9 +85,16 @@ export const AuthPage: React.FC = () => {
     if (isSuccess && data && data.data) {
       localStorage.setItem('token', data.data);
       setToken(data.data);
+      navigate('/');
     }
     isSuccess && setIsAuthSuccess(true);
   }, [data]);
+
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      navigate('/');
+    }
+  }, []);
 
   return (
     <S.AuthPageContainer>

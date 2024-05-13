@@ -25,7 +25,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={<ProtectedRoute isVerifyUserPage={true} />}>
+        <Route element={<ProtectedRoute />}>
           <Route
             element={
               <DefaultLayout>
@@ -42,9 +42,7 @@ function App() {
           <Route path="/predict" element={<PredictSection />} />
           <Route path="/betting" element={<BettingSection />} />
         </Route>
-        <Route element={<ProtectedRoute />}>
-          <Route path="/auth" element={<AuthPage />} />
-        </Route>
+        <Route path="/auth" element={<AuthPage />} />
       </Routes>
     </BrowserRouter>
   );

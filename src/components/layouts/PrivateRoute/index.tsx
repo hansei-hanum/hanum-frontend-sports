@@ -1,19 +1,11 @@
 import React from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 
-import useAuthStore from 'src/stores/auth';
+export const ProtectedRoute = () => {
+  const token = localStorage.getItem('token');
 
-export interface ProtectedRouteProps {
-  isVerifyUserPage?: boolean;
-}
-
-export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ isVerifyUserPage }) => {
-  const { token, payload } = useAuthStore();
-
-  if (isVerifyUserPage && (!token || !payload)) {
+  if (!token) {
     return <Navigate to="/auth" />;
-  } else if (!isVerifyUserPage && token) {
-    return <Navigate to="/" />;
   }
 
   return <Outlet />;

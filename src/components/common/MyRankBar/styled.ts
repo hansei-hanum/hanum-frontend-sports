@@ -1,7 +1,5 @@
 import styled from '@emotion/styled';
 
-import { colors } from 'src/styles';
-
 export const MyRankContainer = styled.div`
   width: 100%;
   border-radius: 50px;
