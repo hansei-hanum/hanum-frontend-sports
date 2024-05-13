@@ -1,14 +1,15 @@
 import React from 'react';
 
-import { DefaultLayout, GameAlertBox, GameSchedule, SportsCategory } from 'src/components';
+import { DefaultLayout, GameAlertBox, GameSchedule, Spinner, SportsCategory } from 'src/components';
 import { useSelectedSportsStore } from 'src/stores';
 import { useGetGames } from 'src/hooks';
 import { GameStatus } from 'src/api';
+import { colors } from 'src/styles';
 
 import * as S from './styled';
 
 export const MatchListPage: React.FC = () => {
-  const { data } = useGetGames();
+  const { data, isLoading } = useGetGames();
 
   const { selectedSport } = useSelectedSportsStore();
 
@@ -25,14 +26,17 @@ export const MatchListPage: React.FC = () => {
   } else {
     scheduleData = data ? scheduleData.filter((item) => item.status !== GameStatus.ENDED) : [];
   }
-  console.log(scheduleData);
 
   return (
     <S.MatchListContainer>
       <SportsCategory />
       <DefaultLayout>
         <S.GameListContainer>
-          {scheduleData.length > 0 ? (
+          {isLoading ? (
+            <S.LoadingWrapper>
+              <Spinner size="40px" color={colors.placeHolder} />
+            </S.LoadingWrapper>
+          ) : scheduleData.length > 0 ? (
             scheduleData.map((item, index) => <GameSchedule isButton={false} key={index} scheduleData={item} />)
           ) : (
             <GameAlertBox>해당 종목의 경기가 없어요</GameAlertBox>

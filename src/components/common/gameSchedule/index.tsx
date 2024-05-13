@@ -11,28 +11,6 @@ import { SubmitButton } from '../SubmitButton';
 
 import * as S from './styled';
 
-export interface ScheduleProps {
-  scheduleData: {
-    isDuring: boolean;
-    gameType: string;
-    date: string;
-    isEnd: boolean;
-
-    redTeam: {
-      department: string;
-      class: string;
-      ratio: number;
-      score: number;
-    };
-    blueTeam: {
-      department: string;
-      class: string;
-      ratio: number;
-      score: number;
-    };
-  };
-}
-
 export interface isButton {
   isButton: boolean;
   onClick?: () => void;
@@ -51,7 +29,6 @@ export const GameSchedule: React.FC<GameScheduleProps & isButton> = ({ scheduleD
   const { status, type, teamA, teamB, winner } = scheduleData;
 
   const isEnd = status === GameStatus.ENDED;
-  console.log(winner);
   const isDuring = status !== GameStatus.PREDICTION_ENDED && !isEnd;
 
   const renderScheduleContent = () => (

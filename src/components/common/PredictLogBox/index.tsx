@@ -1,52 +1,45 @@
 import React from 'react';
 
-import { Bet, Summary, MatchList } from 'src/constants';
 import { colors } from 'src/styles';
-import { SportGameType } from 'src/api';
+import { GameStatus, SportGameType } from 'src/api';
+import { GetBettingHistoryDetail } from 'src/api/getBettingHistory';
+import { formatNumber, formattedSportType } from 'src/utils';
 
-import { ScheduleProps, isButton } from '../gameSchedule';
+import { isButton } from '../gameSchedule';
 import { Team } from '../Team';
 import { SubmitButton } from '../SubmitButton';
 
 import * as S from './styled';
 
-export const PredictLogBox: React.FC<ScheduleProps & isButton> = ({ scheduleData, isButton: isbutton }) => {
-  const { gameType, redTeam, blueTeam, isDuring } = scheduleData;
+export interface PredictLogBoxProps {
+  data: GetBettingHistoryDetail;
+}
 
-  const myBetGameId = Bet.data.gameId;
-  const gameId = Summary.data.gameId;
+export const PredictLogBox: React.FC<PredictLogBoxProps & isButton> = ({ data, isButton: isbutton }) => {
+  const { team, game, profit } = data;
 
-  const myBetTeam = Bet.data.teamId;
-  const winTeam = Summary.data.winnerTeamId;
-
-  const match = MatchList.data.games[0].gameType;
-  console.log(gameType, match);
-
-  const isSameGame = (myBetTeamId: number, gameId: number) => {
-    const isSameGame = myBetTeamId == gameId ? true : false;
-    return isSameGame ? (whoWin(myBetTeam, winTeam) ? '예측 성공!' : '예측 실패!') : '경기가 다릅니다';
+  const whoWin = () => {
+    return team === game.winner ? true : false;
   };
 
-  const whoWin = (myBet: number, winTeam: number) => {
-    return myBet === winTeam ? true : false;
-  };
+  const isEnd = game.status === GameStatus.ENDED;
 
   return (
     <S.SheduleContainer>
-      <S.Schedule isEnd={scheduleData.isEnd}>
+      <S.Schedule isEnd={isEnd}>
         <S.ScheduleTop>
-          <S.PredictLogEndText isSuccess={whoWin(myBetTeam, winTeam)}>
-            {isSameGame(myBetGameId, gameId)}
+          <S.PredictLogEndText isSuccess={whoWin()}>
+            {whoWin() ? '예측 성공!' : '예측 실패!'} ({formatNumber(profit)}P)
           </S.PredictLogEndText>
-          <p>{gameType}</p>
+          <p>{formattedSportType(game.type)}</p>
         </S.ScheduleTop>
-        <S.Content isEnd={scheduleData.isEnd}>
+        <S.Content isEnd={isEnd}>
           <S.AllBox>
             <Team
               textAlign="right"
-              isEnd={scheduleData.isEnd}
-              isDuring={isDuring}
-              teamData={redTeam}
+              isEnd={isEnd}
+              isDuring={false}
+              teamData={game.teamA}
               alignItems="flex-end"
               color={colors.redTeamColor}
               sportGameType={SportGameType.Basketball}
@@ -55,10 +48,10 @@ export const PredictLogBox: React.FC<ScheduleProps & isButton> = ({ scheduleData
             <S.IconBox>:</S.IconBox>
             <Team
               textAlign="left"
-              isEnd={scheduleData.isEnd}
-              isDuring={isDuring}
+              isEnd={isEnd}
+              isDuring={false}
               alignItems="flex-start"
-              teamData={blueTeam}
+              teamData={game.teamB}
               color={colors.blueTeamColor}
               sportGameType={SportGameType.Basketball}
               win={false}

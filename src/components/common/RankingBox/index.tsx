@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { pointIcon } from 'src/assets';
+import { formatNumber } from 'src/utils';
 
 import * as S from './styled';
 
@@ -12,15 +13,6 @@ export interface RankingBoxProps {
 }
 
 export const RankBox: React.FC<RankingBoxProps> = ({ rank, name, dept, point }) => {
-  const formatNumber = (point: number): string => {
-    if (point >= 10000) {
-      return `${(point / 10000).toFixed(1)}만`;
-    } else if (point >= 1000) {
-      return `${(point / 1000).toFixed(1)}천`;
-    } else {
-      return `${point}`;
-    }
-  };
   return (
     <S.RankingBox rank={rank}>
       <S.RankBarLeft>

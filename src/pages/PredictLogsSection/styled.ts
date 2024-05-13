@@ -5,4 +5,6 @@ export const PredictLogsContainer = styled.div`
   flex-direction: column;
   row-gap: 20px;
   padding-bottom: 40px;
+  justify-content: center;
+  align-items: center;
 `;

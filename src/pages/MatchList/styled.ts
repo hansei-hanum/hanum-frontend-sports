@@ -13,3 +13,10 @@ export const GameListContainer = styled(MatchListContainer)`
   padding: 0 20px;
   background-color: ${colors.appBackground};
 `;
+
+export const LoadingWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
