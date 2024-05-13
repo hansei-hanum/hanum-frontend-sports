@@ -15,14 +15,14 @@ export interface PredictBoxProps {
 }
 
 export const PredictBox: React.FC<PredictBoxProps> = ({ setSelectedTeam, selectedTeam }) => {
-  const { setBetting } = useBettingStore();
+  const { betting, setBetting } = useBettingStore();
   const { liveGame } = useLiveGameStore();
 
   const navigate = useNavigate();
 
   const handleTeamClick = (team: TeamType) => {
     setSelectedTeam((prevTeam) => (prevTeam === team ? null : team));
-    setBetting({ team, amount: 0 });
+    setBetting({ ...betting, team, amount: 0 });
   };
 
   useEffect(() => {

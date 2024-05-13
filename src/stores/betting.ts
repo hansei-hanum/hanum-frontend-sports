@@ -6,21 +6,24 @@ export interface BettingStore {
   betting: {
     team: TeamType | null;
     amount: number;
+    id: number | null;
   };
-  setBetting: ({ team, amount }: { team: TeamType | null; amount: number }) => void;
+  setBetting: (betting: { team: TeamType | null; amount: number; id: number | null }) => void;
+  reset: () => void;
 }
 
 const initialState = {
   betting: {
     team: null,
     amount: 0,
+    id: null,
   },
 };
 
 export const useBettingStore = create<BettingStore>((set) => ({
   ...initialState,
-  setBetting: ({ team, amount }) => {
-    set({ betting: { team, amount } });
+  setBetting: (betting) => {
+    set({ betting });
   },
   reset: () => {
     set(initialState);

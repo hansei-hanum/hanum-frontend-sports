@@ -2,14 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { BettingBar, MyPointBox, SubmitButton } from 'src/components';
-import { useGetMyPoint } from 'src/hooks';
+import { useBetting, useGetMyPoint } from 'src/hooks';
 import { useBettingStore, useLiveGameStore } from 'src/stores';
 
 import * as S from './styled';
 
 export const BettingSection: React.FC = () => {
+  const { mutate, data: bettingResult, isSuccess, error } = useBetting();
+
   const { liveGame } = useLiveGameStore();
-  const { betting, setBetting } = useBettingStore();
+  const { betting, setBetting, reset } = useBettingStore();
 
   const [inputValue, setInputValue] = useState('0');
 
@@ -19,6 +21,7 @@ export const BettingSection: React.FC = () => {
 
   const onClick = () => {
     setBetting({ ...betting, amount: Number(inputValue) });
+    mutate({ id: betting.id, team: betting.team, amount: Number(inputValue) });
   };
 
   useEffect(() => {
@@ -26,6 +29,17 @@ export const BettingSection: React.FC = () => {
       navigate('/');
     }
   }, [liveGame]);
+
+  useEffect(() => {
+    if (error?.response?.data.message === 'ALREADY_PREDICTED') {
+      alert('이미 예측한 경기입니다.');
+      navigate('/');
+    }
+    if (isSuccess) {
+      reset();
+      navigate('/');
+    }
+  }, [bettingResult, error]);
 
   return (
     <S.BettingSectionContainer>

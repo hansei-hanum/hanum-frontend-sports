@@ -25,7 +25,6 @@ export const Team: React.FC<TeamProps> = ({
   sportGameType,
   win,
 }) => {
-  console.log('teamData', teamData);
   const realPercentage = teamData.predictions ? Math.floor(teamData.predictions.ratio * 100) : 0;
 
   return (

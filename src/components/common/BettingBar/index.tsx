@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 
-import { useBettingStore } from 'src/stores';
-
 import * as S from './styled';
 
 interface BettingBarProps {

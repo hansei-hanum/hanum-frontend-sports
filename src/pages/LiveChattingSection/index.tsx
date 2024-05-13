@@ -5,7 +5,7 @@ import { ChattingBox, GameSchedule, ChatBox, Spinner, GameAlertBox, Header } fro
 import { socket } from 'src/socket';
 import { useGetLiveGame, useSendChat } from 'src/hooks';
 import { colors } from 'src/styles';
-import { useLiveGameStore } from 'src/stores';
+import { useBettingStore, useLiveGameStore } from 'src/stores';
 
 import * as S from './styled';
 
@@ -19,6 +19,7 @@ export interface LiveChattingCommentsProps {
 
 export const LiveChattingSection: React.FC = () => {
   const { setLiveGame } = useLiveGameStore();
+  const { setBetting } = useBettingStore();
 
   const { data, isLoading } = useGetLiveGame();
   const { mutate } = useSendChat();
@@ -30,6 +31,11 @@ export const LiveChattingSection: React.FC = () => {
 
   const handleCommentSubmit = (content: string) => {
     mutate({ content });
+  };
+
+  const onButtonClick = () => {
+    data && setBetting({ team: null, amount: 0, id: data?.data.id });
+    navigate('predict');
   };
 
   useEffect(() => {
@@ -66,7 +72,7 @@ export const LiveChattingSection: React.FC = () => {
             <Spinner color={colors.placeHolder} size="40px" />
           </S.LoadingWrapper>
         ) : data ? (
-          <GameSchedule isButton={true} scheduleData={data?.data} onClick={() => navigate('predict')} index={0} />
+          <GameSchedule isButton={true} scheduleData={data?.data} onClick={onButtonClick} index={0} />
         ) : (
           <GameAlertBox>진행 중인 경기가 없어요</GameAlertBox>
         )}
