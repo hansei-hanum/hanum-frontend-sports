@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { GetLiveGameTeamProps, SportGameType } from 'src/api';
+import { GetGameTeamProps, SportGameType } from 'src/api';
 
 import * as S from './styled';
 
 interface TeamProps {
-  teamData: GetLiveGameTeamProps;
+  teamData: GetGameTeamProps;
   color: string;
   alignItems: string;
   isDuring: boolean;
@@ -25,7 +25,7 @@ export const Team: React.FC<TeamProps> = ({
   sportGameType,
   win,
 }) => {
-  const realPercentage = Math.floor(teamData.predictions.ratio * 100);
+  const realPercentage = teamData.predictions ? Math.floor(teamData.predictions.ratio * 100) : 0;
 
   return (
     <S.TeamBox color={color} alignItems={alignItems}>
@@ -43,9 +43,6 @@ export const Team: React.FC<TeamProps> = ({
             <S.TeamBoxEndContent alignItems={alignItems}>
               <S.ClassBox>
                 <S.Department>{teamData.name}</S.Department>
-                <S.Class textAlign={textAlign} fontSize={13}>
-                  {/* {teamData.class} */}
-                </S.Class>
               </S.ClassBox>
               <S.ScoreContainer>
                 {sportGameType === SportGameType.Dodgeball ? (
@@ -59,9 +56,6 @@ export const Team: React.FC<TeamProps> = ({
           ) : (
             <S.OfflineClassBox>
               <S.Department>{teamData.name}</S.Department>
-              <S.Class textAlign={textAlign} fontSize={25}>
-                {/* {teamData.class} */}
-              </S.Class>
             </S.OfflineClassBox>
           )}
         </>

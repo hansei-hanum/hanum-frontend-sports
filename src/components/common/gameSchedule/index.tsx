@@ -47,18 +47,20 @@ export interface GameScheduleProps {
 }
 
 export const GameSchedule: React.FC<GameScheduleProps & isButton> = ({ scheduleData, isButton, disabled, onClick }) => {
-  const { status, type, teamA, teamB } = scheduleData;
+  const { status, type, teamA, teamB, winner } = scheduleData;
+
   const isEnd = status === GameStatus.ENDED;
-  const isDuring = status !== GameStatus.PREDICTION_ENDED;
+  console.log(winner);
+  const isDuring = status !== GameStatus.PREDICTION_ENDED && !isEnd;
 
   const formattedType = () => {
     switch (type) {
       case SportGameType.Basketball:
-        return '농구';
+        return '🏀 농구';
       case SportGameType.FootVolleyball:
-        return '족구';
+        return '⚽️ 족구';
       case SportGameType.Dodgeball:
-        return '피구';
+        return '🏐 피구';
       default:
         return '';
     }
@@ -80,7 +82,7 @@ export const GameSchedule: React.FC<GameScheduleProps & isButton> = ({ scheduleD
             teamData={teamA}
             alignItems="flex-end"
             color={colors.redTeamColor}
-            win={true}
+            win={winner === 'TeamA'}
           />
           <S.IconBox>{isEnd ? ':' : 'VS'}</S.IconBox>
           <Team
@@ -90,7 +92,7 @@ export const GameSchedule: React.FC<GameScheduleProps & isButton> = ({ scheduleD
             alignItems="flex-start"
             teamData={teamB}
             color={colors.blueTeamColor}
-            win={false}
+            win={winner === 'TeamB'}
           />
         </S.AllBox>
         {isButton ? (

@@ -1,44 +1,44 @@
 import React from 'react';
 
-import { GameSchedule, SportsCategory } from 'src/components';
-import { MatchList } from 'src/constants';
+import { DefaultLayout, GameAlertBox, GameSchedule, SportsCategory } from 'src/components';
 import { useSelectedSportsStore } from 'src/stores';
+import { useGetGames } from 'src/hooks';
+import { GameStatus } from 'src/api';
 
 import * as S from './styled';
 
 export const MatchListPage: React.FC = () => {
+  const { data } = useGetGames();
+
   const { selectedSport } = useSelectedSportsStore();
 
   const selectedSports: string = selectedSport ?? '';
 
-  let scheduleData = MatchList.data.games;
+  let scheduleData = data ? data.data.games : [];
 
   if (selectedSports !== '전체' && selectedSports !== '지난경기') {
-    scheduleData = scheduleData.filter((item) => item.gameType.includes(selectedSports));
+    scheduleData = data ? scheduleData.filter((item) => item.type.includes(selectedSports)) : [];
   }
 
   if (selectedSports === '지난경기') {
-    scheduleData = scheduleData.filter((item) => item.isEnd === true);
-  } else if (selectedSports !== '전체') {
-    scheduleData = scheduleData.filter((item) => !item.isEnd);
+    scheduleData = data ? scheduleData.filter((item) => item.status === GameStatus.ENDED) : [];
   } else {
-    scheduleData = scheduleData.filter((item) => !item.isEnd);
+    scheduleData = data ? scheduleData.filter((item) => item.status !== GameStatus.ENDED) : [];
   }
+  console.log(scheduleData);
 
   return (
     <S.MatchListContainer>
       <SportsCategory />
-      <S.GameListContainer>
-        {scheduleData.map((item, index) => (
-          <GameSchedule
-            disabled={false}
-            isButton={false}
-            key={index}
-            scheduleData={item}
-            description={item.isDuring === true ? '' : '경기가 종료되었습니다.'}
-          />
-        ))}
-      </S.GameListContainer>
+      <DefaultLayout>
+        <S.GameListContainer>
+          {scheduleData.length > 0 ? (
+            scheduleData.map((item, index) => <GameSchedule isButton={false} key={index} scheduleData={item} />)
+          ) : (
+            <GameAlertBox>해당 종목의 경기가 없어요</GameAlertBox>
+          )}
+        </S.GameListContainer>
+      </DefaultLayout>
     </S.MatchListContainer>
   );
 };

@@ -1,10 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-import { ChattingBox, GameSchedule, ChatBox, Spinner } from 'src/components';
+import { ChattingBox, GameSchedule, ChatBox, Spinner, GameAlertBox } from 'src/components';
 import { socket } from 'src/socket';
-import { useAppBridge } from 'src/hooks';
-import { useSendChat } from 'src/hooks/queries';
-import { useGetLiveGame } from 'src/hooks/queries/useGetLiveGame';
+import { useAppBridge, useGetLiveGame, useSendChat } from 'src/hooks';
 import { colors } from 'src/styles';
 
 import * as S from './styled';
@@ -57,13 +55,10 @@ export const LiveChattingSection: React.FC = () => {
             <Spinner color={colors.placeHolder} size="40px" />
           </S.LoadingWrapper>
         ) : data ? (
-          <GameSchedule disabled={false} isButton={true} scheduleData={data?.data} onClick={() => goToScreen()} />
+          <GameSchedule isButton={true} scheduleData={data?.data} onClick={() => goToScreen()} />
         ) : (
-          <S.GameBoxContainer>
-            <S.GameBoxText>진행 중인 경기가 없어요</S.GameBoxText>
-          </S.GameBoxContainer>
+          <GameAlertBox>진행 중인 경기가 없어요</GameAlertBox>
         )}
-
         <S.ChattingContainer ref={chatContainerRef}>
           {comments.map(({ user, content, predictionTeam }, index) => (
             <ChatBox key={index} user={user} content={content} predictionTeam={predictionTeam} />
