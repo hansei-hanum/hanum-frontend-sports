@@ -8,11 +8,13 @@ export const LiveChatSectionContainer = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-bottom: 20px;
+
+  padding-bottom: 10px;
 `;
 
 export const ChattingContainer = styled.div`
   padding: 10px;
+  height: 150px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -20,6 +22,7 @@ export const ChattingContainer = styled.div`
   overflow-y: scroll;
   touch-action: pan-y;
   -webkit-overflow-scrolling: touch;
+  flex-grow: 1;
 `;
 
 export const WriteChatCont = styled.div`

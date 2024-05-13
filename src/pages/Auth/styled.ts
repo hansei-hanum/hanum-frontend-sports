@@ -70,6 +70,7 @@ export const AuthPageFormInput = styled.input`
   border: 0;
   border-bottom: 1px solid ${colors.placeHolder};
   outline: 0;
+  border-radius: 0;
   font-size: 16px;
   color: #212121;
   padding: 7px 0;

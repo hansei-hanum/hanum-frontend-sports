@@ -17,6 +17,7 @@ export const MatchListContainer = styled.div`
 
 export const GameListContainer = styled(MatchListContainer)`
   background-color: ${colors.appBackground};
+  row-gap: 30px;
 `;
 
 export const LoadingWrapper = styled.div`

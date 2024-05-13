@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 export const ChatContainer = styled.div`
   width: 100%;
-  height: 55px;
+  flex-grow: 1;
   border-radius: 15px;
   background-color: #ffffff;
   font-size: 17px;

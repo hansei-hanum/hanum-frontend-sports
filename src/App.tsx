@@ -33,7 +33,7 @@ function App() {
               </DefaultLayout>
             }
           >
-            <Route index path="/" element={<LiveChattingSection />} />
+            <Route path="/" element={<LiveChattingSection />} />
             <Route path="/point" element={<PointPage />} />
             <Route path="/ranking" element={<RankingList />} />
             <Route path="/predict-log" element={<PredictLogsSection />} />

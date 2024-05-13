@@ -7,7 +7,7 @@ export const SubmitContainer = styled.div<{ isDisabled?: boolean }>`
   border-radius: 10px;
   background-color: ${(props) => (props.isDisabled ? '#a3a3a3' : '#4580f1')};
   margin-top: 15px;
-  font-size: 18px;
+  font-size: 16px;
   display: flex;
   justify-content: center;
   font-weight: bold;
