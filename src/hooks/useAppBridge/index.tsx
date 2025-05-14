@@ -18,7 +18,7 @@ export const useAppBridge = () => {
     },
   });
 
-  const { goToScreen } = useBridge<Bridge, AppBridgeState>(bridge.store);
+  const { goToScreen } = useBridge<AppBridgeState>(bridge.store);
 
   return { goToScreen };
 };

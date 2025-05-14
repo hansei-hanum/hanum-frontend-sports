@@ -34,7 +34,7 @@ export const BettingSection: React.FC = () => {
   useEffect(() => {
     const errorMessage = error?.response?.data.message;
     if (errorMessage) {
-      alert(bettingError[errorMessage ?? ('' || '알 수 없는 오류가 발생했어요.')]);
+      alert(bettingError[errorMessage] || '알 수 없는 오류가 발생했어요.');
       navigate('/');
     }
     if (isSuccess) {

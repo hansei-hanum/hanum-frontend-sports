@@ -12,7 +12,7 @@ export const MyRankBar: React.FC<RankBarProps> = ({ children }) => {
   const { goToScreen } = useAppBridge();
 
   return (
-    <S.MyRankContainer onClick={() => goToScreen()}>
+    <S.MyRankContainer onClick={() => goToScreen && goToScreen()}>
       {/* <S.RankBarLeft>
         <S.MyRank>{rank}위</S.MyRank>
         <S.MyName>{name}(나)</S.MyName>
