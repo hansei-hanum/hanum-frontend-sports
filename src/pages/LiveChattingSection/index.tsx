@@ -45,10 +45,13 @@ export const LiveChattingSection: React.FC = () => {
 
   useEffect(() => {
     if (token) {
-      const socket = io('wss://sports.hanum.us/chats/ws', {
-        withCredentials: false,
+      const socket = io('wss://match.hanum.us/chats/ws', {
+        withCredentials: true,
         auth: {
           token: token,
+        },
+        extraHeaders: {
+          Authorization: `Bearer ${token}`,
         },
         transports: ['websocket'],
       });
@@ -57,13 +60,19 @@ export const LiveChattingSection: React.FC = () => {
         console.log('socket connected');
       });
 
+      socket.on('connect_error', (err) => {
+        console.error('소켓 연결 오류:', err.message);
+      });
+
       socket.on('message', (data) => {
         setComments((prevComments) => [...prevComments, data]);
       });
 
       return () => {
         socket.off('connect');
+        socket.off('connect_error');
         socket.off('message');
+        socket.disconnect();
       };
     }
   }, [token]);

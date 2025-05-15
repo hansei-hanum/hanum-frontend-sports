@@ -35,10 +35,28 @@ const useAuthStore = create<AuthStore>((set) => ({
   setToken: (token: string | null) => {
     if (token) {
       instance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+
+      try {
+        const payload = token ? JSON.parse(atob(token.split('.')[1])) : null;
+
+        set({
+          token,
+          payload,
+        });
+
+        localStorage.setItem('token', token);
+      } catch (err) {
+        console.error('토큰 디코딩 오류:', err);
+      }
+    } else {
+      delete instance.defaults.headers.common['Authorization'];
+
       set({
-        token,
-        payload: token ? JSON.parse(atob(token.split('.')[1])) : null,
+        token: null,
+        payload: null,
       });
+
+      localStorage.removeItem('token');
     }
   },
 }));
