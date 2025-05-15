@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const API_SUFFIX = {
-  BASEURL: 'https://sports.hanum.us/',
+  BASEURL: 'https://match.hanum.us/',
   CHAT: 'chats/global/messages',
   LIVE_GAME: 'sports/live',
   GAMES: 'sports/games',
