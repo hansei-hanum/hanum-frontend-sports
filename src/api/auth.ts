@@ -1,5 +1,4 @@
-import axios from 'axios';
-import { API_SUFFIX } from './api';
+import { API_SUFFIX, instance } from './api';
 
 export interface AuthValues {
   phone: string;
@@ -7,7 +6,7 @@ export interface AuthValues {
 }
 
 export const phone = async ({ phone }: Pick<AuthValues, 'phone'>) => {
-  const { data } = await axios.post(API_SUFFIX.PHONE, {
+  const { data } = await instance.post(API_SUFFIX.PHONE, {
     phone,
   });
 
@@ -15,7 +14,7 @@ export const phone = async ({ phone }: Pick<AuthValues, 'phone'>) => {
 };
 
 export const login = async ({ phone, code }: AuthValues) => {
-  const { data } = await axios.post(API_SUFFIX.LOGIN, {
+  const { data } = await instance.post(API_SUFFIX.LOGIN, {
     phone,
     code,
     type: 'sports',
